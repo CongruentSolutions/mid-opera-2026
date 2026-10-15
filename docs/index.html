@@ -7,14 +7,14 @@
 <meta name="description" content="Six months of the Technology Transformation Office: progress against the key results, the world of Bifrost, three prototypes, the trust layer, and what comes next.">
 <meta property="og:title" content="OPERA Midyear 2026 · Technology Transformation Office">
 <meta property="og:description" content="Agents propose. People decide. Six months of TTO work on CORE.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23fff'/%3E%3Ccircle cx='20' cy='16' r='9' fill='%23B23A32'/%3E%3Crect x='4' y='4' width='6' height='24' fill='%232D2B6F'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23fff'/%3E%3Ccircle cx='20' cy='16' r='9' fill='%23e3000f'/%3E%3Crect x='4' y='4' width='6' height='24' fill='%230a0a0a'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
 /* Layout: full-width broadsheet. Sticky section label in the left 3 of 12 columns, content in the right 9. */
 :root{
-  --ink:#2D2B6F; --text:#1D2230; --paper:#ffffff; --red:#B23A32; --gold:#B8892B; --grey:#5A6275; --wash:#F3F4F8; --line:#DCE0E8;
+  --ink:#0a0a0a; --text:#0a0a0a; --paper:#ffffff; --red:#e3000f; --gold:#e3000f; --grey:#5c5c5c; --wash:#f1f1ef; --line:#d4d4d0;
   --sans:"Archivo","Helvetica Neue",Helvetica,Arial,sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
   --pad:max(16px,4vw);
@@ -106,7 +106,7 @@ h3.sub{margin:40px 0 12px;font:900 28px/1 var(--sans);font-stretch:80%;text-tran
 .bar.deck i{background:repeating-linear-gradient(135deg,var(--ink) 0 2px,transparent 2px 6px)}
 .bar.ours i{background:var(--ink)}
 .bar.ours i.hi{background:var(--red)}
-.bar.ours i.rng{background:repeating-linear-gradient(90deg,var(--ink) 0 6px,#5A6275 6px 8px)}
+.bar.ours i.rng{background:repeating-linear-gradient(90deg,var(--ink) 0 6px,#6b6b6b 6px 8px)}
 .bar small{position:absolute;right:-56px;top:-1px;font:500 12px/1 var(--mono);width:48px}
 .barwrap{padding-right:60px}
 .prog td.ours{font:900 20px/1.1 var(--sans);width:14%}
@@ -260,15 +260,15 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
   <h1>Agents propose.<br>People <em>decide.</em></h1>
   <div class="side">
     <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <rect width="400" height="300" fill="#F3F4F8"/>
-      <rect x="24" y="24" width="40" height="252" fill="#2D2B6F"/>
-      <rect x="80" y="24" width="40" height="120" fill="#2D2B6F"/>
-      <rect x="80" y="160" width="40" height="116" fill="#fff" stroke="#2D2B6F" stroke-width="4"/>
-      <circle cx="264" cy="132" r="92" fill="#B23A32"/>
-      <rect x="140" y="132" width="236" height="10" fill="#2D2B6F"/>
-      <rect x="140" y="232" width="236" height="44" fill="#2D2B6F"/>
+      <rect width="400" height="300" fill="#f1f1ef"/>
+      <rect x="24" y="24" width="40" height="252" fill="#0a0a0a"/>
+      <rect x="80" y="24" width="40" height="120" fill="#0a0a0a"/>
+      <rect x="80" y="160" width="40" height="116" fill="#fff" stroke="#0a0a0a" stroke-width="4"/>
+      <circle cx="264" cy="132" r="92" fill="#e3000f"/>
+      <rect x="140" y="132" width="236" height="10" fill="#0a0a0a"/>
+      <rect x="140" y="232" width="236" height="44" fill="#0a0a0a"/>
       <rect x="152" y="244" width="120" height="8" fill="#fff"/><rect x="152" y="258" width="72" height="8" fill="#fff"/>
-      <g fill="#2D2B6F"><circle cx="160" cy="196" r="5"/><circle cx="182" cy="196" r="5"/><circle cx="204" cy="196" r="5"/><circle cx="226" cy="196" r="5"/><circle cx="248" cy="196" r="5"/></g>
+      <g fill="#0a0a0a"><circle cx="160" cy="196" r="5"/><circle cx="182" cy="196" r="5"/><circle cx="204" cy="196" r="5"/><circle cx="226" cy="196" r="5"/><circle cx="248" cy="196" r="5"/></g>
     </svg>
     <div class="inissue">
       <span class="mono">In this issue</span>
@@ -372,10 +372,10 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
     </table>
     </div>
     <div class="legend">
-      <span><i style="background:repeating-linear-gradient(135deg,#2D2B6F 0 2px,transparent 2px 6px);outline:1px solid #DCE0E8"></i>Deck</span>
-      <span><i style="background:#2D2B6F"></i>Our reading</span>
-      <span><i style="background:repeating-linear-gradient(90deg,#2D2B6F 0 6px,#5A6275 6px 8px)"></i>Estimated range (bar ends at the top)</span>
-      <span><i style="background:#B23A32"></i>Owner-reported</span>
+      <span><i style="background:repeating-linear-gradient(135deg,#0a0a0a 0 2px,transparent 2px 6px);outline:1px solid #d4d4d0"></i>Deck</span>
+      <span><i style="background:#0a0a0a"></i>Our reading</span>
+      <span><i style="background:repeating-linear-gradient(90deg,#0a0a0a 0 6px,#6b6b6b 6px 8px)"></i>Estimated range (bar ends at the top)</span>
+      <span><i style="background:#e3000f"></i>Owner-reported</span>
     </div>
     <p class="note">Percentages marked estimate come from reading the repositories and commit history. Nothing was run to produce them.</p>
 
@@ -398,17 +398,17 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
       <title id="dt">The world of Bifrost</title>
       <desc id="dd">Industry parties send data through RDX, a neutral exchange, to Bifrost, the integration hub and only door into CORE, the recordkeeping system. Athena's agents propose changes to Bifrost; authorized people approve on a separate path. External orchestrators such as Camunda call Bifrost and work with consent providers. CORE returns the decision from a human review. CIATA governs agents across the top; AGRUF governs human use of AI across the bottom.</desc>
       <defs>
-        <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="12" refX="13" refY="6" orient="auto"><polygon points="0 0,14 6,0 12" fill="#2D2B6F"/></marker>
-        <marker id="ar" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="12" refX="13" refY="6" orient="auto"><polygon points="0 0,14 6,0 12" fill="#B23A32"/></marker>
+        <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="12" refX="13" refY="6" orient="auto"><polygon points="0 0,14 6,0 12" fill="#0a0a0a"/></marker>
+        <marker id="ar" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="12" refX="13" refY="6" orient="auto"><polygon points="0 0,14 6,0 12" fill="#e3000f"/></marker>
       </defs>
       <rect width="1200" height="800" fill="#fff"/>
-      <rect x="24" y="16" width="1152" height="56" fill="#2D2B6F"/>
+      <rect x="24" y="16" width="1152" height="56" fill="#0a0a0a"/>
       <text x="44" y="52" fill="#fff" font-size="20" font-weight="900">CIATA</text>
       <text class="m" x="148" y="50" fill="#fff" font-size="12">GOVERNS AGENTS · identity · scope · autonomy level 0–4 · human checkpoints · replayable log</text>
-      <rect x="24" y="688" width="1152" height="56" fill="#fff" stroke="#2D2B6F" stroke-width="3"/>
-      <text x="44" y="724" fill="#2D2B6F" font-size="20" font-weight="900">AGRUF</text>
-      <text class="m" x="148" y="722" fill="#2D2B6F" font-size="12">GOVERNS HUMAN USE OF AI · approved tools · data rules · signed declaration · checked output</text>
-      <g fill="none" stroke="#2D2B6F" stroke-width="3">
+      <rect x="24" y="688" width="1152" height="56" fill="#fff" stroke="#0a0a0a" stroke-width="3"/>
+      <text x="44" y="724" fill="#0a0a0a" font-size="20" font-weight="900">AGRUF</text>
+      <text class="m" x="148" y="722" fill="#0a0a0a" font-size="12">GOVERNS HUMAN USE OF AI · approved tools · data rules · signed declaration · checked output</text>
+      <g fill="none" stroke="#0a0a0a" stroke-width="3">
         <path d="M224 306 H324" marker-end="url(#ah)"/>
         <path d="M524 306 H616" marker-end="url(#ah)"/>
         <path d="M856 280 H948" marker-end="url(#ah)"/>
@@ -420,7 +420,7 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
         <path d="M696 500 V400" marker-end="url(#ah)"/>
         <path d="M776 400 V500" marker-end="url(#ah)"/>
       </g>
-      <path d="M524 558 H568 Q576 558 576 550 V380 Q576 372 584 372 H616" fill="none" stroke="#B23A32" stroke-width="3" marker-end="url(#ar)"/>
+      <path d="M524 558 H568 Q576 558 576 550 V380 Q576 372 584 372 H616" fill="none" stroke="#e3000f" stroke-width="3" marker-end="url(#ar)"/>
       <rect x="230" y="276" width="88" height="18" fill="#fff"/><text class="m" x="274" y="290" font-size="12" text-anchor="middle">ANY FORMAT</text>
       <rect x="534" y="276" width="72" height="18" fill="#fff"/><text class="m" x="570" y="290" font-size="12" text-anchor="middle">TO CORE</text>
       <rect x="870" y="250" width="64" height="18" fill="#fff"/><text class="m" x="902" y="264" font-size="12" text-anchor="middle">SUBMIT</text>
@@ -431,55 +431,55 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
       <text class="m" x="792" y="194" font-size="12">EVENTS</text>
       <text class="m" x="684" y="454" font-size="12" text-anchor="end">PROPOSES</text>
       <text class="m" x="788" y="454" font-size="12">FACTS</text>
-      <text class="m" x="568" y="470" font-size="12" text-anchor="end" fill="#B23A32">APPROVE</text>
-      <rect x="24" y="232" width="200" height="148" fill="#fff" stroke="#2D2B6F" stroke-width="3"/>
+      <text class="m" x="568" y="470" font-size="12" text-anchor="end" fill="#e3000f">APPROVE</text>
+      <rect x="24" y="232" width="200" height="148" fill="#fff" stroke="#0a0a0a" stroke-width="3"/>
       <text x="40" y="262" font-size="16" font-weight="900">INDUSTRY</text>
       <text x="40" y="294" font-size="14">Payroll providers</text>
       <text x="40" y="318" font-size="14">TPAs</text>
       <text x="40" y="342" font-size="14">Compliance engines</text>
       <text x="40" y="366" font-size="14">Other recordkeepers</text>
-      <rect x="324" y="244" width="200" height="124" fill="#fff" stroke="#2D2B6F" stroke-width="3"/>
+      <rect x="324" y="244" width="200" height="124" fill="#fff" stroke="#0a0a0a" stroke-width="3"/>
       <text x="340" y="280" font-size="28" font-weight="900">RDX</text>
-      <rect x="428" y="260" width="80" height="20" fill="#fff" stroke="#2D2B6F" stroke-width="1.5"/>
+      <rect x="428" y="260" width="80" height="20" fill="#fff" stroke="#0a0a0a" stroke-width="1.5"/>
       <text class="m" x="468" y="274" font-size="12" text-anchor="middle">IN DESIGN</text>
       <text class="m" x="340" y="308" font-size="12">NEUTRAL EXCHANGE</text>
       <text x="340" y="336" font-size="14">Map once, connect many</text>
-      <rect x="616" y="212" width="240" height="188" fill="#B23A32"/>
+      <rect x="616" y="212" width="240" height="188" fill="#e3000f"/>
       <text x="636" y="252" fill="#fff" font-size="28" font-weight="900">BIFROST</text>
       <text class="m" x="636" y="278" fill="#fff" font-size="12">INTEGRATION HUB</text>
       <text x="636" y="312" fill="#fff" font-size="14">Authorization · approvals</text>
       <text x="636" y="336" fill="#fff" font-size="14">Audit · events · webhooks</text>
       <text x="636" y="368" fill="#fff" font-size="14" font-weight="700">REST · MCP · A2A</text>
-      <rect x="948" y="188" width="228" height="236" fill="#2D2B6F"/>
+      <rect x="948" y="188" width="228" height="236" fill="#0a0a0a"/>
       <text x="968" y="228" fill="#fff" font-size="28" font-weight="900">CORE</text>
       <text class="m" x="968" y="254" fill="#fff" font-size="12">RECORDKEEPING</text>
       <text x="968" y="288" fill="#fff" font-size="14">Plans · payroll</text>
       <text x="968" y="310" fill="#fff" font-size="14">Accounts · loans</text>
       <rect x="964" y="340" width="196" height="68" fill="#fff"/>
-      <text x="980" y="368" fill="#2D2B6F" font-size="14" font-weight="900">HUMAN REVIEW</text>
-      <text x="980" y="390" fill="#2D2B6F" font-size="14">in the CORE interface</text>
-      <rect x="616" y="104" width="240" height="64" fill="#fff" stroke="#2D2B6F" stroke-width="3"/>
+      <text x="980" y="368" fill="#0a0a0a" font-size="14" font-weight="900">HUMAN REVIEW</text>
+      <text x="980" y="390" fill="#0a0a0a" font-size="14">in the CORE interface</text>
+      <rect x="616" y="104" width="240" height="64" fill="#fff" stroke="#0a0a0a" stroke-width="3"/>
       <text x="632" y="132" font-size="14" font-weight="900">ORCHESTRATORS</text>
       <text class="m" x="632" y="154" font-size="12">EXTERNAL · e.g. Camunda</text>
-      <rect x="948" y="104" width="228" height="64" fill="#fff" stroke="#2D2B6F" stroke-width="3"/>
+      <rect x="948" y="104" width="228" height="64" fill="#fff" stroke="#0a0a0a" stroke-width="3"/>
       <text x="964" y="132" font-size="14" font-weight="900">CONSENT PROVIDERS</text>
       <text class="m" x="964" y="154" font-size="12">signing · notarizing</text>
-      <rect x="616" y="500" width="240" height="116" fill="#fff" stroke="#2D2B6F" stroke-width="3"/>
+      <rect x="616" y="500" width="240" height="116" fill="#fff" stroke="#0a0a0a" stroke-width="3"/>
       <text x="636" y="544" font-size="28" font-weight="900">ATHENA</text>
       <text class="m" x="636" y="570" font-size="12">AGENTS PREPARE</text>
       <text x="636" y="596" font-size="14">Agents propose, humans decide</text>
-      <rect x="324" y="516" width="200" height="84" fill="#fff" stroke="#B23A32" stroke-width="3"/>
+      <rect x="324" y="516" width="200" height="84" fill="#fff" stroke="#e3000f" stroke-width="3"/>
       <text x="340" y="548" font-size="14" font-weight="900">AUTHORIZED PEOPLE</text>
       <text x="340" y="574" font-size="14">Approve exact changes</text>
-      <rect x="24" y="448" width="96" height="8" fill="#B23A32"/>
+      <rect x="24" y="448" width="96" height="8" fill="#e3000f"/>
       <text x="24" y="500" font-size="28" font-weight="900">ONE DOOR.</text>
       <text x="24" y="534" font-size="16">Athena never reaches CORE</text>
       <text x="24" y="556" font-size="16">directly. Bifrost is the</text>
       <text x="24" y="578" font-size="16">only way in.</text>
-      <line x1="24" y1="764" x2="1176" y2="764" stroke="#2D2B6F" stroke-width="1"/>
-      <line x1="24" y1="784" x2="64" y2="784" stroke="#2D2B6F" stroke-width="3"/>
+      <line x1="24" y1="764" x2="1176" y2="764" stroke="#0a0a0a" stroke-width="1"/>
+      <line x1="24" y1="784" x2="64" y2="784" stroke="#0a0a0a" stroke-width="3"/>
       <text class="m" x="76" y="788" font-size="12">DATA, REQUESTS AND TASKS</text>
-      <line x1="344" y1="784" x2="384" y2="784" stroke="#B23A32" stroke-width="3"/>
+      <line x1="344" y1="784" x2="384" y2="784" stroke="#e3000f" stroke-width="3"/>
       <text class="m" x="396" y="788" font-size="12">HUMAN APPROVAL</text>
     </svg>
     </div>
@@ -545,9 +545,9 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
         <div class="big" aria-hidden="true">1</div>
         <div class="art" aria-hidden="true">
           <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
-            <g fill="#2D2B6F"><rect x="24" y="24" width="200" height="14"/><rect x="24" y="48" width="152" height="14"/><rect x="24" y="72" width="248" height="14"/><rect x="24" y="96" width="120" height="14"/><rect x="24" y="120" width="184" height="14"/></g>
-            <rect x="24" y="148" width="272" height="4" fill="#2D2B6F"/>
-            <rect x="24" y="160" width="248" height="22" fill="#B23A32"/>
+            <g fill="#0a0a0a"><rect x="24" y="24" width="200" height="14"/><rect x="24" y="48" width="152" height="14"/><rect x="24" y="72" width="248" height="14"/><rect x="24" y="96" width="120" height="14"/><rect x="24" y="120" width="184" height="14"/></g>
+            <rect x="24" y="148" width="272" height="4" fill="#0a0a0a"/>
+            <rect x="24" y="160" width="248" height="22" fill="#e3000f"/>
             <text x="32" y="176" font-family="IBM Plex Mono,monospace" font-size="12" font-weight="500" fill="#fff">= EXACT</text>
           </svg>
         </div>
@@ -559,10 +559,10 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
         <div class="big" aria-hidden="true">2</div>
         <div class="art" aria-hidden="true">
           <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
-            <g stroke="#2D2B6F" stroke-width="1" opacity=".25"><line x1="24" y1="40" x2="296" y2="40"/><line x1="24" y1="80" x2="296" y2="80"/><line x1="24" y1="120" x2="296" y2="120"/></g>
-            <rect x="24" y="168" width="272" height="4" fill="#2D2B6F"/>
-            <polyline points="24,152 80,128 136,136 192,92 248,68 296,36" fill="none" stroke="#2D2B6F" stroke-width="6"/>
-            <circle cx="296" cy="36" r="12" fill="#B23A32"/>
+            <g stroke="#0a0a0a" stroke-width="1" opacity=".25"><line x1="24" y1="40" x2="296" y2="40"/><line x1="24" y1="80" x2="296" y2="80"/><line x1="24" y1="120" x2="296" y2="120"/></g>
+            <rect x="24" y="168" width="272" height="4" fill="#0a0a0a"/>
+            <polyline points="24,152 80,128 136,136 192,92 248,68 296,36" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+            <circle cx="296" cy="36" r="12" fill="#e3000f"/>
           </svg>
         </div>
         <h4>Participant investment analytics</h4>
@@ -573,10 +573,10 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
         <div class="big" aria-hidden="true">3</div>
         <div class="art" aria-hidden="true">
           <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
-            <g stroke="#2D2B6F" stroke-width="4" fill="none"><path d="M64 52 V100 H128"/><path d="M256 52 V100 H192"/><path d="M64 148 V100"/><path d="M256 148 V100"/></g>
-            <rect x="128" y="76" width="64" height="48" fill="#B23A32"/>
-            <rect x="40" y="28" width="48" height="36" fill="#2D2B6F"/><rect x="232" y="28" width="48" height="36" fill="#2D2B6F"/>
-            <rect x="40" y="136" width="48" height="36" fill="#fff" stroke="#2D2B6F" stroke-width="4"/><rect x="232" y="136" width="48" height="36" fill="#fff" stroke="#2D2B6F" stroke-width="4"/>
+            <g stroke="#0a0a0a" stroke-width="4" fill="none"><path d="M64 52 V100 H128"/><path d="M256 52 V100 H192"/><path d="M64 148 V100"/><path d="M256 148 V100"/></g>
+            <rect x="128" y="76" width="64" height="48" fill="#e3000f"/>
+            <rect x="40" y="28" width="48" height="36" fill="#0a0a0a"/><rect x="232" y="28" width="48" height="36" fill="#0a0a0a"/>
+            <rect x="40" y="136" width="48" height="36" fill="#fff" stroke="#0a0a0a" stroke-width="4"/><rect x="232" y="136" width="48" height="36" fill="#fff" stroke="#0a0a0a" stroke-width="4"/>
           </svg>
         </div>
         <h4>Multilingual multi-agent CORE orchestration</h4>
@@ -600,28 +600,28 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
           <title id="wa">Withdrawal, steps 1 and 2</title>
           <desc id="wad">Step 1, understand the document: Camunda sends the document and hash to Athena. Athena reads participant and plan facts through Bifrost over MCP, then returns evidence and findings to Camunda; Athena's work ends there. Step 2, prepare the request: Camunda sends the extracted data to Bifrost as an A2A task, Bifrost stores an incomplete request in CORE, CORE returns the request and its requirements, and Bifrost returns a task ID and the evidence still needed.</desc>
           <defs>
-            <marker id="sa" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="12" refX="13" refY="6" orient="auto"><polygon points="0 0,14 6,0 12" fill="#2D2B6F"/></marker>
+            <marker id="sa" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="12" refX="13" refY="6" orient="auto"><polygon points="0 0,14 6,0 12" fill="#0a0a0a"/></marker>
           </defs>
           <rect width="1200" height="600" fill="#fff"/>
-          <g stroke="#2D2B6F" stroke-width="1" stroke-dasharray="4,4" opacity=".35"><line x1="120" y1="72" x2="120" y2="560"/><line x1="360" y1="72" x2="360" y2="560"/><line x1="600" y1="72" x2="600" y2="560"/><line x1="840" y1="72" x2="840" y2="560"/><line x1="1080" y1="72" x2="1080" y2="560"/></g>
+          <g stroke="#0a0a0a" stroke-width="1" stroke-dasharray="4,4" opacity=".35"><line x1="120" y1="72" x2="120" y2="560"/><line x1="360" y1="72" x2="360" y2="560"/><line x1="600" y1="72" x2="600" y2="560"/><line x1="840" y1="72" x2="840" y2="560"/><line x1="1080" y1="72" x2="1080" y2="560"/></g>
           <g font-size="16" font-weight="900" text-anchor="middle">
-            <rect x="24" y="16" width="192" height="56" fill="#fff" stroke="#2D2B6F" stroke-width="3"/><text x="120" y="50">CAMUNDA</text>
-            <rect x="264" y="16" width="192" height="56" fill="#fff" stroke="#2D2B6F" stroke-width="3"/><text x="360" y="50">ATHENA</text>
-            <rect x="504" y="16" width="192" height="56" fill="#B23A32"/><text x="600" y="50" fill="#fff">BIFROST</text>
-            <rect x="744" y="16" width="192" height="56" fill="#2D2B6F"/><text x="840" y="50" fill="#fff">CORE</text>
-            <rect x="984" y="16" width="192" height="56" fill="#fff" stroke="#2D2B6F" stroke-width="3"/><text x="1080" y="50">CONSENT</text>
+            <rect x="24" y="16" width="192" height="56" fill="#fff" stroke="#0a0a0a" stroke-width="3"/><text x="120" y="50">CAMUNDA</text>
+            <rect x="264" y="16" width="192" height="56" fill="#fff" stroke="#0a0a0a" stroke-width="3"/><text x="360" y="50">ATHENA</text>
+            <rect x="504" y="16" width="192" height="56" fill="#e3000f"/><text x="600" y="50" fill="#fff">BIFROST</text>
+            <rect x="744" y="16" width="192" height="56" fill="#0a0a0a"/><text x="840" y="50" fill="#fff">CORE</text>
+            <rect x="984" y="16" width="192" height="56" fill="#fff" stroke="#0a0a0a" stroke-width="3"/><text x="1080" y="50">CONSENT</text>
           </g>
-          <rect x="24" y="92" width="1152" height="28" fill="#F3F4F8"/><text class="m" x="36" y="111" font-size="12">1 · UNDERSTAND THE DOCUMENT</text>
-          <rect x="24" y="332" width="1152" height="28" fill="#F3F4F8"/><text class="m" x="36" y="351" font-size="12">2 · PREPARE THE REQUEST</text>
+          <rect x="24" y="92" width="1152" height="28" fill="#f1f1ef"/><text class="m" x="36" y="111" font-size="12">1 · UNDERSTAND THE DOCUMENT</text>
+          <rect x="24" y="332" width="1152" height="28" fill="#f1f1ef"/><text class="m" x="36" y="351" font-size="12">2 · PREPARE THE REQUEST</text>
           <g fill="none" stroke-width="3">
-            <path d="M120 164 H360" stroke="#2D2B6F" marker-end="url(#sa)"/>
-            <path d="M360 212 H600" stroke="#2D2B6F" marker-end="url(#sa)"/>
-            <path d="M600 260 H360" stroke="#2D2B6F" stroke-dasharray="8,6" marker-end="url(#sa)"/>
-            <path d="M360 308 H120" stroke="#2D2B6F" stroke-dasharray="8,6" marker-end="url(#sa)"/>
-            <path d="M120 404 H600" stroke="#2D2B6F" marker-end="url(#sa)"/>
-            <path d="M600 452 H840" stroke="#2D2B6F" marker-end="url(#sa)"/>
-            <path d="M840 500 H600" stroke="#2D2B6F" stroke-dasharray="8,6" marker-end="url(#sa)"/>
-            <path d="M600 548 H120" stroke="#2D2B6F" stroke-dasharray="8,6" marker-end="url(#sa)"/>
+            <path d="M120 164 H360" stroke="#0a0a0a" marker-end="url(#sa)"/>
+            <path d="M360 212 H600" stroke="#0a0a0a" marker-end="url(#sa)"/>
+            <path d="M600 260 H360" stroke="#0a0a0a" stroke-dasharray="8,6" marker-end="url(#sa)"/>
+            <path d="M360 308 H120" stroke="#0a0a0a" stroke-dasharray="8,6" marker-end="url(#sa)"/>
+            <path d="M120 404 H600" stroke="#0a0a0a" marker-end="url(#sa)"/>
+            <path d="M600 452 H840" stroke="#0a0a0a" marker-end="url(#sa)"/>
+            <path d="M840 500 H600" stroke="#0a0a0a" stroke-dasharray="8,6" marker-end="url(#sa)"/>
+            <path d="M600 548 H120" stroke="#0a0a0a" stroke-dasharray="8,6" marker-end="url(#sa)"/>
           </g>
           <g class="m" font-size="12" text-anchor="middle">
             <rect x="160" y="134" width="160" height="18" fill="#fff"/><text x="240" y="148">DOCUMENT + HASH</text>
@@ -633,10 +633,10 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
             <rect x="620" y="470" width="200" height="18" fill="#fff"/><text x="720" y="484">REQUEST + REQUIREMENTS</text>
             <rect x="388" y="518" width="184" height="18" fill="#fff"/><text x="480" y="532">TASK ID · EVIDENCE DUE</text>
           </g>
-          <text x="372" y="300" font-size="14" font-weight="900" fill="#B23A32">Athena's work ends here.</text>
-          <text class="m" x="372" y="146" font-size="12" fill="#B23A32">READS EN · FR · ES</text>
-          <line x1="24" y1="576" x2="64" y2="576" stroke="#2D2B6F" stroke-width="3"/><text class="m" x="72" y="580" font-size="12">CALL</text>
-          <line x1="160" y1="576" x2="200" y2="576" stroke="#2D2B6F" stroke-width="3" stroke-dasharray="8,6"/><text class="m" x="208" y="580" font-size="12">RETURN</text>
+          <text x="372" y="300" font-size="14" font-weight="900" fill="#e3000f">Athena's work ends here.</text>
+          <text class="m" x="372" y="146" font-size="12" fill="#e3000f">READS EN · FR · ES</text>
+          <line x1="24" y1="576" x2="64" y2="576" stroke="#0a0a0a" stroke-width="3"/><text class="m" x="72" y="580" font-size="12">CALL</text>
+          <line x1="160" y1="576" x2="200" y2="576" stroke="#0a0a0a" stroke-width="3" stroke-dasharray="8,6"/><text class="m" x="208" y="580" font-size="12">RETURN</text>
         </svg>
         </div>
         <figcaption class="flowcap">Steps 1 and 2. Athena prepares evidence and stops; Camunda carries the request to Bifrost.</figcaption>
@@ -648,28 +648,28 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
           <title id="wb">Withdrawal, steps 3 and 4</title>
           <desc id="wbd">Step 3, consent: Camunda starts signing or notarization with the consent provider and receives an authentic callback with evidence. Camunda attaches the consent evidence to Bifrost and submits under accepted human authority; Bifrost revalidates and submits to CORE. Step 4, human review: a person reviews in the CORE interface, CORE returns the authoritative decision to Bifrost, and Bifrost returns the recorded outcome to Camunda as an A2A task.</desc>
           <defs>
-            <marker id="sb" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="12" refX="13" refY="6" orient="auto"><polygon points="0 0,14 6,0 12" fill="#2D2B6F"/></marker>
-            <marker id="sr" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="12" refX="13" refY="6" orient="auto"><polygon points="0 0,14 6,0 12" fill="#B23A32"/></marker>
+            <marker id="sb" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="12" refX="13" refY="6" orient="auto"><polygon points="0 0,14 6,0 12" fill="#0a0a0a"/></marker>
+            <marker id="sr" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="12" refX="13" refY="6" orient="auto"><polygon points="0 0,14 6,0 12" fill="#e3000f"/></marker>
           </defs>
           <rect width="1200" height="600" fill="#fff"/>
-          <g stroke="#2D2B6F" stroke-width="1" stroke-dasharray="4,4" opacity=".35"><line x1="120" y1="72" x2="120" y2="560"/><line x1="360" y1="72" x2="360" y2="560"/><line x1="600" y1="72" x2="600" y2="560"/><line x1="840" y1="72" x2="840" y2="400"/><line x1="840" y1="460" x2="840" y2="560"/><line x1="1080" y1="72" x2="1080" y2="560"/></g>
+          <g stroke="#0a0a0a" stroke-width="1" stroke-dasharray="4,4" opacity=".35"><line x1="120" y1="72" x2="120" y2="560"/><line x1="360" y1="72" x2="360" y2="560"/><line x1="600" y1="72" x2="600" y2="560"/><line x1="840" y1="72" x2="840" y2="400"/><line x1="840" y1="460" x2="840" y2="560"/><line x1="1080" y1="72" x2="1080" y2="560"/></g>
           <g font-size="16" font-weight="900" text-anchor="middle">
-            <rect x="24" y="16" width="192" height="56" fill="#fff" stroke="#2D2B6F" stroke-width="3"/><text x="120" y="50">CAMUNDA</text>
-            <rect x="264" y="16" width="192" height="56" fill="#fff" stroke="#2D2B6F" stroke-width="3"/><text x="360" y="50">ATHENA</text>
-            <rect x="504" y="16" width="192" height="56" fill="#B23A32"/><text x="600" y="50" fill="#fff">BIFROST</text>
-            <rect x="744" y="16" width="192" height="56" fill="#2D2B6F"/><text x="840" y="50" fill="#fff">CORE</text>
-            <rect x="984" y="16" width="192" height="56" fill="#fff" stroke="#2D2B6F" stroke-width="3"/><text x="1080" y="50">CONSENT</text>
+            <rect x="24" y="16" width="192" height="56" fill="#fff" stroke="#0a0a0a" stroke-width="3"/><text x="120" y="50">CAMUNDA</text>
+            <rect x="264" y="16" width="192" height="56" fill="#fff" stroke="#0a0a0a" stroke-width="3"/><text x="360" y="50">ATHENA</text>
+            <rect x="504" y="16" width="192" height="56" fill="#e3000f"/><text x="600" y="50" fill="#fff">BIFROST</text>
+            <rect x="744" y="16" width="192" height="56" fill="#0a0a0a"/><text x="840" y="50" fill="#fff">CORE</text>
+            <rect x="984" y="16" width="192" height="56" fill="#fff" stroke="#0a0a0a" stroke-width="3"/><text x="1080" y="50">CONSENT</text>
           </g>
-          <rect x="24" y="92" width="1152" height="28" fill="#F3F4F8"/><text class="m" x="36" y="111" font-size="12">3 · CONSENT</text>
-          <rect x="24" y="364" width="1152" height="28" fill="#F3F4F8"/><text class="m" x="36" y="383" font-size="12">4 · HUMAN REVIEW IN CORE</text>
+          <rect x="24" y="92" width="1152" height="28" fill="#f1f1ef"/><text class="m" x="36" y="111" font-size="12">3 · CONSENT</text>
+          <rect x="24" y="364" width="1152" height="28" fill="#f1f1ef"/><text class="m" x="36" y="383" font-size="12">4 · HUMAN REVIEW IN CORE</text>
           <g fill="none" stroke-width="3">
-            <path d="M120 164 H1080" stroke="#2D2B6F" marker-end="url(#sb)"/>
-            <path d="M1080 212 H120" stroke="#2D2B6F" stroke-dasharray="8,6" marker-end="url(#sb)"/>
-            <path d="M120 260 H600" stroke="#2D2B6F" marker-end="url(#sb)"/>
-            <path d="M120 308 H600" stroke="#2D2B6F" marker-end="url(#sb)"/>
-            <path d="M600 340 H840" stroke="#2D2B6F" marker-end="url(#sb)"/>
-            <path d="M840 500 H600" stroke="#B23A32" marker-end="url(#sr)"/>
-            <path d="M600 548 H120" stroke="#2D2B6F" stroke-dasharray="8,6" marker-end="url(#sb)"/>
+            <path d="M120 164 H1080" stroke="#0a0a0a" marker-end="url(#sb)"/>
+            <path d="M1080 212 H120" stroke="#0a0a0a" stroke-dasharray="8,6" marker-end="url(#sb)"/>
+            <path d="M120 260 H600" stroke="#0a0a0a" marker-end="url(#sb)"/>
+            <path d="M120 308 H600" stroke="#0a0a0a" marker-end="url(#sb)"/>
+            <path d="M600 340 H840" stroke="#0a0a0a" marker-end="url(#sb)"/>
+            <path d="M840 500 H600" stroke="#e3000f" marker-end="url(#sr)"/>
+            <path d="M600 548 H120" stroke="#0a0a0a" stroke-dasharray="8,6" marker-end="url(#sb)"/>
           </g>
           <g class="m" font-size="12" text-anchor="middle">
             <rect x="148" y="134" width="184" height="18" fill="#fff"/><text x="240" y="148">START SIGNING</text>
@@ -677,15 +677,15 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
             <rect x="148" y="230" width="184" height="18" fill="#fff"/><text x="240" y="244">ATTACH CONSENT · MCP</text>
             <rect x="372" y="278" width="216" height="18" fill="#fff"/><text x="480" y="292">SUBMIT, HUMAN AUTHORITY</text>
             <rect x="632" y="310" width="176" height="18" fill="#fff"/><text x="720" y="324">REVALIDATE + SUBMIT</text>
-            <rect x="620" y="470" width="200" height="18" fill="#fff"/><text x="720" y="484" fill="#B23A32">AUTHORITATIVE DECISION</text>
+            <rect x="620" y="470" width="200" height="18" fill="#fff"/><text x="720" y="484" fill="#e3000f">AUTHORITATIVE DECISION</text>
             <rect x="380" y="518" width="200" height="18" fill="#fff"/><text x="480" y="532">OUTCOME · A2A</text>
           </g>
-          <rect x="744" y="404" width="192" height="52" fill="#fff" stroke="#B23A32" stroke-width="3"/>
+          <rect x="744" y="404" width="192" height="52" fill="#fff" stroke="#e3000f" stroke-width="3"/>
           <text x="840" y="428" font-size="14" font-weight="900" text-anchor="middle">PERSON REVIEWS</text>
           <text x="840" y="446" font-size="12" text-anchor="middle">in the CORE interface</text>
-          <line x1="24" y1="576" x2="64" y2="576" stroke="#2D2B6F" stroke-width="3"/><text class="m" x="72" y="580" font-size="12">CALL</text>
-          <line x1="160" y1="576" x2="200" y2="576" stroke="#2D2B6F" stroke-width="3" stroke-dasharray="8,6"/><text class="m" x="208" y="580" font-size="12">RETURN</text>
-          <line x1="304" y1="576" x2="344" y2="576" stroke="#B23A32" stroke-width="3"/><text class="m" x="352" y="580" font-size="12">HUMAN DECISION</text>
+          <line x1="24" y1="576" x2="64" y2="576" stroke="#0a0a0a" stroke-width="3"/><text class="m" x="72" y="580" font-size="12">CALL</text>
+          <line x1="160" y1="576" x2="200" y2="576" stroke="#0a0a0a" stroke-width="3" stroke-dasharray="8,6"/><text class="m" x="208" y="580" font-size="12">RETURN</text>
+          <line x1="304" y1="576" x2="344" y2="576" stroke="#e3000f" stroke-width="3"/><text class="m" x="352" y="580" font-size="12">HUMAN DECISION</text>
         </svg>
         </div>
         <figcaption class="flowcap">Steps 3 and 4. Consent comes from an outside provider; the final decision comes from a person in CORE.</figcaption>
@@ -717,15 +717,15 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
     <div class="stair">
       <svg viewBox="0 0 1200 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three steps rising left to right: finish Toledo, Cordoba and Dr Watson; use them to complete Bifrost; then build CORE module by module">
         <rect width="1200" height="360" fill="#fff"/>
-        <rect x="0" y="232" width="392" height="128" fill="#fff" stroke="#2D2B6F" stroke-width="4"/>
-        <rect x="400" y="132" width="392" height="228" fill="#2D2B6F"/>
-        <rect x="800" y="32" width="400" height="328" fill="#B23A32"/>
+        <rect x="0" y="232" width="392" height="128" fill="#fff" stroke="#0a0a0a" stroke-width="4"/>
+        <rect x="400" y="132" width="392" height="228" fill="#0a0a0a"/>
+        <rect x="800" y="32" width="400" height="328" fill="#e3000f"/>
         <g font-family="Archivo,Helvetica,Arial,sans-serif">
-          <text x="24" y="296" font-size="56" font-weight="900" fill="#B23A32">1</text>
+          <text x="24" y="296" font-size="56" font-weight="900" fill="#e3000f">1</text>
           <text x="72" y="276" font-size="22" font-weight="900">TOLEDO · CORDOBA</text>
           <text x="72" y="304" font-size="22" font-weight="900">· DR WATSON</text>
           <text x="72" y="336" font-size="16">Finish the factory</text>
-          <text x="424" y="196" font-size="56" font-weight="900" fill="#B23A32">2</text>
+          <text x="424" y="196" font-size="56" font-weight="900" fill="#e3000f">2</text>
           <text x="472" y="180" font-size="28" font-weight="900" fill="#fff">BIFROST</text>
           <text x="472" y="208" font-size="16" fill="#fff">Complete it with the factory</text>
           <text x="824" y="96" font-size="56" font-weight="900" fill="#fff">3</text>
@@ -764,11 +764,11 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
         </ul>
         <svg viewBox="0 0 640 232" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Five autonomy levels, from observe and summarize at level 0 to controlled autonomy in low-risk cases at level 4">
           <g font-family="Archivo,Helvetica,Arial,sans-serif">
-            <text x="0" y="28" font-size="24" font-weight="900">0</text><rect x="40" y="4" width="60" height="32" fill="#2D2B6F"/><text x="112" y="26" font-family="IBM Plex Mono,monospace" font-size="12" font-weight="500">Observe and summarize</text>
-            <text x="0" y="74" font-size="24" font-weight="900">1</text><rect x="40" y="50" width="120" height="32" fill="#2D2B6F"/><text x="172" y="72" font-family="IBM Plex Mono,monospace" font-size="12" font-weight="500">Recommend, human decides</text>
-            <text x="0" y="120" font-size="24" font-weight="900">2</text><rect x="40" y="96" width="180" height="32" fill="#2D2B6F"/><text x="232" y="118" font-family="IBM Plex Mono,monospace" font-size="12" font-weight="500">Act after human confirmation</text>
-            <text x="0" y="166" font-size="24" font-weight="900">3</text><rect x="40" y="142" width="240" height="32" fill="#2D2B6F"/><text x="292" y="164" font-family="IBM Plex Mono,monospace" font-size="12" font-weight="500">Act within approved limits, log everything</text>
-            <text x="0" y="212" font-size="24" font-weight="900">4</text><rect x="40" y="188" width="300" height="32" fill="#B23A32"/><text x="352" y="210" font-family="IBM Plex Mono,monospace" font-size="12" font-weight="500">Controlled autonomy, low-risk cases</text>
+            <text x="0" y="28" font-size="24" font-weight="900">0</text><rect x="40" y="4" width="60" height="32" fill="#0a0a0a"/><text x="112" y="26" font-family="IBM Plex Mono,monospace" font-size="12" font-weight="500">Observe and summarize</text>
+            <text x="0" y="74" font-size="24" font-weight="900">1</text><rect x="40" y="50" width="120" height="32" fill="#0a0a0a"/><text x="172" y="72" font-family="IBM Plex Mono,monospace" font-size="12" font-weight="500">Recommend, human decides</text>
+            <text x="0" y="120" font-size="24" font-weight="900">2</text><rect x="40" y="96" width="180" height="32" fill="#0a0a0a"/><text x="232" y="118" font-family="IBM Plex Mono,monospace" font-size="12" font-weight="500">Act after human confirmation</text>
+            <text x="0" y="166" font-size="24" font-weight="900">3</text><rect x="40" y="142" width="240" height="32" fill="#0a0a0a"/><text x="292" y="164" font-family="IBM Plex Mono,monospace" font-size="12" font-weight="500">Act within approved limits, log everything</text>
+            <text x="0" y="212" font-size="24" font-weight="900">4</text><rect x="40" y="188" width="300" height="32" fill="#e3000f"/><text x="352" y="210" font-family="IBM Plex Mono,monospace" font-size="12" font-weight="500">Controlled autonomy, low-risk cases</text>
           </g>
         </svg>
       </div>
@@ -782,11 +782,11 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
           <li>AI output is checked before anyone relies on it, and incidents are reported.</li>
         </ul>
         <svg viewBox="0 0 640 160" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <rect width="640" height="160" fill="#F3F4F8"/>
-          <circle cx="120" cy="80" r="52" fill="#2D2B6F"/>
-          <circle cx="200" cy="80" r="52" fill="none" stroke="#2D2B6F" stroke-width="6"/>
-          <circle cx="280" cy="80" r="52" fill="#B23A32"/>
-          <rect x="372" y="28" width="236" height="12" fill="#2D2B6F"/><rect x="372" y="60" width="188" height="12" fill="#2D2B6F"/><rect x="372" y="92" width="212" height="12" fill="#2D2B6F"/><rect x="372" y="124" width="140" height="12" fill="#2D2B6F"/>
+          <rect width="640" height="160" fill="#f1f1ef"/>
+          <circle cx="120" cy="80" r="52" fill="#0a0a0a"/>
+          <circle cx="200" cy="80" r="52" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+          <circle cx="280" cy="80" r="52" fill="#e3000f"/>
+          <rect x="372" y="28" width="236" height="12" fill="#0a0a0a"/><rect x="372" y="60" width="188" height="12" fill="#0a0a0a"/><rect x="372" y="92" width="212" height="12" fill="#0a0a0a"/><rect x="372" y="124" width="140" height="12" fill="#0a0a0a"/>
         </svg>
       </div>
     </div>
