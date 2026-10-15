@@ -135,6 +135,17 @@ h3.sub{margin:40px 0 12px;font:900 28px/1 var(--sans);font-stretch:80%;text-tran
 .cols > div{border-top:4px solid var(--ink);padding-top:10px;font-size:16px}
 .cols b{display:block;font:900 20px/1.1 var(--sans);margin-bottom:6px}
 
+/* rdx screens */
+.shots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px 32px}
+.shot{margin:0;min-width:0}
+.shot.wide{grid-column:1 / -1}
+.shot a{display:block;border:1px solid var(--line);background:var(--wash);padding:12px}
+.shot a:hover{border-color:var(--ink)}
+.shot img{display:block;width:100%;height:auto}
+.shot figcaption{margin-top:12px;font-size:16px}
+.shot figcaption b{display:block;font:900 20px/1.15 var(--sans);color:var(--ink);margin-bottom:4px}
+@media (max-width:820px){.shots{grid-template-columns:1fr}}
+
 /* prototypes */
 .three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}
 .proto{border-top:4px solid var(--ink);padding-top:12px;display:flex;flex-direction:column;gap:10px}
@@ -233,6 +244,7 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
     <li><a href="#show">Agenda</a></li>
     <li><a href="#progress">Progress</a></li>
     <li><a href="#world">World of Bifrost</a></li>
+    <li><a href="#rdx">RDX screens</a></li>
     <li><a href="#prototypes">Prototypes</a></li>
     <li><a href="#withdrawal">Prototype 3</a></li>
     <li><a href="#next">What's next</a></li>
@@ -492,6 +504,36 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
       <div><b>RDX is separate on purpose.</b>If competing recordkeepers are to trust it, it cannot be owned by one of them.</div>
     </div>
     <p class="note">The trust layer around it, CIATA and AGRUF, is a draft framework from the AI Reboot. See <a href="#trust">Trust</a>.</p>
+  </div>
+</section>
+
+<section class="sec" id="rdx" aria-labelledby="h-rdx">
+  <header><div class="stick"><span class="mono">In design · not built</span><h2 id="h-rdx">RDX on <em>screen</em></h2><p>Wireframes from the RDX design. A payroll provider or TPA maps once and reaches every recordkeeper.</p></div></header>
+  <div class="main">
+    <p class="pull">RDX checks the shape of the data, never its meaning. When something is wrong, it says exactly where, and the sender fixes it at source.</p>
+    <div class="shots">
+      <figure class="shot wide">
+        <a href="img/rdx-agent-questions.jpg"><img src="img/rdx-agent-questions.jpg" width="1800" height="1348" loading="lazy" alt="RDX setup screen titled 'Your mapping is ready. 2 questions for you.' The mapping agent has matched 41 of 43 fields and asks the user whether a column called RE_HIRE is a rehire date, and which of two columns is annual pay."></a>
+        <figcaption><b>The agent maps; a person answers what it could not decide.</b>The mapping agent matches 41 of 43 fields and asks two plain questions. The TPA approves the whole mapping pack, attributed and versioned.</figcaption>
+      </figure>
+      <figure class="shot">
+        <a href="img/rdx-notification.jpg"><img src="img/rdx-notification.jpg" width="1800" height="683" loading="lazy" alt="Three RDX email notifications: a stopped payroll file with 312 rejected records, a loan file that did not arrive this cycle, and a daily digest saying nothing needs attention."></a>
+        <figcaption><b>Notifications are the main interface.</b>Stopped, not arrived, and a daily digest that proves the silence was real.</figcaption>
+      </figure>
+      <figure class="shot">
+        <a href="img/rdx-console.jpg"><img src="img/rdx-console.jpg" width="1800" height="912" loading="lazy" alt="RDX Today console listing flows grouped as stopped, not arrived, moving and delivered, with a detail panel for a Northwind payroll run showing 312 rejected records."></a>
+        <figcaption><b>The console, where a notification lands.</b>Every flow for the day by state, with the run's history beside it.</figcaption>
+      </figure>
+      <figure class="shot">
+        <a href="img/rdx-error-detail.jpg"><img src="img/rdx-error-detail.jpg" width="1800" height="1151" loading="lazy" alt="RDX error detail for a Northwind payroll run, explaining the rejected records by rule, field and plan."></a>
+        <figcaption><b>Errors as coordinates.</b>Row, field and rule, in three sentences. Errors and logs never repeat the offending values.</figcaption>
+      </figure>
+      <figure class="shot">
+        <a href="img/rdx-write-back.jpg"><img src="img/rdx-write-back.jpg" width="1800" height="964" loading="lazy" alt="RDX write-back screen sending deferral and loan changes from Northwind RK back to Crestline payroll, with each change marked applied once or not applied."></a>
+        <figcaption><b>360° write-back.</b>The same mapping, pointed back to payroll. Each change is applied exactly once.</figcaption>
+      </figure>
+    </div>
+    <p class="note">Wireframes from the RDX design (14 Sep 2026). Names such as Northwind, Crestline and Acme are sample data.</p>
   </div>
 </section>
 
