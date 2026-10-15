@@ -291,7 +291,7 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
   <div class="main">
     <ul class="brief">
       <li class="hl"><b>Vaneesa, our ERISA bot, is operational.</b></li>
-      <li><b>Three prototypes are built</b>on CORE through Bifrost: payroll with match and profit-sharing maths, participant investment analytics, and multi-agent orchestration with Camunda.</li>
+      <li><b>Three prototypes are built</b>on CORE through Bifrost: payroll with match and profit-sharing maths, participant investment analytics, and multilingual, multi-agent orchestration with Camunda.</li>
       <li><b>Two run live today.</b>The third is presented as architecture.</li>
       <li><b>Bifrost holds 12 domain slices on main</b>and is the only door into CORE. Athena's agents propose and humans decide.</li>
       <li><b>Toledo is at 9% against a 31 Mar 2027 deadline.</b>That is the average of its five key results. The deck rates three at 0%: the orchestrator, the Requirement Engine and the coding agents.</li>
@@ -314,7 +314,7 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
       <div><span class="t">5–10</span><h4>The world of Bifrost</h4><span class="mono">Talk and diagram</span></div>
       <div class="demo"><span class="t">10–20</span><h4>Prototype 1 · Payroll and match / profit-sharing</h4><span class="mono">Live demo</span><span class="who">Srivas</span></div>
       <div class="demo"><span class="t">20–30</span><h4>Prototype 2 · Participant investment analytics</h4><span class="mono">Live demo</span><span class="who">Amirtha Varshini, Haritha</span></div>
-      <div><span class="t">30–40</span><h4>Prototype 3 architecture, then what's next</h4><span class="mono">Talk and diagram</span></div>
+      <div><span class="t">30–40</span><h4>Prototype 3 · Multilingual orchestration, then what's next</h4><span class="mono">Talk and diagram</span></div>
       <div class="qa"><span class="t">40–50</span><h4>Questions</h4><span class="mono">Open floor</span></div>
     </div>
     <div class="axis" aria-hidden="true"><span>0</span><span>5</span><span>10</span><span>15</span><span>20</span><span>25</span><span>30</span><span>35</span><span>40</span><span>45</span></div>
@@ -579,8 +579,8 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
             <rect x="40" y="136" width="48" height="36" fill="#fff" stroke="#2D2B6F" stroke-width="4"/><rect x="232" y="136" width="48" height="36" fill="#fff" stroke="#2D2B6F" stroke-width="4"/>
           </svg>
         </div>
-        <h4>Multi-agent CORE orchestration</h4>
-        <p>Several agents and an outside process engine such as Camunda work one withdrawal together through Bifrost, with a person making the final decision in CORE.</p>
+        <h4>Multilingual multi-agent CORE orchestration</h4>
+        <p>Several agents and an outside process engine such as Camunda work one withdrawal together through Bifrost. The request can arrive in English, French or Spanish, and a person makes the final decision in CORE.</p>
         <div class="who"><span class="tag">Architecture · 10 min</span><a href="#withdrawal"><b>See the flow ↓</b></a></div>
       </article>
     </div>
@@ -588,10 +588,10 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
 </section>
 
 <section class="sec" id="withdrawal" aria-labelledby="h-wd">
-  <header><div class="stick"><span class="mono">Segment 5 · 30–40 min</span><h2 id="h-wd">Inside a <em>withdrawal</em></h2><p>Prototype 3, presented as architecture.</p></div></header>
+  <header><div class="stick"><span class="mono">Segment 5 · 30–40 min</span><h2 id="h-wd">Inside a <em>withdrawal</em></h2><p>Prototype 3, presented as architecture. Multilingual: English, French and Spanish.</p></div></header>
   <div class="main">
     <p class="pull">The third prototype shows what happens when several agents and a process engine work one CORE task together.</p>
-    <p style="max-width:44em;margin:0 0 24px">A withdrawal arrives as a document. It has to be read, checked against plan facts, consented to, submitted and approved by a person, and every step must be auditable.</p>
+    <p style="max-width:44em;margin:0 0 24px">A withdrawal arrives as a document, in English, French or Spanish. It has to be read in its own language, checked against plan facts, consented to, submitted and approved by a person, and every step must be auditable.</p>
 
     <div class="phase">
       <figure style="margin:0">
@@ -634,6 +634,7 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
             <rect x="388" y="518" width="184" height="18" fill="#fff"/><text x="480" y="532">TASK ID · EVIDENCE DUE</text>
           </g>
           <text x="372" y="300" font-size="14" font-weight="900" fill="#B23A32">Athena's work ends here.</text>
+          <text class="m" x="372" y="146" font-size="12" fill="#B23A32">READS EN · FR · ES</text>
           <line x1="24" y1="576" x2="64" y2="576" stroke="#2D2B6F" stroke-width="3"/><text class="m" x="72" y="580" font-size="12">CALL</text>
           <line x1="160" y1="576" x2="200" y2="576" stroke="#2D2B6F" stroke-width="3" stroke-dasharray="8,6"/><text class="m" x="208" y="580" font-size="12">RETURN</text>
         </svg>

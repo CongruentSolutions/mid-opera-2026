@@ -6,7 +6,7 @@
 
 ## Delivered
 
-- **Three prototypes are built** on CORE through Bifrost: payroll with match and profit-sharing maths, participant investment analytics, and multi-agent orchestration with Camunda.
+- **Three prototypes are built** on CORE through Bifrost: payroll with match and profit-sharing maths, participant investment analytics, and multilingual, multi-agent orchestration with Camunda.
 - **Two run live at OPERA**; the third is presented as architecture.
 - **Vaneesa, our ERISA bot, is operational.**
 - **Bifrost has 12 domain slices on main** and is the only door into CORE.

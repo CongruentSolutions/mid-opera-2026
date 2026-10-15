@@ -7,7 +7,7 @@
 **The Spark Initiative is complete. It was our internal target to build demos for conference season: the payroll prototype is done, and two further prototypes are built.**
 
 - **Vaneesa, our ERISA bot, is operational.**
-- **Three prototypes are built** on CORE through Bifrost: payroll with match and profit-sharing maths, participant investment analytics, and multi-agent orchestration with Camunda.
+- **Three prototypes are built** on CORE through Bifrost: payroll with match and profit-sharing maths, participant investment analytics, and multilingual, multi-agent orchestration with Camunda.
 - **Two run live today**; the third is presented as architecture.
 - **Bifrost holds 12 domain slices on main** and is the only door into CORE; Athena's agents propose and humans decide.
 - **Toledo is at 9% (the average of its five key results) against a 31 Mar 2027 deadline.** The deck rates three at 0%: the orchestrator, the Requirement Engine and the coding agents.
@@ -46,7 +46,7 @@
 | 5–10 | 2. The world of Bifrost | Talk and diagram | |
 | 10–20 | 3. Prototype 1: payroll and match / profit sharing math engine | Live demo | Srivas |
 | 20–30 | 4. Prototype 2: participant investment analytics | Live demo | Amirtha Varshini, Haritha |
-| 30–40 | 5. Prototype 3 architecture (multi-agent CORE orchestration), then what's next | Talk and diagram | |
+| 30–40 | 5. Prototype 3 architecture (multilingual multi-agent CORE orchestration), then what's next | Talk and diagram | |
 | 40–50 | 6. Questions | | |
 
 ## 1. Six-month progress
@@ -128,7 +128,7 @@
 
 **Speaker line:** The third prototype shows what happens when several agents and a process engine work one CORE task together. We present its architecture today.
 
-**The use case: a participant withdrawal.** A withdrawal arrives as a document. It has to be read, checked against plan facts, consented to, submitted and approved by a person, and every step must be auditable.
+**The use case: a participant withdrawal.** A withdrawal arrives as a document, in English, French or Spanish. It has to be read in its own language, checked against plan facts, consented to, submitted and approved by a person, and every step must be auditable.
 
 ```
  Camunda                Athena               Bifrost                 CORE            Consent provider
