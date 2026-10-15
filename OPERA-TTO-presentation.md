@@ -6,7 +6,7 @@
 
 **The Spark Initiative is complete. It was our internal target to build demos for conference season: the payroll prototype is done, and two further prototypes are built.**
 
-- **Vaneesa, our ERISA bot, is operational.**
+- **Vanessa, our ERISA bot, is operational.**
 - **Three prototypes are built** on CORE through Bifrost: payroll with match and profit-sharing maths, participant investment analytics, and multilingual, multi-agent orchestration with Camunda.
 - **Two run live today**; the third is presented as architecture.
 - **Bifrost holds 12 domain slices on main** and is the only door into CORE; Athena's agents propose and humans decide.
@@ -51,7 +51,7 @@
 
 ## 1. Six-month progress
 
-**Opening line:** Vaneesa, our ERISA bot, is operational.
+**Opening line:** Vanessa, our ERISA bot, is operational.
 
 **Speaker line:** Nine key results sit under three objectives. The deck rates all nine on track against the 31 Mar 2027 due date. Here is what the work shows behind each number.
 
