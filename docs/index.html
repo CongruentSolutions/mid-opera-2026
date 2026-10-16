@@ -295,7 +295,7 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
     <ul class="brief">
       <li class="hl"><b>Vanessa, our ERISA bot, is operational.</b></li>
       <li><b>Three prototypes are built</b>on CORE through Bifrost: payroll with match and profit-sharing maths, participant investment analytics, and multilingual, multi-agent orchestration with Camunda.</li>
-      <li><b>Two run live today.</b>The third is presented as architecture.</li>
+      <li><b>Two run live today.</b>The third is built too; for time, we present its architecture.</li>
       <li><b>Bifrost holds 12 domain slices on main</b>and is the only door into CORE. Athena's agents propose and humans decide.</li>
       <li><b>Toledo is at 9% against a 31 Mar 2027 deadline.</b>That is the average of its five key results. The deck rates three at 0%: the orchestrator, the Requirement Engine and the coding agents.</li>
       <li><b>The orchestrator has a working skeleton,</b>about 15–20% by our code review. The Requirement Engine and the coding agents have designs but no code.</li>
@@ -317,7 +317,7 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
       <div><span class="t">5–10</span><h4>The world of Bifrost</h4><span class="mono">Talk and diagram</span></div>
       <div class="demo"><span class="t">10–20</span><h4>Prototype 1 · Payroll and match / profit-sharing</h4><span class="mono">Live demo</span><span class="who">Srivas</span></div>
       <div class="demo"><span class="t">20–30</span><h4>Prototype 2 · Participant investment analytics</h4><span class="mono">Live demo</span><span class="who">Amirtha Varshini, Haritha</span></div>
-      <div><span class="t">30–40</span><h4>Prototype 3 · Multilingual orchestration, then what's next</h4><span class="mono">Talk and diagram</span></div>
+      <div><span class="t">30–40</span><h4>Prototype 3 · Multilingual orchestration, then what's next</h4><span class="mono">Built · shown as architecture</span></div>
       <div class="qa"><span class="t">40–50</span><h4>Questions</h4><span class="mono">Open floor</span></div>
     </div>
     <div class="axis" aria-hidden="true"><span>0</span><span>5</span><span>10</span><span>15</span><span>20</span><span>25</span><span>30</span><span>35</span><span>40</span><span>45</span></div>
@@ -818,7 +818,7 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
     <div class="diagram">
     <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dt dd">
       <title id="dt">The world of Bifrost</title>
-      <desc id="dd">Industry parties send data through RDX, a neutral exchange, to Bifrost, the integration hub and only door into CORE, the recordkeeping system. Athena's agents propose changes to Bifrost; authorized people approve on a separate path. External orchestrators such as Camunda call Bifrost and work with consent providers. CORE returns the decision from a human review. CIATA governs agents across the top; AGRUF governs human use of AI across the bottom.</desc>
+      <desc id="dd">Payroll providers and TPAs send data to RDX, a standalone neutral exchange, which exchanges data in both directions with every party: back to payroll providers and TPAs, with other recordkeepers and compliance engines through its own connectors, and with CORE only through Bifrost, the integration hub and only door into CORE, the recordkeeping system. Athena's agents propose changes to Bifrost; authorized people approve on a separate path. External orchestrators such as Camunda call Bifrost and work with consent providers. CORE returns the decision from a human review. CIATA governs agents across the top; AGRUF governs human use of AI across the bottom.</desc>
       <defs>
         <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="12" refX="13" refY="6" orient="auto"><polygon points="0 0,14 6,0 12" fill="#161d3f"/></marker>
         <marker id="ar" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="12" refX="13" refY="6" orient="auto"><polygon points="0 0,14 6,0 12" fill="#e3000f"/></marker>
@@ -832,7 +832,8 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
       <text class="m" x="148" y="722" fill="#161d3f" font-size="12">GOVERNS HUMAN USE OF AI · approved tools · data rules · signed declaration · checked output</text>
       <g fill="none" stroke="#161d3f" stroke-width="3">
         <path d="M224 306 H324" marker-end="url(#ah)"/>
-        <path d="M524 306 H616" marker-end="url(#ah)"/>
+        <path d="M524 292 H616" marker-end="url(#ah)"/>
+        <path d="M616 324 H524" marker-end="url(#ah)"/>
         <path d="M856 280 H948" marker-end="url(#ah)"/>
         <path d="M948 332 H856" marker-end="url(#ah)"/>
         <path d="M692 168 V212" marker-end="url(#ah)"/>
@@ -843,8 +844,9 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
         <path d="M776 400 V500" marker-end="url(#ah)"/>
       </g>
       <path d="M524 558 H568 Q576 558 576 550 V380 Q576 372 584 372 H616" fill="none" stroke="#e3000f" stroke-width="3" marker-end="url(#ar)"/>
-      <rect x="230" y="276" width="88" height="18" fill="#fff"/><text class="m" x="274" y="290" font-size="12" text-anchor="middle">ANY FORMAT</text>
-      <rect x="534" y="276" width="72" height="18" fill="#fff"/><text class="m" x="570" y="290" font-size="12" text-anchor="middle">TO CORE</text>
+      <rect x="232" y="276" width="84" height="18" fill="#fff"/><text class="m" x="274" y="290" font-size="12" text-anchor="middle">ANY FORMAT</text>
+      <rect x="534" y="262" width="72" height="18" fill="#fff"/><text class="m" x="570" y="276" font-size="12" text-anchor="middle">TO CORE</text>
+      <rect x="530" y="332" width="80" height="18" fill="#fff"/><text class="m" x="570" y="346" font-size="12" text-anchor="middle">FROM CORE</text>
       <rect x="870" y="250" width="64" height="18" fill="#fff"/><text class="m" x="902" y="264" font-size="12" text-anchor="middle">SUBMIT</text>
       <rect x="864" y="344" width="76" height="18" fill="#fff"/><text class="m" x="902" y="358" font-size="12" text-anchor="middle">DECISION</text>
       <rect x="878" y="94" width="48" height="18" fill="#fff"/><text class="m" x="902" y="108" font-size="12" text-anchor="middle">SIGN</text>
@@ -853,19 +855,26 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
       <text class="m" x="792" y="194" font-size="12">EVENTS</text>
       <text class="m" x="684" y="454" font-size="12" text-anchor="end">PROPOSES</text>
       <text class="m" x="788" y="454" font-size="12">FACTS</text>
-      <text class="m" x="568" y="470" font-size="12" text-anchor="end" fill="#e3000f">APPROVE</text>
+      <text class="m" x="568" y="508" font-size="12" text-anchor="end" fill="#e3000f">APPROVE</text>
       <rect x="24" y="232" width="200" height="148" fill="#fff" stroke="#161d3f" stroke-width="3"/>
       <text x="40" y="262" font-size="16" font-weight="900">INDUSTRY</text>
       <text x="40" y="294" font-size="14">Payroll providers</text>
       <text x="40" y="318" font-size="14">TPAs</text>
-      <text x="40" y="342" font-size="14">Compliance engines</text>
-      <text x="40" y="366" font-size="14">Other recordkeepers</text>
+      <path d="M400 368 V408" fill="none" stroke="#161d3f" stroke-width="3" marker-end="url(#ah)"/>
+      <path d="M448 408 V368" fill="none" stroke="#161d3f" stroke-width="3" marker-end="url(#ah)"/>
+      <path d="M324 344 H224" fill="none" stroke="#161d3f" stroke-width="3" marker-end="url(#ah)"/>
+      <rect x="240" y="352" width="68" height="18" fill="#fff"/><text class="m" x="274" y="366" font-size="12" text-anchor="middle">FEEDBACK</text>
+      <rect x="324" y="408" width="200" height="80" fill="#fff" stroke="#161d3f" stroke-width="3"/>
+      <text class="m" x="340" y="432" font-size="12">RDX CONNECTORS</text>
+      <text x="340" y="456" font-size="14">Other recordkeepers</text>
+      <text x="340" y="478" font-size="14">Compliance engines</text>
       <rect x="324" y="244" width="200" height="124" fill="#fff" stroke="#161d3f" stroke-width="3"/>
       <text x="340" y="280" font-size="28" font-weight="900">RDX</text>
       <rect x="428" y="260" width="80" height="20" fill="#fff" stroke="#161d3f" stroke-width="1.5"/>
       <text class="m" x="468" y="274" font-size="12" text-anchor="middle">IN DESIGN</text>
-      <text class="m" x="340" y="308" font-size="12">NEUTRAL EXCHANGE</text>
-      <text x="340" y="336" font-size="14">Map once, connect many</text>
+      <text class="m" x="340" y="308" font-size="12">STANDALONE · NEUTRAL</text>
+      <text x="340" y="332" font-size="14">Map once, connect many</text>
+      <text x="340" y="354" font-size="14" font-weight="700" fill="#e3000f">360° · every party</text>
       <rect x="616" y="212" width="240" height="188" fill="#e3000f"/>
       <text x="636" y="252" fill="#fff" font-size="28" font-weight="900">BIFROST</text>
       <text class="m" x="636" y="278" fill="#fff" font-size="12">INTEGRATION HUB</text>
@@ -1003,14 +1012,14 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
         </div>
         <h4>Multilingual multi-agent CORE orchestration</h4>
         <p>Several agents and an outside process engine such as Camunda work one withdrawal together through Bifrost. The request can arrive in English, French or Spanish, and a person makes the final decision in CORE.</p>
-        <div class="who"><span class="tag">Architecture · 10 min</span><a href="#withdrawal"><b>See the flow ↓</b></a></div>
+        <div class="who"><span class="tag">Built · architecture today</span><a href="#withdrawal"><b>See the flow ↓</b></a></div>
       </article>
     </div>
   </div>
 </section>
 
 <section class="sec" id="withdrawal" aria-labelledby="h-wd">
-  <header><div class="stick"><span class="mono">Segment 5 · 30–40 min</span><h2 id="h-wd">Inside a <em>withdrawal</em></h2><p>Prototype 3, presented as architecture. Multilingual: English, French and Spanish.</p></div></header>
+  <header><div class="stick"><span class="mono">Segment 5 · 30–40 min</span><h2 id="h-wd">Inside a <em>withdrawal</em></h2><p>Prototype 3 is built. For time, we present its architecture rather than a live demo. Multilingual: English, French and Spanish.</p></div></header>
   <div class="main">
     <p class="pull">The third prototype shows what happens when several agents and a process engine work one CORE task together.</p>
     <p style="max-width:44em;margin:0 0 24px">A withdrawal arrives as a document, in English, French or Spanish. It has to be read in its own language, checked against plan facts, consented to, submitted and approved by a person, and every step must be auditable.</p>
