@@ -75,6 +75,85 @@
 - **Toledo's foundation is laid.** The delivery environment, work-item setup, intake and CI are in place. The agents are the next layer on top.
 - **Not shown in the deck:** RDX, the neutral industry exchange, has a full design and no code.
 
+### Toledo: foundation built, agents not started
+
+**Speaker line:** The deck rates Toledo at **9%**. Its infrastructure is ahead of that figure, and its AI layer is at zero.
+
+**How it works:** Azure DevOps governs every step and Toledo does the work.
+1. **Approve:** a requirement is approved in ADO Boards.
+2. **Check:** Toledo finds existing tests and builds only the gap.
+3. **Propose:** AI agents draft tests and code. They cannot write to any system.
+4. **Execute:** fixed services open the PR, build and run the tests.
+5. **Prove:** results and evidence post back to ADO.
+
+ADO owns requirements, approvals, test cases and results. GitHub owns code and pull requests. Toledo owns the workflow and the audit trail.
+
+| Component | Status | Evidence |
+|---|---|---|
+| ADO process, boards, queries, dashboards | **Live** | 13 end-to-end checks pass |
+| Azure dev/pilot environment and CI/CD | **Live** | South India; 3 GitHub workflows |
+| Orchestrator, gateways, messaging | Skeleton | ~2.2k lines of .NET |
+| Test-design agent, coverage analysis | **Not started** | Design only |
+| Requirement Engine, coding and review agents | **Not started** | Design only |
+
+**What to say**
+- **Autonomy is earned one stage at a time.** Levels go from A0 (manual) to A3 (autonomous). A named person signs every step up, and any stage owner can drop it back at once.
+- **A merged PR does not count as verified.** Only a passing run with evidence does.
+- **No commits since 5 Aug.** That leaves 166 days to the 31 Mar 2027 deadline.
+- **Four decisions unblock the first agent:** the pilot capability, the CI adapter, the evidence store and the review policy.
+
+*Source: congruent-toledo-harness at commit 4c6468f (5 Aug 2026).*
+
+### Cordoba: the context engine
+
+**Speaker line:** The deck rates Cordoba at **15%**. Our code review puts it at about **40–60%** of its traceability scope.
+
+**How it works:** Cordoba reads CORE’s code and ADO’s stories and links the two.
+1. **Extract:** Claude reads the 53 CORE service repos and writes behavior units, one checkable statement each about what the code does.
+2. **Ingest:** stories, acceptance criteria and manual test cases come in from ADO.
+3. **Store:** both go into a Postgres knowledge store (pgvector) that holds 51 service specs.
+4. **Match:** the RTM matcher links stories and tests to behavior units (embed, rerank, cutoff 0.70).
+5. **Serve:** a portal shows the links today. Code context for Toledo’s agents is planned.
+
+| Component | Status |
+|---|---|
+| Code extraction, intent ingest, spec store, matcher | **Built** |
+| Portal (.NET API, React) and 108 test files | **Built** |
+| Code context for Toledo’s agents | **Not started** |
+| Clean coverage numbers | About 3 services |
+| CI tests | 3 of 53 repos |
+
+**What to say**
+- **Cordoba is ahead of its rating.** The knowledge store, matcher and portal are built.
+- **It is Toledo’s memory.** Once wired, it tells Toledo which tests already exist, so agents build only the gap.
+- **No commits since 11 Aug.**
+
+*Source: congruent-core-cordoba, branch drwatson, commit 3e792fa (11 Aug 2026).*
+
+### Dr Watson: the testing engine
+
+**Speaker line:** The deck rates Dr Watson at **30%**, which matches the code. Its two halves are not yet joined.
+
+**How it works:** Dr Watson turns manual test cases into executable tests and runs them against CORE.
+- **Python half (in the Cordoba repo):** manual tests from ADO are standardized and their intent is extracted. Dedup and Cucumber output are plan only.
+- **.NET half (congruent-core-watson):** 498 feature files run through a closed step grammar. An entity builder creates the test data in dependency order and calls CORE APIs in SIT.
+- **The gap:** nothing yet carries the Python output into feature files, so nothing generates tests from a BRD.
+
+**Traits and worlds (the next slice, designed, not built)**
+- **A trait** is a named business shape, such as “immediate eligibility” or “actual-hours plan”, stored once as a JSON file.
+- **A world** is a named set of traits, for example a Company with a Plan set up for actual hours.
+- **A scenario** selects them with a tag (`@world:X`, `@traits:plan.Y`). The framework resolves the values and builds Company before Plan in the right order.
+- **An unknown name** fails the whole run at load time, before any test starts.
+- **Why:** the legacy tests re-type the same shapes by hand. The same 9-row eligibility block appears **448/448** times in one file, a two-year cliff vesting schedule **~1,217×**, and a calendar plan year block **~1,022×** across 47 files, out of **~14,254** scenarios.
+- **Built underneath:** value capture between calls, the dependency graph and the derived build order. A live run against SIT with these found and fixed a real data bug.
+
+**What to say**
+- **Traits give agents a vocabulary.** An agent writes “immediate eligibility”; the framework knows the fields, the parent Company and Plan, and the build order.
+- **No pass-rate or pilot metrics yet.** Joining the two halves comes first.
+- **No commits since 20 Aug.**
+
+*Sources: congruent-core-watson at commit 47f082d (20 Aug 2026); drwatson-engine in congruent-core-cordoba at 3e792fa.*
+
 ## 2. The world of Bifrost
 
 **Speaker line:** Everything we built this half sits on one idea. CORE keeps the financial truth, Bifrost is the only door into it, and AI agents work through that door under rules.

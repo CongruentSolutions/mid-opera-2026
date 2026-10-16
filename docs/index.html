@@ -243,6 +243,9 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
     <li><a href="#brief">The half in brief</a></li>
     <li><a href="#show">Agenda</a></li>
     <li><a href="#progress">Progress</a></li>
+    <li><a href="#toledo">Toledo</a></li>
+    <li><a href="#cordoba">Cordoba</a></li>
+    <li><a href="#watson">Dr Watson</a></li>
     <li><a href="#world">World of Bifrost</a></li>
     <li><a href="#rdx">RDX screens</a></li>
     <li><a href="#prototypes">Prototypes</a></li>
@@ -385,6 +388,423 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
       <div><b>Toledo's foundation is laid.</b>The delivery environment, work-item setup, intake and CI are in place. The agents are the next layer on top.</div>
       <div><b>Not shown in the deck.</b>RDX, the neutral industry exchange, has a full design and no code.</div>
     </div>
+  </div>
+</section>
+
+<section class="sec" id="toledo" aria-labelledby="h-toledo">
+  <header><div class="stick"><span class="mono">Segment 1 · Toledo</span><h2 id="h-toledo">Toledo, <em>under the hood</em></h2><p>The deck rates Toledo at 9%. Its infrastructure is ahead of that figure, and its AI layer is at zero.</p></div></header>
+  <div class="main">
+    <p class="pull">Azure DevOps governs every step. Toledo does the work.</p>
+    <figure style="margin:0 0 32px">
+    <div class="diagram">
+    <svg viewBox="0 0 1200 704" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="tt td">
+      <title id="tt">Toledo architecture</title>
+      <desc id="td">Azure DevOps sends events to the Toledo gateway, which passes them through Service Bus to the lifecycle orchestrator. The orchestrator asks Cordoba, the context subsystem with its spec store and matcher, for coverage, and gives tasks to AI agents, which return proposals only. Cordoba is planned to give the agents code context. The orchestrator sends commands to deterministic connectors, which open pull requests and builds in GitHub and post results back to Azure DevOps. ADO setup, Service Bus and Cordoba are built; the gateway and orchestrator are skeletons; agents and connectors are design only. Guardrails run along the bottom.</desc>
+      <defs>
+        <marker id="th" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="12" refX="13" refY="6" orient="auto"><polygon points="0 0,14 6,0 12" fill="#0a0a0a"/></marker>
+        <marker id="tr" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="12" refX="13" refY="6" orient="auto"><polygon points="0 0,14 6,0 12" fill="#e3000f"/></marker>
+      </defs>
+      <rect width="1200" height="704" fill="#fff"/>
+      <rect x="24" y="16" width="1152" height="56" fill="#0a0a0a"/>
+      <text x="44" y="52" fill="#fff" font-size="20" font-weight="900">AZURE DEVOPS</text>
+      <text class="m" x="232" y="50" fill="#fff" font-size="12">CONTROL PLANE · requirements · approvals · Test Cases · results · Decision Records</text>
+      <text class="m" x="1156" y="50" fill="#fff" font-size="12" text-anchor="end">LIVE</text>
+      <rect x="24" y="376" width="456" height="136" fill="#fff" stroke="#e3000f" stroke-width="2" stroke-dasharray="8,6"/>
+      <rect x="36" y="368" width="368" height="18" fill="#fff"/>
+      <text class="m" x="44" y="382" fill="#e3000f" font-size="12">CORDOBA · CONTEXT SUBSYSTEM · ~40–60% BUILT</text>
+      <g fill="none" stroke="#0a0a0a" stroke-width="3">
+        <path d="M124 72 V184" marker-end="url(#th)"/>
+        <path d="M224 232 H304" marker-end="url(#th)"/>
+        <path d="M480 232 H560" marker-end="url(#th)"/>
+        <path d="M840 232 H920" marker-end="url(#th)"/>
+        <path d="M1000 184 V72" marker-end="url(#th)"/>
+        <path d="M1096 280 V400" marker-end="url(#th)"/>
+        <path d="M660 312 V400" marker-end="url(#th)"/>
+        <path d="M740 400 V312" marker-end="url(#th)"/>
+        <path d="M240 452 H264" marker-end="url(#th)"/>
+      </g>
+      <g fill="none" stroke="#e3000f" stroke-width="3" stroke-dasharray="8,6">
+        <path d="M440 408 V304 Q440 296 448 296 H560" marker-end="url(#tr)"/>
+        <path d="M464 452 H560" marker-end="url(#tr)"/>
+      </g>
+      <rect x="132" y="120" width="60" height="18" fill="#fff"/><text class="m" x="136" y="134" font-size="12">EVENTS</text>
+      <rect x="844" y="202" width="72" height="18" fill="#fff"/><text class="m" x="880" y="216" font-size="12" text-anchor="middle">COMMANDS</text>
+      <rect x="1008" y="120" width="68" height="18" fill="#fff"/><text class="m" x="1012" y="134" font-size="12">RESULTS</text>
+      <rect x="1104" y="332" width="72" height="18" fill="#fff"/><text class="m" x="1108" y="346" font-size="12">PR · BUILD</text>
+      <rect x="608" y="348" width="44" height="18" fill="#fff"/><text class="m" x="648" y="362" font-size="12" text-anchor="end">TASK</text>
+      <rect x="748" y="348" width="76" height="18" fill="#fff"/><text class="m" x="752" y="362" font-size="12">PROPOSAL</text>
+      <rect x="356" y="336" width="76" height="18" fill="#fff"/><text class="m" x="428" y="350" font-size="12" text-anchor="end" fill="#e3000f">COVERAGE</text>
+      <rect x="488" y="416" width="64" height="18" fill="#fff"/><text class="m" x="520" y="430" font-size="12" text-anchor="middle" fill="#e3000f">CONTEXT</text>
+      <rect x="24" y="184" width="200" height="96" fill="#fff" stroke="#0a0a0a" stroke-width="3"/>
+      <text x="44" y="216" font-size="20" font-weight="800">Gateway</text>
+      <text class="m" x="44" y="240" font-size="12" fill="#5c5c5c">ADO + GITHUB HOOKS</text>
+      <text class="m" x="44" y="264" font-size="12">SKELETON</text>
+      <rect x="304" y="184" width="176" height="96" fill="#fff" stroke="#0a0a0a" stroke-width="3"/>
+      <text x="324" y="216" font-size="20" font-weight="800">Service Bus</text>
+      <text class="m" x="324" y="240" font-size="12" fill="#5c5c5c">EVENTS · COMMANDS</text>
+      <text class="m" x="324" y="264" font-size="12">LIVE</text>
+      <rect x="560" y="184" width="280" height="128" fill="#fff" stroke="#e3000f" stroke-width="5"/>
+      <text x="580" y="220" font-size="20" font-weight="800">Lifecycle orchestrator</text>
+      <text class="m" x="580" y="244" font-size="12" fill="#5c5c5c">DURABLE FUNCTIONS</text>
+      <text class="m" x="580" y="264" font-size="12" fill="#5c5c5c">EVIDENCE · RECONCILER</text>
+      <text class="m" x="580" y="292" font-size="12" fill="#e3000f">SKELETON · ~15–20%</text>
+      <rect x="920" y="184" width="256" height="96" fill="#fff" stroke="#0a0a0a" stroke-width="3" stroke-dasharray="8,6"/>
+      <text x="940" y="216" font-size="20" font-weight="800">Connectors</text>
+      <text class="m" x="940" y="240" font-size="12" fill="#5c5c5c">ADO · GITHUB · CI · HARNESS</text>
+      <text class="m" x="940" y="264" font-size="12">DESIGN ONLY</text>
+      <rect x="40" y="408" width="200" height="88" fill="#fff" stroke="#0a0a0a" stroke-width="3"/>
+      <text x="60" y="440" font-size="20" font-weight="800">Spec store</text>
+      <text class="m" x="60" y="464" font-size="12" fill="#5c5c5c">51 SERVICE SPECS</text>
+      <text class="m" x="60" y="484" font-size="12">BUILT</text>
+      <rect x="264" y="408" width="200" height="88" fill="#fff" stroke="#0a0a0a" stroke-width="3"/>
+      <text x="284" y="440" font-size="20" font-weight="800">Matcher</text>
+      <text class="m" x="284" y="464" font-size="12" fill="#5c5c5c">REQ ↔ CODE ↔ TEST</text>
+      <text class="m" x="284" y="484" font-size="12">BUILT</text>
+      <rect x="560" y="400" width="280" height="96" fill="#fff" stroke="#0a0a0a" stroke-width="3" stroke-dasharray="8,6"/>
+      <text x="580" y="432" font-size="20" font-weight="800">AI agents</text>
+      <text class="m" x="580" y="456" font-size="12" fill="#5c5c5c">TEST DESIGN · REQ ENGINE · CODE</text>
+      <text class="m" x="580" y="480" font-size="12">DESIGN ONLY · PROPOSE, NEVER WRITE</text>
+      <rect x="920" y="400" width="256" height="96" fill="#f1f1ef" stroke="#5c5c5c" stroke-width="2"/>
+      <text x="940" y="432" font-size="20" font-weight="800">GitHub</text>
+      <text class="m" x="940" y="456" font-size="12" fill="#5c5c5c">CODE · PULL REQUESTS · CHECKS</text>
+      <text class="m" x="940" y="480" font-size="12">EXTERNAL</text>
+      <rect x="24" y="552" width="1152" height="56" fill="#fff" stroke="#0a0a0a" stroke-width="3"/>
+      <text x="44" y="588" font-size="20" font-weight="900">GUARDRAILS</text>
+      <text class="m" x="196" y="586" font-size="12">AUTONOMY A0–A3 PER STAGE · A NAMED PERSON SIGNS EACH STEP UP · MERGED PR ≠ VERIFIED · RESULTS PINNED TO COMMIT</text>
+      <line x1="24" y1="636" x2="1176" y2="636" stroke="#d4d4d0" stroke-width="1"/>
+      <text class="m" x="24" y="672" font-size="12" fill="#5c5c5c">LEGEND</text>
+      <rect x="108" y="660" width="32" height="16" fill="#fff" stroke="#0a0a0a" stroke-width="3"/><text class="m" x="152" y="672" font-size="12">BUILT OR SKELETON</text>
+      <rect x="312" y="660" width="32" height="16" fill="#fff" stroke="#0a0a0a" stroke-width="3" stroke-dasharray="6,4"/><text class="m" x="356" y="672" font-size="12">DESIGN ONLY</text>
+      <rect x="476" y="660" width="32" height="16" fill="#fff" stroke="#e3000f" stroke-width="5"/><text class="m" x="520" y="672" font-size="12">KEY RESULT TO RESTART</text>
+      <path d="M716 668 H756" stroke="#e3000f" stroke-width="3" stroke-dasharray="8,6"/><text class="m" x="768" y="672" font-size="12">CORDOBA LINK, NOT YET WIRED</text>
+      <rect x="988" y="660" width="32" height="16" fill="#f1f1ef" stroke="#5c5c5c" stroke-width="2"/><text class="m" x="1032" y="672" font-size="12">EXTERNAL</text>
+    </svg>
+    </div>
+    <figcaption class="flowcap">ADO approves and records; Toledo orchestrates; Cordoba supplies coverage and code context; agents propose; connectors write.</figcaption>
+    </figure>
+    <div class="trust">
+      <div>
+        <h4>Built</h4>
+        <p class="mono for">Live or in code</p>
+        <ul>
+          <li>ADO process, boards, queries and dashboards are live; 13 end-to-end checks pass.</li>
+          <li>The Azure dev/pilot environment runs in South India, deployed by 3 GitHub workflows.</li>
+          <li>The orchestrator, gateways and messaging exist as a skeleton of about 2.2k lines of .NET.</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Not started</h4>
+        <p class="mono for red">Design only</p>
+        <ul>
+          <li>The test-design agent and coverage analysis.</li>
+          <li>The Requirement Engine and the coding and review agents.</li>
+          <li>Four decisions block the first agent: the pilot capability, the CI adapter, the evidence store and the review policy.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="say">
+      <div><b>Autonomy is earned one stage at a time.</b>Levels go from A0 (manual) to A3 (autonomous). A named person signs every step up, and any stage owner can drop it back at once.</div>
+      <div><b>A merged PR does not count as verified.</b>Only a passing run with evidence does.</div>
+      <div><b>No commits since 5 Aug.</b>That leaves 166 days to the 31 Mar 2027 deadline.</div>
+    </div>
+    <p class="note">Source: congruent-toledo-harness at commit 4c6468f (5 Aug 2026).</p>
+  </div>
+</section>
+
+<section class="sec" id="cordoba" aria-labelledby="h-cordoba">
+  <header><div class="stick"><span class="mono">Segment 1 · Cordoba</span><h2 id="h-cordoba">Cordoba, <em>the context engine</em></h2><p>The deck rates Cordoba at 15%. Our code review puts it at about 40–60% of its traceability scope.</p></div></header>
+  <div class="main">
+    <p class="pull">Cordoba reads CORE’s code and ADO’s stories and links the two, so agents and people can see what each service really does.</p>
+    <figure style="margin:0 0 32px">
+    <div class="diagram">
+    <svg viewBox="0 0 1200 720" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ct cd">
+      <title id="ct">Cordoba architecture</title>
+      <desc id="cd">Code extraction reads the 53 CORE service repositories and writes behavior units to the spec store. Intent ingest reads stories, acceptance criteria and manual test cases from Azure DevOps into the same store. The RTM matcher takes candidates from the store and writes matches back. The portal reads the store. Feeding code context to Toledo's agents is planned, not built.</desc>
+      <defs>
+        <marker id="ch" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="12" refX="13" refY="6" orient="auto"><polygon points="0 0,14 6,0 12" fill="#0a0a0a"/></marker>
+        <marker id="cr" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="12" refX="13" refY="6" orient="auto"><polygon points="0 0,14 6,0 12" fill="#e3000f"/></marker>
+      </defs>
+      <rect width="1200" height="720" fill="#fff"/>
+      <g fill="none" stroke="#0a0a0a" stroke-width="3">
+        <path d="M224 152 H304" marker-end="url(#ch)"/>
+        <path d="M224 344 H304" marker-end="url(#ch)"/>
+        <path d="M544 152 H624" marker-end="url(#ch)"/>
+        <path d="M544 344 H624" marker-end="url(#ch)"/>
+        <path d="M704 392 V456" marker-end="url(#ch)"/>
+        <path d="M784 456 V392" marker-end="url(#ch)"/>
+        <path d="M864 152 H944" marker-end="url(#ch)"/>
+      </g>
+      <path d="M864 344 H944" fill="none" stroke="#e3000f" stroke-width="3" stroke-dasharray="8,6" marker-end="url(#cr)"/>
+      <rect x="232" y="122" width="64" height="18" fill="#fff"/><text class="m" x="264" y="136" font-size="12" text-anchor="middle">SOURCE</text>
+      <rect x="228" y="314" width="72" height="18" fill="#fff"/><text class="m" x="264" y="328" font-size="12" text-anchor="middle">ADO ITEMS</text>
+      <rect x="552" y="122" width="64" height="18" fill="#fff"/><text class="m" x="584" y="136" font-size="12" text-anchor="middle">BUs</text>
+      <rect x="548" y="314" width="72" height="18" fill="#fff"/><text class="m" x="584" y="328" font-size="12" text-anchor="middle">INTENT</text>
+      <rect x="604" y="412" width="92" height="18" fill="#fff"/><text class="m" x="696" y="426" font-size="12" text-anchor="end">CANDIDATES</text>
+      <rect x="792" y="412" width="64" height="18" fill="#fff"/><text class="m" x="796" y="426" font-size="12">MATCHES</text>
+      <rect x="876" y="122" width="56" height="18" fill="#fff"/><text class="m" x="904" y="136" font-size="12" text-anchor="middle">READ</text>
+      <rect x="872" y="314" width="64" height="18" fill="#fff"/><text class="m" x="904" y="328" font-size="12" text-anchor="middle" fill="#e3000f">CONTEXT</text>
+      <rect x="24" y="104" width="200" height="96" fill="#f1f1ef" stroke="#5c5c5c" stroke-width="2"/>
+      <text x="44" y="136" font-size="20" font-weight="800">CORE code</text>
+      <text class="m" x="44" y="160" font-size="12" fill="#5c5c5c">53 SERVICE REPOS</text>
+      <text class="m" x="44" y="184" font-size="12">EXTERNAL</text>
+      <rect x="24" y="296" width="200" height="96" fill="#f1f1ef" stroke="#5c5c5c" stroke-width="2"/>
+      <text x="44" y="328" font-size="20" font-weight="800">Azure DevOps</text>
+      <text class="m" x="44" y="352" font-size="12" fill="#5c5c5c">STORIES · TEST CASES</text>
+      <text class="m" x="44" y="376" font-size="12">EXTERNAL</text>
+      <rect x="304" y="104" width="240" height="96" fill="#fff" stroke="#0a0a0a" stroke-width="3"/>
+      <text x="324" y="136" font-size="20" font-weight="800">Code extraction</text>
+      <text class="m" x="324" y="160" font-size="12" fill="#5c5c5c">CLAUDE BATCH · BEHAVIOR</text>
+      <text class="m" x="324" y="184" font-size="12">BUILT</text>
+      <rect x="304" y="296" width="240" height="96" fill="#fff" stroke="#0a0a0a" stroke-width="3"/>
+      <text x="324" y="328" font-size="20" font-weight="800">Intent ingest</text>
+      <text class="m" x="324" y="352" font-size="12" fill="#5c5c5c">STORIES · ACs · TESTS</text>
+      <text class="m" x="324" y="376" font-size="12">BUILT</text>
+      <rect x="624" y="104" width="240" height="288" fill="#fff" stroke="#e3000f" stroke-width="5"/>
+      <text x="644" y="220" font-size="20" font-weight="800">Spec store</text>
+      <text class="m" x="644" y="244" font-size="12" fill="#5c5c5c">POSTGRES · PGVECTOR</text>
+      <text class="m" x="644" y="264" font-size="12" fill="#5c5c5c">BUs · STORIES · DOCS</text>
+      <text class="m" x="644" y="284" font-size="12" fill="#5c5c5c">51 SERVICE SPECS</text>
+      <text class="m" x="644" y="312" font-size="12" fill="#e3000f">BUILT · LIVE</text>
+      <rect x="624" y="456" width="240" height="96" fill="#fff" stroke="#0a0a0a" stroke-width="3"/>
+      <text x="644" y="488" font-size="20" font-weight="800">RTM matcher</text>
+      <text class="m" x="644" y="512" font-size="12" fill="#5c5c5c">EMBED → RERANK → 0.70</text>
+      <text class="m" x="644" y="536" font-size="12">BUILT</text>
+      <rect x="944" y="104" width="232" height="96" fill="#fff" stroke="#0a0a0a" stroke-width="3"/>
+      <text x="964" y="136" font-size="20" font-weight="800">Portal</text>
+      <text class="m" x="964" y="160" font-size="12" fill="#5c5c5c">.NET API · REACT</text>
+      <text class="m" x="964" y="184" font-size="12">BUILT</text>
+      <rect x="944" y="296" width="232" height="96" fill="#fff" stroke="#0a0a0a" stroke-width="3" stroke-dasharray="8,6"/>
+      <text x="964" y="328" font-size="20" font-weight="800">Toledo agents</text>
+      <text class="m" x="964" y="352" font-size="12" fill="#5c5c5c">CODE CONTEXT</text>
+      <text class="m" x="964" y="376" font-size="12">PLANNED</text>
+      <rect x="24" y="592" width="1152" height="56" fill="#fff" stroke="#0a0a0a" stroke-width="3"/>
+      <text x="44" y="628" font-size="20" font-weight="900">GAPS</text>
+      <text class="m" x="124" y="626" font-size="12">CLEAN COVERAGE FOR ~3 SERVICES · CI TESTS IN 3 OF 53 REPOS · CONTEXT FOR AGENTS NOT YET BUILT</text>
+      <line x1="24" y1="672" x2="1176" y2="672" stroke="#d4d4d0" stroke-width="1"/>
+      <text class="m" x="24" y="704" font-size="12" fill="#5c5c5c">LEGEND</text>
+      <rect x="108" y="692" width="32" height="16" fill="#fff" stroke="#0a0a0a" stroke-width="3"/><text class="m" x="152" y="704" font-size="12">BUILT</text>
+      <rect x="236" y="692" width="32" height="16" fill="#fff" stroke="#0a0a0a" stroke-width="3" stroke-dasharray="6,4"/><text class="m" x="280" y="704" font-size="12">PLANNED</text>
+      <rect x="380" y="692" width="32" height="16" fill="#fff" stroke="#e3000f" stroke-width="5"/><text class="m" x="424" y="704" font-size="12">SOURCE OF TRUTH</text>
+      <path d="M580 700 H620" stroke="#e3000f" stroke-width="3" stroke-dasharray="8,6"/><text class="m" x="632" y="704" font-size="12">LINK NOT YET WIRED</text>
+      <rect x="812" y="692" width="32" height="16" fill="#f1f1ef" stroke="#5c5c5c" stroke-width="2"/><text class="m" x="856" y="704" font-size="12">EXTERNAL</text>
+    </svg>
+    </div>
+    <figcaption class="flowcap">Behavior units are the atom: one checkable statement about what the code does. Stories and test cases link to them.</figcaption>
+    </figure>
+    <div class="trust">
+      <div>
+        <h4>Built</h4>
+        <p class="mono for">In code</p>
+        <ul>
+          <li>Extraction across CORE’s 53 service repos into behavior units and service docs.</li>
+          <li>51 service specs in a Postgres knowledge store.</li>
+          <li>A matcher that links stories and test cases to code behavior.</li>
+          <li>A dashboard portal, and 108 test files.</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Not yet</h4>
+        <p class="mono for red">Gaps</p>
+        <ul>
+          <li>Code context for Toledo’s agents is future work.</li>
+          <li>Clean coverage numbers exist for only about 3 services.</li>
+          <li>Only 3 of 53 CORE repos run tests in CI.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="say">
+      <div><b>Cordoba is ahead of its rating.</b>The deck says 15%; the knowledge store, matcher and portal are built.</div>
+      <div><b>It is Toledo’s memory.</b>Once wired, it tells Toledo which tests already exist, so agents build only the gap.</div>
+      <div><b>No commits since 11 Aug.</b>Wiring it to Toledo is part of the next half.</div>
+    </div>
+    <p class="note">Source: congruent-core-cordoba, branch drwatson, commit 3e792fa (11 Aug 2026).</p>
+  </div>
+</section>
+
+<section class="sec" id="watson" aria-labelledby="h-watson">
+  <header><div class="stick"><span class="mono">Segment 1 · Dr Watson</span><h2 id="h-watson">Dr Watson, <em>the testing engine</em></h2><p>The deck rates Dr Watson at 30%, which matches the code. Its two halves are not yet joined.</p></div></header>
+  <div class="main">
+    <p class="pull">Dr Watson turns manual test cases into executable tests and runs them against CORE.</p>
+    <figure style="margin:0 0 32px">
+    <div class="diagram">
+    <svg viewBox="0 0 1200 656" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="wt wd">
+      <title id="wt">Dr Watson architecture</title>
+      <desc id="wd">Left half, a Python engine in the Cordoba repository: manual test cases from Azure DevOps are standardized and their intent is extracted; dedup and Cucumber output are plan only. Right half, the .NET framework: 498 feature files run through a closed step grammar, which builds entities and calls CORE APIs in the SIT environment. Traits and worlds, designed but not built, will shape the entities. The link between the two halves is not built.</desc>
+      <defs>
+        <marker id="wh" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="12" refX="13" refY="6" orient="auto"><polygon points="0 0,14 6,0 12" fill="#0a0a0a"/></marker>
+        <marker id="wr" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="12" refX="13" refY="6" orient="auto"><polygon points="0 0,14 6,0 12" fill="#e3000f"/></marker>
+      </defs>
+      <rect width="1200" height="656" fill="#fff"/>
+      <rect x="24" y="72" width="536" height="424" fill="#fff" stroke="#0a0a0a" stroke-width="2" stroke-dasharray="8,6"/>
+      <rect x="36" y="64" width="312" height="18" fill="#fff"/>
+      <text class="m" x="44" y="78" font-size="12">PYTHON ENGINE · IN CORDOBA REPO</text>
+      <rect x="640" y="72" width="536" height="424" fill="#fff" stroke="#0a0a0a" stroke-width="2" stroke-dasharray="8,6"/>
+      <rect x="652" y="64" width="336" height="18" fill="#fff"/>
+      <text class="m" x="660" y="78" font-size="12">.NET FRAMEWORK · CONGRUENT-CORE-WATSON</text>
+      <g fill="none" stroke="#0a0a0a" stroke-width="3">
+        <path d="M248 156 H304" marker-end="url(#wh)"/>
+        <path d="M420 200 V248" marker-end="url(#wh)"/>
+        <path d="M780 200 V248" marker-end="url(#wh)"/>
+        <path d="M780 336 V384" marker-end="url(#wh)"/>
+        <path d="M896 292 H944" marker-end="url(#wh)"/>
+      </g>
+      <path d="M420 336 V384" fill="none" stroke="#0a0a0a" stroke-width="3" stroke-dasharray="8,6" marker-end="url(#wh)"/>
+      <g fill="none" stroke="#e3000f" stroke-width="3" stroke-dasharray="8,6">
+        <path d="M536 428 H592 Q600 428 600 420 V164 Q600 156 608 156 H664" marker-end="url(#wr)"/>
+        <path d="M944 428 H896" marker-end="url(#wr)"/>
+      </g>
+      <rect x="560" y="268" width="80" height="18" fill="#fff"/><text class="m" x="600" y="282" font-size="12" text-anchor="middle" fill="#e3000f">NOT JOINED</text>
+      <rect x="900" y="398" width="40" height="18" fill="#fff"/><text class="m" x="920" y="412" font-size="12" text-anchor="middle" fill="#e3000f">SHAPE</text>
+      <rect x="48" y="112" width="200" height="88" fill="#f1f1ef" stroke="#5c5c5c" stroke-width="2"/>
+      <text x="68" y="144" font-size="20" font-weight="800">Manual tests</text>
+      <text class="m" x="68" y="168" font-size="12" fill="#5c5c5c">ADO · CORE 2.0</text>
+      <text class="m" x="68" y="188" font-size="12">EXTERNAL</text>
+      <rect x="304" y="112" width="232" height="88" fill="#fff" stroke="#0a0a0a" stroke-width="3"/>
+      <text x="324" y="144" font-size="20" font-weight="800">Standardize</text>
+      <text class="m" x="324" y="168" font-size="12" fill="#5c5c5c">ONTOLOGY · CLEAN STEPS</text>
+      <text class="m" x="324" y="188" font-size="12">BUILT</text>
+      <rect x="304" y="248" width="232" height="88" fill="#fff" stroke="#0a0a0a" stroke-width="3"/>
+      <text x="324" y="280" font-size="20" font-weight="800">Extract intent</text>
+      <text class="m" x="324" y="304" font-size="12" fill="#5c5c5c">WHAT EACH TEST CHECKS</text>
+      <text class="m" x="324" y="324" font-size="12">BUILT</text>
+      <rect x="304" y="384" width="232" height="88" fill="#fff" stroke="#0a0a0a" stroke-width="3" stroke-dasharray="8,6"/>
+      <text x="324" y="416" font-size="20" font-weight="800">Dedup · emit</text>
+      <text class="m" x="324" y="440" font-size="12" fill="#5c5c5c">CUCUMBER OUTPUT</text>
+      <text class="m" x="324" y="460" font-size="12">PLAN ONLY</text>
+      <rect x="664" y="112" width="232" height="88" fill="#fff" stroke="#0a0a0a" stroke-width="3"/>
+      <text x="684" y="144" font-size="20" font-weight="800">Feature files</text>
+      <text class="m" x="684" y="168" font-size="12" fill="#5c5c5c">498 · API + UI</text>
+      <text class="m" x="684" y="188" font-size="12">BUILT</text>
+      <rect x="664" y="248" width="232" height="88" fill="#fff" stroke="#0a0a0a" stroke-width="3"/>
+      <text x="684" y="280" font-size="20" font-weight="800">Step grammar</text>
+      <text class="m" x="684" y="304" font-size="12" fill="#5c5c5c">CLOSED · REQNROLL</text>
+      <text class="m" x="684" y="324" font-size="12">BUILT</text>
+      <rect x="664" y="384" width="232" height="88" fill="#fff" stroke="#0a0a0a" stroke-width="3"/>
+      <text x="684" y="416" font-size="20" font-weight="800">Entity builder</text>
+      <text class="m" x="684" y="440" font-size="12" fill="#5c5c5c">DEPENDENCY GRAPH</text>
+      <text class="m" x="684" y="460" font-size="12">BUILT</text>
+      <rect x="944" y="248" width="208" height="88" fill="#f1f1ef" stroke="#5c5c5c" stroke-width="2"/>
+      <text x="964" y="280" font-size="20" font-weight="800">CORE APIs</text>
+      <text class="m" x="964" y="304" font-size="12" fill="#5c5c5c">SIT ENVIRONMENT</text>
+      <text class="m" x="964" y="324" font-size="12">EXTERNAL</text>
+      <rect x="944" y="384" width="208" height="88" fill="#fff" stroke="#e3000f" stroke-width="5" stroke-dasharray="10,6"/>
+      <text x="964" y="416" font-size="20" font-weight="800">Traits · worlds</text>
+      <text class="m" x="964" y="440" font-size="12" fill="#5c5c5c">BUSINESS SHAPES</text>
+      <text class="m" x="964" y="460" font-size="12" fill="#e3000f">DESIGNED · NEXT</text>
+      <rect x="24" y="528" width="1152" height="56" fill="#fff" stroke="#0a0a0a" stroke-width="3"/>
+      <text x="44" y="564" font-size="20" font-weight="900">GAPS</text>
+      <text class="m" x="124" y="562" font-size="12">HALVES NOT JOINED · NOTHING GENERATES TESTS FROM A BRD YET · NO PASS-RATE OR PILOT METRICS</text>
+      <line x1="24" y1="608" x2="1176" y2="608" stroke="#d4d4d0" stroke-width="1"/>
+      <text class="m" x="24" y="640" font-size="12" fill="#5c5c5c">LEGEND</text>
+      <rect x="108" y="628" width="32" height="16" fill="#fff" stroke="#0a0a0a" stroke-width="3"/><text class="m" x="152" y="640" font-size="12">BUILT</text>
+      <rect x="236" y="628" width="32" height="16" fill="#fff" stroke="#0a0a0a" stroke-width="3" stroke-dasharray="6,4"/><text class="m" x="280" y="640" font-size="12">PLAN ONLY</text>
+      <rect x="400" y="628" width="32" height="16" fill="#fff" stroke="#e3000f" stroke-width="5" stroke-dasharray="6,4"/><text class="m" x="444" y="640" font-size="12">NEXT SLICE</text>
+      <path d="M572 636 H612" stroke="#e3000f" stroke-width="3" stroke-dasharray="8,6"/><text class="m" x="624" y="640" font-size="12">LINK NOT BUILT</text>
+      <rect x="772" y="628" width="32" height="16" fill="#f1f1ef" stroke="#5c5c5c" stroke-width="2"/><text class="m" x="816" y="640" font-size="12">EXTERNAL</text>
+    </svg>
+    </div>
+    <figcaption class="flowcap">Two working halves. The join between them is what turns a requirement into a running test.</figcaption>
+    </figure>
+
+    <h3 class="sub">Traits and worlds</h3>
+    <p class="pull">A trait is a named business shape, such as “immediate eligibility”. An agent picks the name; the framework builds the data.</p>
+    <figure style="margin:0 0 32px">
+    <div class="diagram">
+    <svg viewBox="0 0 1200 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="rt rd">
+      <title id="rt">How traits and worlds build test data</title>
+      <desc id="rd">A scenario tag names a world or traits. A world expands into a set of traits. The trait library holds each shape as a JSON file under one name. The resolver flattens parent, trait and own values into rows. The world builder orders the build, for example Company before Plan, using the dependency graph that is already built. Names are checked at load time; an unknown name fails the whole run. Evidence: the same nine-row eligibility block appears 448 of 448 times in one file; a two-year cliff schedule repeats about 1,217 times; a calendar plan year block about 1,022 times across 47 files; about 14,254 legacy scenarios were measured.</desc>
+      <defs>
+        <marker id="rh" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="12" refX="13" refY="6" orient="auto"><polygon points="0 0,14 6,0 12" fill="#0a0a0a"/></marker>
+      </defs>
+      <rect width="1200" height="560" fill="#fff"/>
+      <rect x="24" y="72" width="680" height="176" fill="#fff" stroke="#e3000f" stroke-width="2" stroke-dasharray="8,6"/>
+      <rect x="36" y="64" width="440" height="18" fill="#fff"/>
+      <text class="m" x="44" y="78" font-size="12" fill="#e3000f">LOAD-TIME CHECK · AN UNKNOWN NAME FAILS THE WHOLE RUN</text>
+      <g fill="none" stroke="#0a0a0a" stroke-width="3">
+        <path d="M216 176 H276" marker-end="url(#rh)"/>
+        <path d="M452 176 H512" marker-end="url(#rh)"/>
+        <path d="M688 176 H748" marker-end="url(#rh)"/>
+        <path d="M924 176 H984" marker-end="url(#rh)"/>
+      </g>
+      <rect x="220" y="146" width="52" height="18" fill="#fff"/><text class="m" x="246" y="160" font-size="12" text-anchor="middle">NAMES</text>
+      <rect x="452" y="146" width="60" height="18" fill="#fff"/><text class="m" x="482" y="160" font-size="12" text-anchor="middle">EXPANDS</text>
+      <rect x="928" y="146" width="52" height="18" fill="#fff"/><text class="m" x="954" y="160" font-size="12" text-anchor="middle">ROWS</text>
+      <rect x="40" y="120" width="176" height="112" fill="#fff" stroke="#0a0a0a" stroke-width="3" stroke-dasharray="8,6"/>
+      <text x="60" y="152" font-size="20" font-weight="800">Scenario tag</text>
+      <text class="m" x="60" y="176" font-size="12" fill="#5c5c5c">@world:X</text>
+      <text class="m" x="60" y="196" font-size="12" fill="#5c5c5c">@traits:plan.Y</text>
+      <text class="m" x="60" y="220" font-size="12">DESIGNED</text>
+      <rect x="276" y="120" width="176" height="112" fill="#fff" stroke="#0a0a0a" stroke-width="3" stroke-dasharray="8,6"/>
+      <text x="296" y="152" font-size="20" font-weight="800">World</text>
+      <text class="m" x="296" y="176" font-size="12" fill="#5c5c5c">A NAMED SET</text>
+      <text class="m" x="296" y="196" font-size="12" fill="#5c5c5c">OF TRAITS</text>
+      <text class="m" x="296" y="220" font-size="12">DESIGNED</text>
+      <rect x="512" y="120" width="176" height="112" fill="#fff" stroke="#0a0a0a" stroke-width="3" stroke-dasharray="8,6"/>
+      <text x="532" y="152" font-size="20" font-weight="800">Trait library</text>
+      <text class="m" x="532" y="176" font-size="12" fill="#5c5c5c">JSON FILES</text>
+      <text class="m" x="532" y="196" font-size="12" fill="#5c5c5c">ONE NAME EACH</text>
+      <text class="m" x="532" y="220" font-size="12">DESIGNED</text>
+      <rect x="748" y="120" width="176" height="112" fill="#fff" stroke="#0a0a0a" stroke-width="3" stroke-dasharray="8,6"/>
+      <text x="768" y="152" font-size="20" font-weight="800">Resolver</text>
+      <text class="m" x="768" y="176" font-size="12" fill="#5c5c5c">PARENT → TRAIT</text>
+      <text class="m" x="768" y="196" font-size="12" fill="#5c5c5c">→ OWN VALUES</text>
+      <text class="m" x="768" y="220" font-size="12">DESIGNED</text>
+      <rect x="984" y="120" width="192" height="112" fill="#fff" stroke="#e3000f" stroke-width="5"/>
+      <text x="1004" y="152" font-size="20" font-weight="800">World builder</text>
+      <text class="m" x="1004" y="176" font-size="12" fill="#5c5c5c">COMPANY → PLAN</text>
+      <text class="m" x="1004" y="196" font-size="12" fill="#5c5c5c">IN DECLARED ORDER</text>
+      <text class="m" x="1004" y="220" font-size="12" fill="#e3000f">FOUNDATION BUILT</text>
+      <text class="m" x="24" y="300" font-size="12" fill="#5c5c5c">WHY · MEASURED IN THE LEGACY TEST CORPUS</text>
+      <line x1="24" y1="312" x2="1176" y2="312" stroke="#0a0a0a" stroke-width="3"/>
+      <text x="24" y="368" font-size="44" font-weight="900">448/448</text>
+      <text x="24" y="396" font-size="16" fill="#5c5c5c">same 9-row eligibility block,</text>
+      <text x="24" y="416" font-size="16" fill="#5c5c5c">in one file</text>
+      <text x="320" y="368" font-size="44" font-weight="900">~1,217×</text>
+      <text x="320" y="396" font-size="16" fill="#5c5c5c">two-year cliff vesting</text>
+      <text x="320" y="416" font-size="16" fill="#5c5c5c">schedule, re-typed</text>
+      <text x="616" y="368" font-size="44" font-weight="900">~1,022×</text>
+      <text x="616" y="396" font-size="16" fill="#5c5c5c">calendar plan year block,</text>
+      <text x="616" y="416" font-size="16" fill="#5c5c5c">across 47 files</text>
+      <text x="912" y="368" font-size="44" font-weight="900" fill="#e3000f">~14,254</text>
+      <text x="912" y="396" font-size="16" fill="#5c5c5c">legacy scenarios</text>
+      <text x="912" y="416" font-size="16" fill="#5c5c5c">measured</text>
+      <rect x="24" y="456" width="1152" height="56" fill="#fff" stroke="#0a0a0a" stroke-width="3"/>
+      <text x="44" y="492" font-size="20" font-weight="900">STATUS</text>
+      <text class="m" x="148" y="490" font-size="12">BUILT: CAPTURES · DEPENDENCY GRAPH · DERIVED BUILD ORDER   |   NEXT: TRAITS + WORLDS AS ONE SLICE</text>
+      <line x1="24" y1="528" x2="1176" y2="528" stroke="#d4d4d0" stroke-width="1"/>
+      <text class="m" x="24" y="552" font-size="12" fill="#5c5c5c">LEGEND</text>
+      <rect x="108" y="540" width="32" height="16" fill="#fff" stroke="#0a0a0a" stroke-width="3" stroke-dasharray="6,4"/><text class="m" x="152" y="552" font-size="12">DESIGNED</text>
+      <rect x="272" y="540" width="32" height="16" fill="#fff" stroke="#e3000f" stroke-width="5"/><text class="m" x="316" y="552" font-size="12">FOUNDATION BUILT</text>
+    </svg>
+    </div>
+    <figcaption class="flowcap">The legacy team built this idea three times by hand. Traits make it one closed, checked vocabulary that agents can use.</figcaption>
+    </figure>
+    <div class="trust">
+      <div>
+        <h4>Built</h4>
+        <p class="mono for">In code</p>
+        <ul>
+          <li>498 feature files across API and UI tests.</li>
+          <li>A closed step grammar, with 20 recorded design decisions.</li>
+          <li>Multi-call entities with a derived build order, run live against SIT; that run found and fixed a real data bug.</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Not yet</h4>
+        <p class="mono for red">Gaps</p>
+        <ul>
+          <li>Dedup and Cucumber output in the Python engine: plan only.</li>
+          <li>Traits and worlds: designed, the next slice.</li>
+          <li>No pass-rate or pilot metrics; nothing generates tests from a BRD.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="say">
+      <div><b>Traits give agents a vocabulary.</b>An agent writes “immediate eligibility”; the framework knows the fields, the parent Company and Plan, and the build order.</div>
+      <div><b>No silent failures.</b>An unknown trait name stops the whole run before any test starts.</div>
+      <div><b>No commits since 20 Aug.</b>Joining the two halves is part of the next half.</div>
+    </div>
+    <p class="note">Sources: congruent-core-watson at commit 47f082d (20 Aug 2026); drwatson-engine in congruent-core-cordoba at 3e792fa.</p>
   </div>
 </section>
 
