@@ -44,10 +44,10 @@
 |---|---|---|---|
 | 0–5 | 1. Six-month progress | Talk | |
 | 5–10 | 2. The world of Bifrost | Talk and diagram | |
-| 10–20 | 3. Prototype 1: payroll and match / profit sharing math engine | Live demo | Srivas |
-| 20–30 | 4. Prototype 2: participant investment analytics | Live demo | Amirtha Varshini, Haritha |
-| 30–40 | 5. Prototype 3 architecture (multilingual multi-agent CORE orchestration), then what's next | Built; shown as architecture | |
-| 40–50 | 6. Questions | | |
+| 10–25 | 3. Prototype 1: payroll and match / profit sharing math engine | Live demo | Srivas |
+| 25–40 | 4. Prototype 2: participant investment analytics | Live demo | Amirtha Varshini, Haritha |
+| 40–45 | 5. Prototype 3 architecture (multilingual multi-agent CORE orchestration), then what's next | Built; shown as architecture | |
+| 45–50 | 6. Questions | | |
 
 ## 1. Six-month progress
 
@@ -199,11 +199,11 @@ ADO owns requirements, approvals, test cases and results. GitHub owns code and p
 
 ## 3. Prototype 1: payroll and match / profit sharing math engine
 
-**Presenter: Srivas.** Live demo, 10 minutes.
+**Presenter: Srivas.** Live demo, 15 minutes.
 
 ## 4. Prototype 2: participant investment analytics
 
-**Presenters: Amirtha Varshini and Haritha.** Live demo, 10 minutes.
+**Presenters: Amirtha Varshini and Haritha.** Live demo, 15 minutes.
 
 ## 5. Prototype 3 architecture, and what's next
 
@@ -266,7 +266,7 @@ ADO owns requirements, approvals, test cases and results. GitHub owns code and p
 
 ## 6. Questions
 
-**Speaker line:** Ten minutes for questions. Bring anything about the architecture, the prototypes, or how your team can use them.
+**Speaker line:** Five minutes for questions. Bring anything about the architecture, the prototypes, or how your team can use them.
 
 **Likely questions and short answers**
 

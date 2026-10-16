@@ -84,7 +84,7 @@ h3.sub{margin:40px 0 12px;font:900 28px/1 var(--sans);font-stretch:80%;text-tran
 .brief li.hl b{color:var(--red)}
 
 /* run of show */
-.show{display:grid;grid-template-columns:minmax(150px,5fr) minmax(150px,5fr) 10fr 10fr 10fr 10fr;border:4px solid var(--ink)}
+.show{display:grid;grid-template-columns:minmax(150px,5fr) minmax(150px,5fr) 15fr 15fr minmax(150px,5fr) minmax(150px,5fr);border:4px solid var(--ink)}
 .show > div{padding:12px 14px 16px;border-right:2px solid var(--ink);min-height:200px;display:flex;flex-direction:column;gap:8px;min-width:0}
 .show > div:last-child{border-right:0}
 .show .t{font:500 12px/1 var(--mono);letter-spacing:.08em}
@@ -310,15 +310,15 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
 </section>
 
 <section class="sec" id="show" aria-labelledby="h-show">
-  <header><div class="stick"><span class="mono">50 minutes · six segments</span><h2 id="h-show"><em>Agenda</em></h2><p>Two live demos at the centre, ten minutes of questions at the end.</p></div></header>
+  <header><div class="stick"><span class="mono">50 minutes · six segments</span><h2 id="h-show"><em>Agenda</em></h2><p>Two 15-minute live demos at the centre, five minutes of questions at the end.</p></div></header>
   <div class="main">
     <div class="show">
       <div><span class="t">0–5</span><h4>Six-month progress</h4><span class="mono">Talk</span></div>
       <div><span class="t">5–10</span><h4>The world of Bifrost</h4><span class="mono">Talk and diagram</span></div>
-      <div class="demo"><span class="t">10–20</span><h4>Prototype 1 · Payroll and match / profit-sharing</h4><span class="mono">Live demo</span><span class="who">Srivas</span></div>
-      <div class="demo"><span class="t">20–30</span><h4>Prototype 2 · Participant investment analytics</h4><span class="mono">Live demo</span><span class="who">Amirtha Varshini, Haritha</span></div>
-      <div><span class="t">30–40</span><h4>Prototype 3 · Multilingual orchestration, then what's next</h4><span class="mono">Built · shown as architecture</span></div>
-      <div class="qa"><span class="t">40–50</span><h4>Questions</h4><span class="mono">Open floor</span></div>
+      <div class="demo"><span class="t">10–25</span><h4>Prototype 1 · Payroll and match / profit-sharing</h4><span class="mono">Live demo</span><span class="who">Srivas</span></div>
+      <div class="demo"><span class="t">25–40</span><h4>Prototype 2 · Participant investment analytics</h4><span class="mono">Live demo</span><span class="who">Amirtha Varshini, Haritha</span></div>
+      <div><span class="t">40–45</span><h4>Prototype 3 · What's next</h4><span class="mono">Built · shown as architecture</span></div>
+      <div class="qa"><span class="t">45–50</span><h4>Questions</h4><span class="mono">Open floor</span></div>
     </div>
     <div class="axis" aria-hidden="true"><span>0</span><span>5</span><span>10</span><span>15</span><span>20</span><span>25</span><span>30</span><span>35</span><span>40</span><span>45</span></div>
   </div>
@@ -969,7 +969,7 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
 </section>
 
 <section class="sec" id="prototypes" aria-labelledby="h-proto">
-  <header><div class="stick"><span class="mono">Segments 3–5 · 10–40 min</span><h2 id="h-proto">Three <em>prototypes</em></h2><p>Built on CORE through Bifrost as demos for conference season.</p></div></header>
+  <header><div class="stick"><span class="mono">Segments 3–5 · 10–45 min</span><h2 id="h-proto">Three <em>prototypes</em></h2><p>Built on CORE through Bifrost as demos for conference season.</p></div></header>
   <div class="main">
     <div class="three">
       <article class="proto">
@@ -984,7 +984,7 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
         </div>
         <h4>Payroll and match / profit-sharing math engine</h4>
         <p>A raw payroll file in, exact contribution amounts out. An agent maps and checks the file, a person reviews and approves.</p>
-        <div class="who"><span class="tag f">Live demo · 10 min</span><b>Srivas</b></div>
+        <div class="who"><span class="tag f">Live demo · 15 min</span><b>Srivas</b></div>
         <div class="who"><a href="payroll.html"><b>See both payroll scenarios →</b></a></div>
       </article>
       <article class="proto">
@@ -999,7 +999,7 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
         </div>
         <h4>Participant investment analytics</h4>
         <p>A participant asks about their own money in plain language. The agent answers from their plan and account, and acts only after they confirm.</p>
-        <div class="who"><span class="tag f">Live demo · 10 min</span><b>Amirtha Varshini, Haritha</b></div>
+        <div class="who"><span class="tag f">Live demo · 15 min</span><b>Amirtha Varshini, Haritha</b></div>
         <div class="who"><a href="participant.html"><b>See the participant agent →</b></a></div>
       </article>
       <article class="proto">
@@ -1021,7 +1021,7 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
 </section>
 
 <section class="sec" id="withdrawal" aria-labelledby="h-wd">
-  <header><div class="stick"><span class="mono">Segment 5 · 30–40 min</span><h2 id="h-wd">Inside a <em>withdrawal</em></h2><p>Prototype 3 is built. For time, we present its architecture rather than a live demo. Multilingual: English, French and Spanish.</p></div></header>
+  <header><div class="stick"><span class="mono">Segment 5 · 40–45 min</span><h2 id="h-wd">Inside a <em>withdrawal</em></h2><p>Prototype 3 is built. For time, we present its architecture rather than a live demo. Multilingual: English, French and Spanish.</p></div></header>
   <div class="main">
     <p class="pull">The third prototype shows what happens when several agents and a process engine work one CORE task together.</p>
     <p style="max-width:44em;margin:0 0 24px">A withdrawal arrives as a document, in English, French or Spanish. It has to be read in its own language, checked against plan facts, consented to, submitted and approved by a person, and every step must be auditable.</p>
@@ -1227,7 +1227,7 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
 </section>
 
 <section class="sec" id="questions" aria-labelledby="h-qa">
-  <header><div class="stick"><span class="mono">Segment 6 · 40–50 min</span><h2 id="h-qa">Your <em>questions</em></h2><p>Ten minutes. Bring anything about the architecture, the prototypes, or how your team can use them.</p></div></header>
+  <header><div class="stick"><span class="mono">Segment 6 · 45–50 min</span><h2 id="h-qa">Your <em>questions</em></h2><p>Five minutes. Bring anything about the architecture, the prototypes, or how your team can use them.</p></div></header>
   <div class="main">
     <div class="qa-grid">
       <div><h4>Can an agent move money on its own?</h4><p>No, not in any flow we have built. Agents prepare and explain. A person approves, Bifrost verifies the person, and CORE applies the change.</p></div>
