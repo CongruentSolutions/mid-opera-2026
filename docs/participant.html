@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Athena Participant Agent · OPERA Midyear 2026</title>
+<meta name="description" content="Six months of the Technology Transformation Office: progress against the key results, the world of Bifrost, three prototypes, the trust layer, and what comes next.">
+<meta property="og:title" content="OPERA Midyear 2026 · Technology Transformation Office">
+<meta property="og:description" content="Agents propose. People decide. Six months of TTO work on CORE.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23fff'/%3E%3Ccircle cx='20' cy='16' r='9' fill='%23e3000f'/%3E%3Crect x='4' y='4' width='6' height='24' fill='%230a0a0a'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: full-width broadsheet. Sticky section label in the left 3 of 12 columns, content in the right 9. */
+:root{
+  --ink:#161d3f; --text:#161d3f; --paper:#ffffff; --red:#e3000f; --gold:#e3000f; --grey:#565d72; --wash:#eceef6; --line:#ced4e2;
+  --sans:"Archivo","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --pad:max(16px,4vw);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--text);font:400 18px/1.5 var(--sans);-webkit-font-smoothing:antialiased}
+.pad{padding-left:max(var(--pad),env(safe-area-inset-left,0px));padding-right:max(var(--pad),env(safe-area-inset-right,0px))}
+a{color:inherit}
+:focus-visible{outline:4px solid var(--red);outline-offset:3px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:#fff;padding:8px 12px;z-index:30}
+.skip:focus{left:8px}
+.mono{font:500 12px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.red{color:var(--red)}
+.tag{display:inline-block;border:2px solid var(--ink);padding:2px 8px;font:500 12px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.tag.r{border-color:var(--red);color:var(--red)}
+.tag.f{background:var(--ink);color:#fff}
+
+/* bulletin + masthead */
+.bulletin{background:var(--red);color:#fff;display:flex;gap:16px;align-items:baseline;padding-block:10px;flex-wrap:wrap}
+.bulletin b{font:500 12px/1 var(--mono);letter-spacing:.12em;border:2px solid #fff;padding:4px 8px}
+.bulletin span{font:800 20px/1.2 var(--sans)}
+.mast{padding-block:16px 12px;display:grid;grid-template-columns:auto 1fr;gap:12px 48px;align-items:end;border-bottom:4px solid var(--ink)}
+.mast .name{font:900 clamp(56px,9vw,148px)/.82 var(--sans);font-stretch:66%;letter-spacing:-.02em;text-transform:uppercase}
+.mast .name i{font-style:normal;color:var(--red)}
+.mast .meta{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px 24px;border-top:1px solid var(--ink);padding-top:8px}
+.mast .meta b{display:block;color:var(--grey);font-weight:500}
+
+/* sticky nav */
+nav.idx{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--paper);border-bottom:2px solid var(--ink)}
+nav.idx ul{list-style:none;margin:0;padding:0;display:flex;gap:0;overflow-x:auto}
+nav.idx a{display:block;padding:14px 16px 12px;text-decoration:none;white-space:nowrap;font:500 12px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;border-right:1px solid var(--line)}
+nav.idx li:first-child a{padding-left:0}
+nav.idx a:hover{background:var(--ink);color:#fff}
+
+/* hero */
+.hero{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:32px;padding-block:40px 56px}
+.hero h1{grid-column:1 / span 8;margin:0;font:900 clamp(56px,9.6vw,184px)/.86 var(--sans);font-stretch:74%;letter-spacing:-.03em;text-transform:uppercase}
+.hero h1 em{font-style:normal;color:var(--red)}
+.hero .side{grid-column:9 / span 4;display:grid;gap:20px;align-content:start}
+.hero .side svg{display:block;width:100%;height:auto}
+.hero .lead{grid-column:1 / span 5;font:800 clamp(22px,2vw,30px)/1.2 var(--sans);margin:0}
+.hero .body{grid-column:6 / span 3;margin:0;font-size:17px}
+.inissue{border-top:4px solid var(--ink);padding-top:8px}
+.inissue ol{margin:8px 0 0;padding:0;list-style:none;display:grid;gap:4px;counter-reset:i}
+.inissue li{display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding:4px 0;font-size:15px}
+.inissue a{text-decoration:none;font-weight:700}
+.inissue a:hover{color:var(--red)}
+
+/* section shell */
+.sec{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:32px;border-top:12px solid var(--ink);padding-block:16px 72px}
+.sec > header{grid-column:1 / span 3}
+.sec > header .stick{position:sticky;top:72px}
+.sec > header h2{margin:8px 0 12px;font:900 clamp(36px,3.6vw,64px)/.9 var(--sans);font-stretch:68%;overflow-wrap:break-word;letter-spacing:-.02em;text-transform:uppercase}
+.sec > header h2 em{font-style:normal;color:var(--red)}
+.sec > header p{margin:0;color:var(--grey);font-size:15px}
+.sec > .main{grid-column:4 / -1;min-width:0}
+.pull{margin:0 0 32px;font:800 clamp(24px,2.4vw,40px)/1.15 var(--sans);max-width:30em;border-left:12px solid var(--red);padding-left:20px}
+h3.sub{margin:40px 0 12px;font:900 28px/1 var(--sans);font-stretch:80%;text-transform:uppercase;border-top:4px solid var(--ink);padding-top:10px}
+.note{font-size:14px;color:var(--grey);margin:12px 0 0}
+
+/* brief */
+.brief{columns:3 280px;column-gap:40px;column-rule:1px solid var(--ink);margin:0;padding:0;list-style:none}
+.brief li{break-inside:avoid;padding:0 0 14px;margin-bottom:14px;border-bottom:1px solid var(--line);font-size:17px}
+.brief li b{display:block;font:900 20px/1.15 var(--sans)}
+.brief li.hl b{color:var(--red)}
+
+/* run of show */
+.show{display:grid;grid-template-columns:minmax(150px,5fr) minmax(150px,5fr) 10fr 10fr 10fr 10fr;border:4px solid var(--ink)}
+.show > div{padding:12px 14px 16px;border-right:2px solid var(--ink);min-height:200px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.show > div:last-child{border-right:0}
+.show .t{font:500 12px/1 var(--mono);letter-spacing:.08em}
+.show h4{margin:0;font:900 20px/1.05 var(--sans);font-stretch:85%;text-transform:uppercase;hyphens:auto}
+.show .who{margin-top:auto;font:700 15px/1.2 var(--sans)}
+.show .demo{background:var(--ink);color:#fff}
+.show .qa{background:var(--red);color:#fff}
+.axis{display:none;grid-template-columns:repeat(10,1fr);font:500 12px/1 var(--mono);color:var(--grey);margin-top:6px}
+
+/* progress */
+.prog{width:100%;border-collapse:collapse;font-size:15px}
+.prog th{text-align:left;font:500 12px/1.3 var(--mono);letter-spacing:.08em;text-transform:uppercase;border-bottom:4px solid var(--ink);padding:8px 12px 8px 0;vertical-align:bottom}
+.prog td{border-bottom:1px solid var(--line);padding:14px 12px 14px 0;vertical-align:top}
+.prog tr.obj td{border-bottom:2px solid var(--ink);padding-top:28px;font:900 13px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase}
+.prog .kr{font:800 17px/1.2 var(--sans);width:22%}
+.prog .bars{width:30%}
+.bar{position:relative;height:14px;background:var(--wash);margin:3px 0}
+.bar i{position:absolute;top:0;bottom:0;left:0}
+.bar.deck i{background:repeating-linear-gradient(135deg,var(--ink) 0 2px,transparent 2px 6px)}
+.bar.ours i{background:var(--ink)}
+.bar.ours i.hi{background:var(--red)}
+.bar.ours i.rng{background:repeating-linear-gradient(90deg,var(--ink) 0 6px,#67708e 6px 8px)}
+.bar small{position:absolute;right:-56px;top:-1px;font:500 12px/1 var(--mono);width:48px}
+.barwrap{padding-right:60px}
+.prog td.ours{font:900 20px/1.1 var(--sans);width:14%}
+.prog td.ours small{display:block;font:500 11px/1.3 var(--mono);color:var(--grey);letter-spacing:.06em;text-transform:uppercase;margin-top:4px}
+.legend{display:flex;gap:24px;flex-wrap:wrap;margin:16px 0 0;font:500 12px/1 var(--mono);text-transform:uppercase;letter-spacing:.08em}
+.legend span{display:flex;gap:8px;align-items:center}
+.legend i{display:inline-block;width:32px;height:12px}
+.say{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;margin-top:32px}
+.say div{border-top:4px solid var(--ink);padding-top:10px;font-size:16px}
+.say b{display:block;font:900 20px/1.1 var(--sans);margin-bottom:6px}
+.tablewrap{overflow-x:auto}
+
+/* diagrams */
+.diagram{overflow-x:auto;border-top:4px solid var(--ink);border-bottom:4px solid var(--ink);padding-block:16px}
+.diagram svg{display:block;width:100%;min-width:960px;height:auto}
+.diagram text{font-family:var(--sans)}
+.diagram .m{font-family:var(--mono);font-weight:500}
+
+/* pieces */
+.pieces{width:100%;border-collapse:collapse;margin-top:8px}
+.pieces th{text-align:left;font:500 12px/1.3 var(--mono);letter-spacing:.08em;text-transform:uppercase;border-bottom:4px solid var(--ink);padding:8px 16px 8px 0}
+.pieces td{border-bottom:1px solid var(--line);padding:14px 16px 14px 0;vertical-align:top;font-size:16px}
+.pieces td:first-child{font:900 28px/1 var(--sans);font-stretch:80%;text-transform:uppercase;width:16%}
+.pieces td:last-child{color:var(--grey)}
+.cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.cols > div{border-top:4px solid var(--ink);padding-top:10px;font-size:16px}
+.cols b{display:block;font:900 20px/1.1 var(--sans);margin-bottom:6px}
+
+/* rdx screens */
+.shots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px 32px}
+.shot{margin:0;min-width:0}
+.shot.wide{grid-column:1 / -1}
+.shot a{display:block;border:1px solid var(--line);background:var(--wash);padding:12px}
+.shot a:hover{border-color:var(--ink)}
+.shot img{display:block;width:100%;height:auto}
+.shot figcaption{margin-top:12px;font-size:16px}
+.shot figcaption b{display:block;font:900 20px/1.15 var(--sans);color:var(--ink);margin-bottom:4px}
+@media (max-width:820px){.shots{grid-template-columns:1fr}}
+
+/* prototypes */
+.three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}
+.proto{border-top:4px solid var(--ink);padding-top:12px;display:flex;flex-direction:column;gap:10px}
+.proto .art{background:var(--wash)}
+.proto .art svg{display:block;width:100%;height:auto}
+.proto h4{margin:0;font:900 30px/1 var(--sans);font-stretch:78%;text-transform:uppercase}
+.proto p{margin:0;font-size:16px}
+.proto .who{border-top:1px solid var(--ink);padding-top:8px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.proto .who b{font:800 17px/1.2 var(--sans)}
+.big{font:900 80px/.8 var(--sans);font-stretch:66%;color:var(--gold)}
+.hero h1,.sec > header h2,h3.sub,.mast .name,.trust h4{color:var(--ink)}
+
+/* steps */
+.phase{display:grid;grid-template-columns:1fr;gap:40px}
+.flowcap{margin:12px 0 0;font-size:15px;color:var(--grey)}
+
+/* next */
+.stair svg{display:block;width:100%;height:auto}
+.plan{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;margin-top:8px}
+.plan div{border-top:4px solid var(--ink);padding-top:10px;font-size:16px}
+.plan b{display:block;font:900 20px/1.1 var(--sans);margin-bottom:6px}
+
+/* trust */
+.trust{display:grid;grid-template-columns:1fr 1fr;border-top:4px solid var(--ink)}
+.trust > div{padding:16px 32px 24px 0;min-width:0}
+.trust > div + div{padding:16px 0 24px 32px;border-left:4px solid var(--ink)}
+.trust h4{margin:0;font:900 clamp(64px,7vw,128px)/.88 var(--sans);font-stretch:68%;letter-spacing:-.02em}
+.trust .for{margin:6px 0 16px}
+.trust ul{margin:0 0 24px;padding:0;list-style:none;display:grid;gap:8px}
+.trust li{padding-left:22px;position:relative;font-size:16px}
+.trust li::before{content:"";position:absolute;left:0;top:.5em;width:10px;height:10px;background:var(--ink)}
+.trust svg{display:block;width:100%;height:auto}
+
+/* q&a */
+.qa-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 40px}
+.qa-grid div{border-top:4px solid var(--ink);padding:10px 0 24px}
+.qa-grid h4{margin:0 0 8px;font:900 22px/1.1 var(--sans);font-stretch:85%}
+.qa-grid p{margin:0;font-size:16px}
+
+/* glossary */
+.terms{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 40px;margin:0}
+.terms div{display:grid;grid-template-columns:120px 1fr;gap:12px;border-bottom:1px solid var(--line);padding:10px 0}
+.terms dt{font:900 15px/1.3 var(--sans);text-transform:uppercase}
+.terms dd{margin:0;font-size:15px}
+
+footer{background:var(--ink);color:#fff;padding-block:40px 56px}
+footer .in{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:32px}
+footer h2{grid-column:1 / span 7;margin:0;font:900 clamp(48px,7vw,120px)/.86 var(--sans);font-stretch:68%;text-transform:uppercase}
+footer h2 i{font-style:normal;color:var(--red)}
+footer .c1{grid-column:8 / span 2}
+footer .c2{grid-column:10 / span 3}
+footer p{margin:0;font-size:14px;color:#d6d6d6}
+
+/* smaller screens: stack */
+@media (max-width:1100px){
+  .sec > header,.sec > .main{grid-column:1 / -1}
+  .sec > header .stick{position:static}
+  .say,.plan{grid-template-columns:1fr 1fr}
+  .qa-grid,.terms{grid-template-columns:1fr 1fr}
+  .three{grid-template-columns:1fr 1fr}
+}
+@media (max-width:820px){
+  .hero h1,.hero .side,.hero .lead,.hero .body{grid-column:1 / -1}
+  .hero .side{max-width:420px}
+  .mast{grid-template-columns:1fr}
+  .mast .meta{grid-template-columns:1fr 1fr}
+  .show{grid-template-columns:1fr}
+  .show > div{border-right:0;border-bottom:2px solid var(--ink);min-height:0}
+  .axis{display:none}
+  .three,.cols,.say,.plan,.qa-grid,.terms,.trust,.phase{grid-template-columns:1fr}
+  .trust > div + div{border-left:0;border-top:4px solid var(--ink);padding-left:0}
+  footer .in{grid-template-columns:1fr}
+  footer h2,footer .c1,footer .c2{grid-column:1 / -1}
+  .terms div{grid-template-columns:96px 1fr}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+
+<div class="bulletin pad" role="note"><b>PROTOTYPE 2</b><span>Athena Participant Agent. Live demo.</span></div>
+
+<header class="mast pad">
+  <div class="name">Opera<i>.</i></div>
+  <div class="meta mono">
+    <span><b>Event</b>Midyear OPERA</span>
+    <span><b>Group</b>Technology Transformation Office</span>
+    <span><b>Prototype</b>Participant investment analytics</span>
+    <span><b>Date</b>16 October 2026</span>
+  </div>
+</header>
+
+<nav class="idx pad" aria-label="Sections">
+  <ul>
+    <li><a href="index.html#prototypes">← Back to OPERA</a></li>
+    <li><a href="#problem">The problem</a></li>
+    <li><a href="#solution">The solution</a></li>
+    <li><a href="#how">How it works</a></li>
+  </ul>
+</nav>
+
+<main id="main" class="pad">
+
+<div class="hero">
+  <h1>Athena <em>Participant Agent</em></h1>
+  <div class="side">
+    <p class="mono">Prepared by<br>Amirthavarshini K · Business Analyst, TTO · Congruent Solutions</p>
+    <p><span class="tag f">Live demo</span></p>
+  </div>
+  <p class="lead">An AI agent in CORE that helps participants understand their numbers.</p>
+  <p class="body">Athena explains. The participant decides. CORE executes.</p>
+</div>
+
+<section class="sec" id="problem" aria-labelledby="h-problem">
+  <header><div class="stick"><span class="mono">The problem</span><h2 id="h-problem">The next <em>step</em></h2><p>Participants have all the data. What they’re missing is the next step.</p></div></header>
+  <div class="main">
+    <div class="three">
+      <div>
+        <p class="mono">Employer match</p>
+        <div class="big">1 in 4</div>
+        <p>employees don’t save enough to get their full match: an estimated $24B left unclaimed every year.</p>
+      </div>
+      <div>
+        <p class="mono">Contributions</p>
+        <div class="big">39.7%</div>
+        <p>say their contribution rate is simply the default they accepted. Only about 1 in 7 contribute the IRS maximum.</p>
+      </div>
+      <div>
+        <p class="mono">Investments</p>
+        <div class="big">1 in 3</div>
+        <p>Americans can answer three basic questions on interest, inflation and diversification. Fund tables alone don’t explain what’s working.</p>
+      </div>
+    </div>
+    <p class="pull" style="margin-top:40px">Portals show participants what they have. Athena helps them understand what it means.</p>
+    <p class="note">Sources: Financial Engines, “Missing Out” (2015) · PLANSPONSOR Participant Survey (2025) · Vanguard, How America Saves · Lusardi &amp; Mitchell</p>
+  </div>
+</section>
+
+<section class="sec" id="solution" aria-labelledby="h-solution">
+  <header><div class="stick"><span class="mono">The solution</span><h2 id="h-solution">The portal that <em>speaks up</em></h2><p>Meet Athena, the portal that speaks up.</p></div></header>
+  <div class="main">
+    <p class="pull">An AI agent built into CORE. It knows each participant’s plan and numbers, explains what matters in their own dollars, and prepares the change for them to confirm.</p>
+    <div class="tablewrap">
+    <table class="prog">
+      <thead><tr><th scope="col">Area</th><th scope="col">Today</th><th scope="col">With Athena</th></tr></thead>
+      <tbody>
+        <tr><td class="kr">Employer match</td><td>The contribution rate is shown. What it means for their match isn’t.</td><td><b>The dollar gap from their own plan and pay, with the change ready to confirm.</b></td></tr>
+        <tr><td class="kr">Contributions</td><td>Any rate can be entered. Limit issues surface later, downstream.</td><td><b>Plan and IRS limits checked as they type, with the highest rate they’re allowed.</b></td></tr>
+        <tr><td class="kr">Investments</td><td>Funds and returns are listed, without context on what needs attention.</td><td><b>What needs attention and why, with alternatives from the plan’s own lineup.</b></td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="pull" style="margin-top:40px">Athena explains. The participant decides. CORE executes.</p>
+  </div>
+</section>
+
+<section class="sec" id="how" aria-labelledby="h-how">
+  <header><div class="stick"><span class="mono">Architecture</span><h2 id="h-how">How it <em>works</em></h2><p>From the participant to CORE.</p></div></header>
+  <div class="main">
+    <figure style="margin:0">
+    <div class="diagram">
+    <svg viewBox="0 0 1200 1056" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pat pad">
+      <title id="pat">How the Athena Participant Agent works</title>
+      <desc id="pad">The participant uses the Participant Portal panel, an in-chat MCP app inside Claude Desktop, the MCP host. The panel calls MCP tools through the host on Athena's participant-mcp server, which offers participant sign-in (CORE PKCE, one plan), account summary (balance, vested, YTD return), investments and funds (fund performance, mix, costs) and contributions and match (IRS limits, match gap, milestones). The server calls the Bifrost CLI transport with the participant's own token. The Bifrost public contract applies CORE auth, RBAC, tenant scope, human decision and audit, then passes to the Messaging Gateway, the only path to CORE, which reaches CORE over AMQP.</desc>
+      <defs>
+        <marker id="pah" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="12" refX="13" refY="6" orient="auto"><polygon points="0 0,14 6,0 12" fill="#161d3f"/></marker>
+        <marker id="par" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="12" refX="13" refY="6" orient="auto"><polygon points="0 0,14 6,0 12" fill="#e3000f"/></marker>
+      </defs>
+      <rect width="1200" height="1056" fill="#fff"/>
+      <g fill="none" stroke="#161d3f" stroke-width="3">
+        <path d="M600 96 V136" marker-end="url(#pah)"/>
+        <path d="M600 288 V384" marker-end="url(#pah)"/>
+        <path d="M600 584 V656" marker-end="url(#pah)"/>
+        <path d="M600 736 V776" marker-end="url(#pah)"/>
+        <path d="M400 904 V952" marker-end="url(#pah)"/>
+      </g>
+      <path d="M600 992 H760" fill="none" stroke="#e3000f" stroke-width="3" marker-end="url(#par)"/>
+
+      <rect x="480" y="16" width="240" height="80" fill="#fff" stroke="#161d3f" stroke-width="3"/>
+      <text class="m" x="600" y="44" font-size="12" fill="#565d72" text-anchor="middle">PERSON</text>
+      <text x="600" y="76" font-size="20" font-weight="800" text-anchor="middle">Participant</text>
+
+      <rect x="24" y="136" width="1152" height="176" fill="#fff" stroke="#161d3f" stroke-width="3"/>
+      <text class="m" x="600" y="164" font-size="12" fill="#565d72" text-anchor="middle">CLAUDE DESKTOP · MCP HOST</text>
+      <rect x="360" y="184" width="480" height="104" fill="#fff" stroke="#e3000f" stroke-width="3"/>
+      <text class="m" x="600" y="212" font-size="12" fill="#e3000f" text-anchor="middle">MCP APP · IN-CHAT UI</text>
+      <text x="600" y="244" font-size="20" font-weight="800" text-anchor="middle">Participant Portal panel</text>
+      <text class="m" x="600" y="272" font-size="12" fill="#565d72" text-anchor="middle">sign-in · answers · ask bar</text>
+
+      <rect x="612" y="338" width="148" height="18" fill="#fff"/><text class="m" x="616" y="352" font-size="12">MCP TOOLS VIA HOST</text>
+
+      <rect x="24" y="384" width="1152" height="200" fill="#fff" stroke="#161d3f" stroke-width="3"/>
+      <text class="m" x="600" y="412" font-size="12" fill="#565d72" text-anchor="middle">ATHENA · PARTICIPANT PORTAL</text>
+      <text x="600" y="448" font-size="24" font-weight="900" text-anchor="middle">participant-mcp server</text>
+      <rect x="48" y="472" width="264" height="88" fill="#e3000f"/>
+      <text x="180" y="504" font-size="16" font-weight="800" fill="#fff" text-anchor="middle">Participant sign-in</text>
+      <text class="m" x="180" y="530" font-size="12" fill="#fff" text-anchor="middle">CORE PKCE · ONE PLAN</text>
+      <rect x="328" y="472" width="264" height="88" fill="#161d3f"/>
+      <text x="460" y="504" font-size="16" font-weight="800" fill="#fff" text-anchor="middle">Account summary</text>
+      <text class="m" x="460" y="530" font-size="12" fill="#fff" text-anchor="middle">BALANCE · VESTED</text>
+      <text class="m" x="460" y="548" font-size="12" fill="#fff" text-anchor="middle">YTD RETURN</text>
+      <rect x="608" y="472" width="264" height="88" fill="#161d3f"/>
+      <text x="740" y="504" font-size="16" font-weight="800" fill="#fff" text-anchor="middle">Investments &amp; funds</text>
+      <text class="m" x="740" y="530" font-size="12" fill="#fff" text-anchor="middle">FUND PERFORMANCE</text>
+      <text class="m" x="740" y="548" font-size="12" fill="#fff" text-anchor="middle">MIX · COSTS</text>
+      <rect x="888" y="472" width="264" height="88" fill="#161d3f"/>
+      <text x="1020" y="504" font-size="16" font-weight="800" fill="#fff" text-anchor="middle">Contributions &amp; match</text>
+      <text class="m" x="1020" y="530" font-size="12" fill="#fff" text-anchor="middle">IRS LIMITS · MATCH GAP</text>
+      <text class="m" x="1020" y="548" font-size="12" fill="#fff" text-anchor="middle">MILESTONES</text>
+
+      <rect x="612" y="612" width="188" height="18" fill="#fff"/><text class="m" x="616" y="626" font-size="12">PARTICIPANT’S OWN TOKEN</text>
+
+      <rect x="420" y="656" width="360" height="80" fill="#fff" stroke="#e3000f" stroke-width="3"/>
+      <text class="m" x="600" y="684" font-size="12" fill="#e3000f" text-anchor="middle">TRANSPORT</text>
+      <text x="600" y="716" font-size="20" font-weight="800" text-anchor="middle">Bifrost CLI</text>
+
+      <rect x="24" y="776" width="1152" height="128" fill="#eceef6" stroke="#161d3f" stroke-width="3"/>
+      <text class="m" x="600" y="804" font-size="12" text-anchor="middle">BIFROST PUBLIC CONTRACT</text>
+      <rect x="48" y="824" width="208" height="56" fill="#161d3f"/><text x="152" y="858" font-size="16" font-weight="800" fill="#fff" text-anchor="middle">CORE auth</text>
+      <rect x="272" y="824" width="208" height="56" fill="#161d3f"/><text x="376" y="858" font-size="16" font-weight="800" fill="#fff" text-anchor="middle">RBAC</text>
+      <rect x="496" y="824" width="208" height="56" fill="#161d3f"/><text x="600" y="858" font-size="16" font-weight="800" fill="#fff" text-anchor="middle">Tenant scope</text>
+      <rect x="720" y="824" width="208" height="56" fill="#e3000f"/><text x="824" y="858" font-size="16" font-weight="800" fill="#fff" text-anchor="middle">Human decision</text>
+      <rect x="944" y="824" width="208" height="56" fill="#161d3f"/><text x="1048" y="858" font-size="16" font-weight="800" fill="#fff" text-anchor="middle">Audit</text>
+
+      <rect x="200" y="952" width="400" height="80" fill="#fff" stroke="#161d3f" stroke-width="3"/>
+      <text x="400" y="984" font-size="20" font-weight="800" text-anchor="middle">Messaging Gateway</text>
+      <text class="m" x="400" y="1012" font-size="12" fill="#565d72" text-anchor="middle">ONLY PATH TO CORE</text>
+      <rect x="652" y="962" width="56" height="18" fill="#fff"/><text class="m" x="680" y="976" font-size="12" fill="#e3000f" text-anchor="middle">AMQP</text>
+      <rect x="760" y="952" width="320" height="80" fill="#161d3f"/>
+      <text x="920" y="1002" font-size="28" font-weight="900" fill="#fff" text-anchor="middle">CORE</text>
+    </svg>
+    </div>
+    <figcaption class="flowcap">The participant’s own token travels the whole way. Bifrost checks auth, role, tenant and the human decision, and audits each call, before anything reaches CORE.</figcaption>
+    </figure>
+    <p class="note">Recreated from the Athena Participant Agent deck, 16 October 2026.</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="pad">
+  <div class="in">
+    <h2>Agents propose.<br>People <i>decide.</i></h2>
+    <p class="mono c1">Technology Transformation Office<br>Midyear OPERA<br>FY 2026-27</p>
+    <p class="c2">Prototype 2, Athena Participant Agent. Set in Archivo and IBM Plex Mono.</p>
+  </div>
+</footer>
+</body>
+</html>

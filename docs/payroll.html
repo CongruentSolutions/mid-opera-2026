@@ -1,0 +1,884 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prototype 1 · Athena payroll · OPERA Midyear 2026</title>
+<meta name="description" content="Six months of the Technology Transformation Office: progress against the key results, the world of Bifrost, three prototypes, the trust layer, and what comes next.">
+<meta property="og:title" content="OPERA Midyear 2026 · Technology Transformation Office">
+<meta property="og:description" content="Agents propose. People decide. Six months of TTO work on CORE.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23fff'/%3E%3Ccircle cx='20' cy='16' r='9' fill='%23e3000f'/%3E%3Crect x='4' y='4' width='6' height='24' fill='%230a0a0a'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: full-width broadsheet. Sticky section label in the left 3 of 12 columns, content in the right 9. */
+:root{
+  --ink:#161d3f; --text:#161d3f; --paper:#ffffff; --red:#e3000f; --gold:#e3000f; --grey:#565d72; --wash:#eceef6; --line:#ced4e2;
+  --sans:"Archivo","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --pad:max(16px,4vw);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--text);font:400 18px/1.5 var(--sans);-webkit-font-smoothing:antialiased}
+.pad{padding-left:max(var(--pad),env(safe-area-inset-left,0px));padding-right:max(var(--pad),env(safe-area-inset-right,0px))}
+a{color:inherit}
+:focus-visible{outline:4px solid var(--red);outline-offset:3px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:#fff;padding:8px 12px;z-index:30}
+.skip:focus{left:8px}
+.mono{font:500 12px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.red{color:var(--red)}
+.tag{display:inline-block;border:2px solid var(--ink);padding:2px 8px;font:500 12px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.tag.r{border-color:var(--red);color:var(--red)}
+.tag.f{background:var(--ink);color:#fff}
+
+/* bulletin + masthead */
+.bulletin{background:var(--red);color:#fff;display:flex;gap:16px;align-items:baseline;padding-block:10px;flex-wrap:wrap}
+.bulletin b{font:500 12px/1 var(--mono);letter-spacing:.12em;border:2px solid #fff;padding:4px 8px}
+.bulletin span{font:800 20px/1.2 var(--sans)}
+.mast{padding-block:16px 12px;display:grid;grid-template-columns:auto 1fr;gap:12px 48px;align-items:end;border-bottom:4px solid var(--ink)}
+.mast .name{font:900 clamp(56px,9vw,148px)/.82 var(--sans);font-stretch:66%;letter-spacing:-.02em;text-transform:uppercase}
+.mast .name i{font-style:normal;color:var(--red)}
+.mast .meta{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px 24px;border-top:1px solid var(--ink);padding-top:8px}
+.mast .meta b{display:block;color:var(--grey);font-weight:500}
+
+/* sticky nav */
+nav.idx{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--paper);border-bottom:2px solid var(--ink)}
+nav.idx ul{list-style:none;margin:0;padding:0;display:flex;gap:0;overflow-x:auto}
+nav.idx a{display:block;padding:14px 16px 12px;text-decoration:none;white-space:nowrap;font:500 12px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;border-right:1px solid var(--line)}
+nav.idx li:first-child a{padding-left:0}
+nav.idx a:hover{background:var(--ink);color:#fff}
+
+/* hero */
+.hero{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:32px;padding-block:40px 56px}
+.hero h1{grid-column:1 / span 8;margin:0;font:900 clamp(56px,9.6vw,184px)/.86 var(--sans);font-stretch:74%;letter-spacing:-.03em;text-transform:uppercase}
+.hero h1 em{font-style:normal;color:var(--red)}
+.hero .side{grid-column:9 / span 4;display:grid;gap:20px;align-content:start}
+.hero .side svg{display:block;width:100%;height:auto}
+.hero .lead{grid-column:1 / span 5;font:800 clamp(22px,2vw,30px)/1.2 var(--sans);margin:0}
+.hero .body{grid-column:6 / span 3;margin:0;font-size:17px}
+.inissue{border-top:4px solid var(--ink);padding-top:8px}
+.inissue ol{margin:8px 0 0;padding:0;list-style:none;display:grid;gap:4px;counter-reset:i}
+.inissue li{display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding:4px 0;font-size:15px}
+.inissue a{text-decoration:none;font-weight:700}
+.inissue a:hover{color:var(--red)}
+
+/* section shell */
+.sec{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:32px;border-top:12px solid var(--ink);padding-block:16px 72px}
+.sec > header{grid-column:1 / span 3}
+.sec > header .stick{position:sticky;top:72px}
+.sec > header h2{margin:8px 0 12px;font:900 clamp(36px,3.6vw,64px)/.9 var(--sans);font-stretch:68%;overflow-wrap:break-word;letter-spacing:-.02em;text-transform:uppercase}
+.sec > header h2 em{font-style:normal;color:var(--red)}
+.sec > header p{margin:0;color:var(--grey);font-size:15px}
+.sec > .main{grid-column:4 / -1;min-width:0}
+.pull{margin:0 0 32px;font:800 clamp(24px,2.4vw,40px)/1.15 var(--sans);max-width:30em;border-left:12px solid var(--red);padding-left:20px}
+h3.sub{margin:40px 0 12px;font:900 28px/1 var(--sans);font-stretch:80%;text-transform:uppercase;border-top:4px solid var(--ink);padding-top:10px}
+.note{font-size:14px;color:var(--grey);margin:12px 0 0}
+
+/* brief */
+.brief{columns:3 280px;column-gap:40px;column-rule:1px solid var(--ink);margin:0;padding:0;list-style:none}
+.brief li{break-inside:avoid;padding:0 0 14px;margin-bottom:14px;border-bottom:1px solid var(--line);font-size:17px}
+.brief li b{display:block;font:900 20px/1.15 var(--sans)}
+.brief li.hl b{color:var(--red)}
+
+/* run of show */
+.show{display:grid;grid-template-columns:minmax(150px,5fr) minmax(150px,5fr) 10fr 10fr 10fr 10fr;border:4px solid var(--ink)}
+.show > div{padding:12px 14px 16px;border-right:2px solid var(--ink);min-height:200px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.show > div:last-child{border-right:0}
+.show .t{font:500 12px/1 var(--mono);letter-spacing:.08em}
+.show h4{margin:0;font:900 20px/1.05 var(--sans);font-stretch:85%;text-transform:uppercase;hyphens:auto}
+.show .who{margin-top:auto;font:700 15px/1.2 var(--sans)}
+.show .demo{background:var(--ink);color:#fff}
+.show .qa{background:var(--red);color:#fff}
+.axis{display:none;grid-template-columns:repeat(10,1fr);font:500 12px/1 var(--mono);color:var(--grey);margin-top:6px}
+
+/* progress */
+.prog{width:100%;border-collapse:collapse;font-size:15px}
+.prog th{text-align:left;font:500 12px/1.3 var(--mono);letter-spacing:.08em;text-transform:uppercase;border-bottom:4px solid var(--ink);padding:8px 12px 8px 0;vertical-align:bottom}
+.prog td{border-bottom:1px solid var(--line);padding:14px 12px 14px 0;vertical-align:top}
+.prog tr.obj td{border-bottom:2px solid var(--ink);padding-top:28px;font:900 13px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase}
+.prog .kr{font:800 17px/1.2 var(--sans);width:22%}
+.prog .bars{width:30%}
+.bar{position:relative;height:14px;background:var(--wash);margin:3px 0}
+.bar i{position:absolute;top:0;bottom:0;left:0}
+.bar.deck i{background:repeating-linear-gradient(135deg,var(--ink) 0 2px,transparent 2px 6px)}
+.bar.ours i{background:var(--ink)}
+.bar.ours i.hi{background:var(--red)}
+.bar.ours i.rng{background:repeating-linear-gradient(90deg,var(--ink) 0 6px,#67708e 6px 8px)}
+.bar small{position:absolute;right:-56px;top:-1px;font:500 12px/1 var(--mono);width:48px}
+.barwrap{padding-right:60px}
+.prog td.ours{font:900 20px/1.1 var(--sans);width:14%}
+.prog td.ours small{display:block;font:500 11px/1.3 var(--mono);color:var(--grey);letter-spacing:.06em;text-transform:uppercase;margin-top:4px}
+.legend{display:flex;gap:24px;flex-wrap:wrap;margin:16px 0 0;font:500 12px/1 var(--mono);text-transform:uppercase;letter-spacing:.08em}
+.legend span{display:flex;gap:8px;align-items:center}
+.legend i{display:inline-block;width:32px;height:12px}
+.say{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;margin-top:32px}
+.say div{border-top:4px solid var(--ink);padding-top:10px;font-size:16px}
+.say b{display:block;font:900 20px/1.1 var(--sans);margin-bottom:6px}
+.tablewrap{overflow-x:auto}
+
+/* diagrams */
+.diagram{overflow-x:auto;border-top:4px solid var(--ink);border-bottom:4px solid var(--ink);padding-block:16px}
+.diagram svg{display:block;width:100%;min-width:960px;height:auto}
+.diagram text{font-family:var(--sans)}
+.diagram .m{font-family:var(--mono);font-weight:500}
+
+/* pieces */
+.pieces{width:100%;border-collapse:collapse;margin-top:8px}
+.pieces th{text-align:left;font:500 12px/1.3 var(--mono);letter-spacing:.08em;text-transform:uppercase;border-bottom:4px solid var(--ink);padding:8px 16px 8px 0}
+.pieces td{border-bottom:1px solid var(--line);padding:14px 16px 14px 0;vertical-align:top;font-size:16px}
+.pieces td:first-child{font:900 28px/1 var(--sans);font-stretch:80%;text-transform:uppercase;width:16%}
+.pieces td:last-child{color:var(--grey)}
+.cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.cols > div{border-top:4px solid var(--ink);padding-top:10px;font-size:16px}
+.cols b{display:block;font:900 20px/1.1 var(--sans);margin-bottom:6px}
+
+/* rdx screens */
+.shots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px 32px}
+.shot{margin:0;min-width:0}
+.shot.wide{grid-column:1 / -1}
+.shot a{display:block;border:1px solid var(--line);background:var(--wash);padding:12px}
+.shot a:hover{border-color:var(--ink)}
+.shot img{display:block;width:100%;height:auto}
+.shot figcaption{margin-top:12px;font-size:16px}
+.shot figcaption b{display:block;font:900 20px/1.15 var(--sans);color:var(--ink);margin-bottom:4px}
+@media (max-width:820px){.shots{grid-template-columns:1fr}}
+
+/* prototypes */
+.three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}
+.proto{border-top:4px solid var(--ink);padding-top:12px;display:flex;flex-direction:column;gap:10px}
+.proto .art{background:var(--wash)}
+.proto .art svg{display:block;width:100%;height:auto}
+.proto h4{margin:0;font:900 30px/1 var(--sans);font-stretch:78%;text-transform:uppercase}
+.proto p{margin:0;font-size:16px}
+.proto .who{border-top:1px solid var(--ink);padding-top:8px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.proto .who b{font:800 17px/1.2 var(--sans)}
+.big{font:900 80px/.8 var(--sans);font-stretch:66%;color:var(--gold)}
+.hero h1,.sec > header h2,h3.sub,.mast .name,.trust h4{color:var(--ink)}
+
+/* steps */
+.phase{display:grid;grid-template-columns:1fr;gap:40px}
+.flowcap{margin:12px 0 0;font-size:15px;color:var(--grey)}
+
+/* next */
+.stair svg{display:block;width:100%;height:auto}
+.plan{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;margin-top:8px}
+.plan div{border-top:4px solid var(--ink);padding-top:10px;font-size:16px}
+.plan b{display:block;font:900 20px/1.1 var(--sans);margin-bottom:6px}
+
+/* trust */
+.trust{display:grid;grid-template-columns:1fr 1fr;border-top:4px solid var(--ink)}
+.trust > div{padding:16px 32px 24px 0;min-width:0}
+.trust > div + div{padding:16px 0 24px 32px;border-left:4px solid var(--ink)}
+.trust h4{margin:0;font:900 clamp(64px,7vw,128px)/.88 var(--sans);font-stretch:68%;letter-spacing:-.02em}
+.trust .for{margin:6px 0 16px}
+.trust ul{margin:0 0 24px;padding:0;list-style:none;display:grid;gap:8px}
+.trust li{padding-left:22px;position:relative;font-size:16px}
+.trust li::before{content:"";position:absolute;left:0;top:.5em;width:10px;height:10px;background:var(--ink)}
+.trust svg{display:block;width:100%;height:auto}
+
+/* q&a */
+.qa-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 40px}
+.qa-grid div{border-top:4px solid var(--ink);padding:10px 0 24px}
+.qa-grid h4{margin:0 0 8px;font:900 22px/1.1 var(--sans);font-stretch:85%}
+.qa-grid p{margin:0;font-size:16px}
+
+/* glossary */
+.terms{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 40px;margin:0}
+.terms div{display:grid;grid-template-columns:120px 1fr;gap:12px;border-bottom:1px solid var(--line);padding:10px 0}
+.terms dt{font:900 15px/1.3 var(--sans);text-transform:uppercase}
+.terms dd{margin:0;font-size:15px}
+
+footer{background:var(--ink);color:#fff;padding-block:40px 56px}
+footer .in{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:32px}
+footer h2{grid-column:1 / span 7;margin:0;font:900 clamp(48px,7vw,120px)/.86 var(--sans);font-stretch:68%;text-transform:uppercase}
+footer h2 i{font-style:normal;color:var(--red)}
+footer .c1{grid-column:8 / span 2}
+footer .c2{grid-column:10 / span 3}
+footer p{margin:0;font-size:14px;color:#d6d6d6}
+
+/* smaller screens: stack */
+@media (max-width:1100px){
+  .sec > header,.sec > .main{grid-column:1 / -1}
+  .sec > header .stick{position:static}
+  .say,.plan{grid-template-columns:1fr 1fr}
+  .qa-grid,.terms{grid-template-columns:1fr 1fr}
+  .three{grid-template-columns:1fr 1fr}
+}
+@media (max-width:820px){
+  .hero h1,.hero .side,.hero .lead,.hero .body{grid-column:1 / -1}
+  .hero .side{max-width:420px}
+  .mast{grid-template-columns:1fr}
+  .mast .meta{grid-template-columns:1fr 1fr}
+  .show{grid-template-columns:1fr}
+  .show > div{border-right:0;border-bottom:2px solid var(--ink);min-height:0}
+  .axis{display:none}
+  .three,.cols,.say,.plan,.qa-grid,.terms,.trust,.phase{grid-template-columns:1fr}
+  .trust > div + div{border-left:0;border-top:4px solid var(--ink);padding-left:0}
+  footer .in{grid-template-columns:1fr}
+  footer h2,footer .c1,footer .c2{grid-column:1 / -1}
+  .terms div{grid-template-columns:96px 1fr}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+
+<header class="mast pad">
+  <div class="name">Opera<i>.</i></div>
+  <div class="meta mono">
+    <span><b>Prototype</b>1 · Payroll and match / profit sharing</span>
+    <span><b>Agent</b>Athena</span>
+    <span><b>Demo</b>Live · 10 min</span>
+    <span><b>Date</b>16 October 2026</span>
+  </div>
+</header>
+
+<nav class="idx pad" aria-label="Sections">
+  <ul>
+    <li><a href="index.html#prototypes">← Back to OPERA</a></li>
+    <li><a href="#simulator">Profit sharing simulator</a></li>
+    <li><a href="#fix">Payroll error correction</a></li>
+  </ul>
+</nav>
+
+<main id="main" class="pad">
+
+<section class="sec" id="simulator" aria-labelledby="h-sim">
+  <header><div class="stick"><span class="mono">Prototype 1 · Live demo</span><h2 id="h-sim">Profit sharing <em>simulator</em></h2><p>Model profit-sharing designs and send the chosen one to payroll.</p></div></header>
+  <div class="main">
+    <p class="pull">One census, many designs. Athena tests every design on the grid; a person picks the one that goes to payroll.</p>
+    <h3 class="sub">One census, many designs</h3>
+    <figure style="margin:0 0 32px">
+<div class="diagram">
+<svg viewBox="0 0 1200 616" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="q1t q1d">
+<title id="q1t">One census, many designs</title>
+<desc id="q1d">A census snapshot from CORE (plan, employees, compensation, QA system data, hashed; simulator_fetch) feeds four design templates: flat dollar per person, pro rata percent of pay, age tiers and service tiers (8 templates each). Every candidate on the grid is tested; only those within budget that pass every rule survive: 404(a)(3) deduction limit, 401(a)(17) pay cap, 415(c) annual additions, 410(b) coverage, 401(a)(4) minimum gateway, EBAR rate groups and 1.410(b)-4 classification, as a simulated rule revision. The best design of each template is ranked by highest spend, with charts and a full report. A person picks a design, which is sent to payroll as an export with a SHA-256 hash.</desc>
+<defs><marker id="q1h" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="12" refX="13" refY="6" orient="auto"><polygon points="0 0,14 6,0 12" fill="#161d3f"/></marker><marker id="q1r" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="12" refX="13" refY="6" orient="auto"><polygon points="0 0,14 6,0 12" fill="#e3000f"/></marker><marker id="q1g" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="12" refX="13" refY="6" orient="auto"><polygon points="0 0,14 6,0 12" fill="#565d72"/></marker></defs>
+<rect width="1200" height="616" fill="#fff"/>
+<text class="m" x="24" y="40" font-size="12" font-weight="700">01 ONE CENSUS</text>
+<text class="m" x="216" y="40" font-size="12" font-weight="700">02 MANY DESIGNS</text>
+<text class="m" x="600" y="40" font-size="12" font-weight="700">03 RULES + BUDGET</text>
+<text class="m" x="856" y="40" font-size="12" font-weight="700">04 HIGHEST SPEND</text>
+<text class="m" x="1024" y="40" font-size="12" font-weight="700">05 YOUR CHOICE</text>
+<line x1="24" y1="56" x2="1176" y2="56" stroke="#ced4e2" stroke-width="1"/>
+<path d="M184 300 H196" fill="none" stroke="#161d3f" stroke-width="3"/>
+<path d="M196 120 V480" fill="none" stroke="#161d3f" stroke-width="3"/>
+<path d="M580 120 V480" fill="none" stroke="#161d3f" stroke-width="3"/>
+<path d="M196 120 H216" fill="none" stroke="#161d3f" stroke-width="3" marker-end="url(#q1h)"/>
+<path d="M572 120 H580" fill="none" stroke="#161d3f" stroke-width="3"/>
+<path d="M196 220 H216" fill="none" stroke="#161d3f" stroke-width="3" marker-end="url(#q1h)"/>
+<path d="M572 220 H580" fill="none" stroke="#161d3f" stroke-width="3"/>
+<path d="M196 380 H216" fill="none" stroke="#161d3f" stroke-width="3" marker-end="url(#q1h)"/>
+<path d="M572 380 H580" fill="none" stroke="#161d3f" stroke-width="3"/>
+<path d="M196 480 H216" fill="none" stroke="#161d3f" stroke-width="3" marker-end="url(#q1h)"/>
+<path d="M572 480 H580" fill="none" stroke="#161d3f" stroke-width="3"/>
+<path d="M580 300 H600" fill="none" stroke="#161d3f" stroke-width="3" marker-end="url(#q1h)"/>
+<path d="M832 184 H856" fill="none" stroke="#161d3f" stroke-width="3" marker-end="url(#q1h)"/>
+<path d="M924 296 V352" fill="none" stroke="#e3000f" stroke-width="3" marker-end="url(#q1r)"/>
+<path d="M992 388 H1024" fill="none" stroke="#e3000f" stroke-width="3" marker-end="url(#q1r)"/>
+<rect x="24" y="232" width="160" height="136" fill="#eceef6" stroke="#565d72" stroke-width="2"/>
+<text x="104" y="264" font-size="15" font-weight="800" text-anchor="middle">Census snapshot</text>
+<text class="m" x="104" y="290" font-size="12" fill="#565d72" text-anchor="middle">PLAN · EMPLOYEES</text>
+<text class="m" x="104" y="308" font-size="12" fill="#565d72" text-anchor="middle">COMP · QA DATA</text>
+<text class="m" x="104" y="326" font-size="12" fill="#565d72" text-anchor="middle">HASHED</text>
+<text class="m" x="104" y="354" font-size="12" text-anchor="middle">simulator_fetch</text>
+<rect x="216" y="92" width="128" height="56" fill="#fff" stroke="#161d3f" stroke-width="3"/>
+<text x="280" y="125" font-size="15" font-weight="800" text-anchor="middle">Flat dollar</text>
+<text class="m" x="280" y="166" font-size="12" fill="#565d72" text-anchor="middle">$ PER PERSON</text>
+<rect x="356" y="106" width="28" height="28" fill="#fff" stroke="#161d3f" stroke-width="2"/>
+<text x="370" y="126" font-size="16" font-weight="700" text-anchor="middle">✓</text>
+<rect x="390" y="106" width="28" height="28" fill="#fff" stroke="#161d3f" stroke-width="2"/>
+<text x="404" y="126" font-size="16" font-weight="700" text-anchor="middle">✓</text>
+<rect x="424" y="106" width="28" height="28" fill="#fff" stroke="#161d3f" stroke-width="2"/>
+<text x="438" y="126" font-size="16" font-weight="700" text-anchor="middle">✓</text>
+<rect x="458" y="106" width="28" height="28" fill="#eceef6" stroke="#ced4e2" stroke-width="2"/>
+<text x="472" y="126" font-size="16" fill="#565d72" text-anchor="middle">✗</text>
+<rect x="492" y="106" width="28" height="28" fill="#fff" stroke="#161d3f" stroke-width="2"/>
+<text x="506" y="126" font-size="16" font-weight="700" text-anchor="middle">✓</text>
+<rect x="526" y="106" width="28" height="28" fill="#fff" stroke="#161d3f" stroke-width="2"/>
+<text x="540" y="126" font-size="16" font-weight="700" text-anchor="middle">✓</text>
+<text x="564" y="125" font-size="16" fill="#565d72">…</text>
+<rect x="216" y="192" width="128" height="56" fill="#fff" stroke="#161d3f" stroke-width="3"/>
+<text x="280" y="225" font-size="15" font-weight="800" text-anchor="middle">Pro rata</text>
+<text class="m" x="280" y="266" font-size="12" fill="#565d72" text-anchor="middle">% OF PAY</text>
+<rect x="356" y="206" width="28" height="28" fill="#fff" stroke="#161d3f" stroke-width="2"/>
+<text x="370" y="226" font-size="16" font-weight="700" text-anchor="middle">✓</text>
+<rect x="390" y="206" width="28" height="28" fill="#eceef6" stroke="#ced4e2" stroke-width="2"/>
+<text x="404" y="226" font-size="16" fill="#565d72" text-anchor="middle">✗</text>
+<rect x="424" y="206" width="28" height="28" fill="#fff" stroke="#161d3f" stroke-width="2"/>
+<text x="438" y="226" font-size="16" font-weight="700" text-anchor="middle">✓</text>
+<rect x="458" y="206" width="28" height="28" fill="#fff" stroke="#161d3f" stroke-width="2"/>
+<text x="472" y="226" font-size="16" font-weight="700" text-anchor="middle">✓</text>
+<rect x="492" y="206" width="28" height="28" fill="#eceef6" stroke="#ced4e2" stroke-width="2"/>
+<text x="506" y="226" font-size="16" fill="#565d72" text-anchor="middle">✗</text>
+<rect x="526" y="206" width="28" height="28" fill="#fff" stroke="#161d3f" stroke-width="2"/>
+<text x="540" y="226" font-size="16" font-weight="700" text-anchor="middle">✓</text>
+<text x="564" y="225" font-size="16" fill="#565d72">…</text>
+<rect x="216" y="352" width="128" height="56" fill="#fff" stroke="#161d3f" stroke-width="3"/>
+<text x="280" y="385" font-size="15" font-weight="800" text-anchor="middle">Age tiers</text>
+<text class="m" x="280" y="426" font-size="12" fill="#565d72" text-anchor="middle">8 TEMPLATES</text>
+<rect x="356" y="366" width="28" height="28" fill="#eceef6" stroke="#ced4e2" stroke-width="2"/>
+<text x="370" y="386" font-size="16" fill="#565d72" text-anchor="middle">✗</text>
+<rect x="390" y="366" width="28" height="28" fill="#fff" stroke="#161d3f" stroke-width="2"/>
+<text x="404" y="386" font-size="16" font-weight="700" text-anchor="middle">✓</text>
+<rect x="424" y="366" width="28" height="28" fill="#eceef6" stroke="#ced4e2" stroke-width="2"/>
+<text x="438" y="386" font-size="16" fill="#565d72" text-anchor="middle">✗</text>
+<rect x="458" y="366" width="28" height="28" fill="#fff" stroke="#161d3f" stroke-width="2"/>
+<text x="472" y="386" font-size="16" font-weight="700" text-anchor="middle">✓</text>
+<rect x="492" y="366" width="28" height="28" fill="#fff" stroke="#161d3f" stroke-width="2"/>
+<text x="506" y="386" font-size="16" font-weight="700" text-anchor="middle">✓</text>
+<rect x="526" y="366" width="28" height="28" fill="#eceef6" stroke="#ced4e2" stroke-width="2"/>
+<text x="540" y="386" font-size="16" fill="#565d72" text-anchor="middle">✗</text>
+<text x="564" y="385" font-size="16" fill="#565d72">…</text>
+<rect x="216" y="452" width="128" height="56" fill="#fff" stroke="#161d3f" stroke-width="3"/>
+<text x="280" y="485" font-size="15" font-weight="800" text-anchor="middle">Service tiers</text>
+<text class="m" x="280" y="526" font-size="12" fill="#565d72" text-anchor="middle">8 TEMPLATES</text>
+<rect x="356" y="466" width="28" height="28" fill="#fff" stroke="#161d3f" stroke-width="2"/>
+<text x="370" y="486" font-size="16" font-weight="700" text-anchor="middle">✓</text>
+<rect x="390" y="466" width="28" height="28" fill="#eceef6" stroke="#ced4e2" stroke-width="2"/>
+<text x="404" y="486" font-size="16" fill="#565d72" text-anchor="middle">✗</text>
+<rect x="424" y="466" width="28" height="28" fill="#fff" stroke="#161d3f" stroke-width="2"/>
+<text x="438" y="486" font-size="16" font-weight="700" text-anchor="middle">✓</text>
+<rect x="458" y="466" width="28" height="28" fill="#eceef6" stroke="#ced4e2" stroke-width="2"/>
+<text x="472" y="486" font-size="16" fill="#565d72" text-anchor="middle">✗</text>
+<rect x="492" y="466" width="28" height="28" fill="#fff" stroke="#161d3f" stroke-width="2"/>
+<text x="506" y="486" font-size="16" font-weight="700" text-anchor="middle">✓</text>
+<rect x="526" y="466" width="28" height="28" fill="#fff" stroke="#161d3f" stroke-width="2"/>
+<text x="540" y="486" font-size="16" font-weight="700" text-anchor="middle">✓</text>
+<text x="564" y="485" font-size="16" fill="#565d72">…</text>
+<rect x="600" y="92" width="232" height="416" fill="#fff" stroke="#161d3f" stroke-width="3"/>
+<text x="716" y="124" font-size="15" font-weight="800" text-anchor="middle">Within budget, and</text>
+<text x="716" y="144" font-size="15" font-weight="800" text-anchor="middle">passes every rule</text>
+<text class="m" x="616" y="184" font-size="12">▸ §404(a)(3) Deduction limit</text>
+<text class="m" x="616" y="224" font-size="12">▸ §401(a)(17) Pay cap</text>
+<text class="m" x="616" y="264" font-size="12">▸ §415(c) Annual additions</text>
+<text class="m" x="616" y="304" font-size="12">▸ §410(b) Coverage</text>
+<text class="m" x="616" y="344" font-size="12">▸ §401(a)(4) Minimum gateway</text>
+<text class="m" x="616" y="384" font-size="12">▸ EBAR rate groups</text>
+<text class="m" x="616" y="424" font-size="12">▸ §1.410(b)-4 Classification</text>
+<text class="m" x="716" y="492" font-size="12" fill="#565d72" text-anchor="middle">simulated rule revision</text>
+<rect x="856" y="72" width="320" height="64" fill="#eceef6" stroke="#161d3f" stroke-width="3"/>
+<rect x="864" y="80" width="28" height="16" fill="#fff" stroke="#161d3f" stroke-width="1.5"/>
+<text class="m" x="878" y="93" font-size="12" text-anchor="middle">#1</text>
+<text x="904" y="100" font-size="15" font-weight="800">Best of a template</text>
+<text class="m" x="904" y="122" font-size="12" fill="#565d72">HIGHEST SPEND · WINNER</text>
+<rect x="856" y="152" width="320" height="64" fill="#fff" stroke="#161d3f" stroke-width="3"/>
+<rect x="864" y="160" width="28" height="16" fill="#fff" stroke="#161d3f" stroke-width="1.5"/>
+<text class="m" x="878" y="173" font-size="12" text-anchor="middle">#2</text>
+<text x="904" y="180" font-size="15" font-weight="800">Best of a template</text>
+<text class="m" x="904" y="202" font-size="12" fill="#565d72">NEXT TEMPLATE</text>
+<rect x="856" y="232" width="320" height="64" fill="#fff" stroke="#161d3f" stroke-width="3"/>
+<rect x="864" y="240" width="28" height="16" fill="#fff" stroke="#161d3f" stroke-width="1.5"/>
+<text class="m" x="878" y="253" font-size="12" text-anchor="middle">#3</text>
+<text x="904" y="260" font-size="15" font-weight="800">Best of a template</text>
+<text class="m" x="904" y="282" font-size="12" fill="#565d72">NEXT TEMPLATE</text>
+<text class="m" x="936" y="328" font-size="12" fill="#565d72">charts + full report</text>
+<rect x="856" y="352" width="136" height="72" fill="#fff" stroke="#e3000f" stroke-width="3"/>
+<text x="924" y="384" font-size="15" font-weight="800" text-anchor="middle">Pick a design</text>
+<text class="m" x="924" y="406" font-size="12" fill="#e3000f" text-anchor="middle">HUMAN DECISION</text>
+<rect x="1024" y="352" width="152" height="72" fill="#fff" stroke="#161d3f" stroke-width="3"/>
+<text x="1100" y="384" font-size="15" font-weight="800" text-anchor="middle">Send to Payroll</text>
+<text class="m" x="1100" y="406" font-size="12" fill="#565d72" text-anchor="middle">EXPORT · SHA256</text>
+<text x="24" y="568" font-size="14" fill="#565d72">Every non-decreasing set of values on a grid: 1% steps up to 25%, or $250 steps · up to 30,000 candidates per template.</text>
+<text class="m" x="24" y="592" font-size="12">simulator_optimiser · exhaustive on the grid, not a guess</text>
+</svg>
+</div>
+<figcaption class="flowcap">Deterministic design search on today&#x27;s census. Not stochastic Monte Carlo: random future pay or headcount paths are a proposed design only. Simulated, not compliance testing.</figcaption>
+</figure>
+    <h3 class="sub">Who does what, and where it is stored</h3>
+    <figure style="margin:0 0 32px">
+<div class="diagram">
+<svg viewBox="0 0 1200 696" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="q2t q2d">
+<title id="q2t">Profit sharing: who does what, and where it is stored</title>
+<desc id="q2d">Swimlane across Human, Athena, Bifrost and CORE. 01 the sponsor signs in and picks a plan; 02 Athena fetches the census; 03 Bifrost reads plan data; 04 CORE returns plan and census, read only; 05 the human sets a budget as a percent of payroll; 06 Athena searches designs; 07 builds charts and a report; 08 the human picks a design; 09 Athena exports to payroll as a SHA-256 draft; 10 Bifrost stages the run; 11 CORE holds a draft run awaiting submit; 12 the human submits it with a typed run ID, continuing in the payroll funding swimlane. Stored: the human stores nothing; Athena keeps a local workspace; Bifrost holds no business data; CORE holds plan, sources, employees, compensation and the draft run.</desc>
+<defs><marker id="q2h" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="12" refX="13" refY="6" orient="auto"><polygon points="0 0,14 6,0 12" fill="#161d3f"/></marker><marker id="q2r" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="12" refX="13" refY="6" orient="auto"><polygon points="0 0,14 6,0 12" fill="#e3000f"/></marker><marker id="q2g" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="12" refX="13" refY="6" orient="auto"><polygon points="0 0,14 6,0 12" fill="#565d72"/></marker></defs>
+<rect width="1200" height="696" fill="#fff"/>
+<line x1="24" y1="48" x2="1176" y2="48" stroke="#ced4e2" stroke-width="1"/>
+<text class="m" x="24" y="70" font-size="12" font-weight="700">HUMAN</text>
+<text class="m" x="24" y="88" font-size="12" fill="#565d72">sponsor · chat</text>
+<line x1="24" y1="168" x2="1176" y2="168" stroke="#ced4e2" stroke-width="1"/>
+<text class="m" x="24" y="190" font-size="12" font-weight="700">ATHENA</text>
+<text class="m" x="24" y="208" font-size="12" fill="#565d72">harness · simulator</text>
+<line x1="24" y1="288" x2="1176" y2="288" stroke="#ced4e2" stroke-width="1"/>
+<text class="m" x="24" y="310" font-size="12" font-weight="700">BIFROST</text>
+<text class="m" x="24" y="328" font-size="12" fill="#565d72">gate · Bifrost CLI</text>
+<line x1="24" y1="408" x2="1176" y2="408" stroke="#ced4e2" stroke-width="1"/>
+<text class="m" x="24" y="430" font-size="12" font-weight="700">CORE</text>
+<text class="m" x="24" y="448" font-size="12" fill="#565d72">system of record</text>
+<line x1="24" y1="528" x2="1176" y2="528" stroke="#ced4e2" stroke-width="1"/>
+<path d="M220 164 V216" fill="none" stroke="#161d3f" stroke-width="3" marker-end="url(#q2h)"/>
+<path d="M292 284 V336" fill="none" stroke="#161d3f" stroke-width="3" marker-end="url(#q2h)"/>
+<path d="M364 404 V456" fill="none" stroke="#161d3f" stroke-width="3" marker-end="url(#q2h)"/>
+<path d="M436 456 V164" fill="none" stroke="#e3000f" stroke-width="3" marker-end="url(#q2r)"/>
+<path d="M508 164 V216" fill="none" stroke="#e3000f" stroke-width="3" marker-end="url(#q2r)"/>
+<path d="M624 250 H640" fill="none" stroke="#161d3f" stroke-width="3" marker-end="url(#q2h)"/>
+<path d="M748 216 V164" fill="none" stroke="#e3000f" stroke-width="3" marker-end="url(#q2r)"/>
+<path d="M844 164 V216" fill="none" stroke="#e3000f" stroke-width="3" marker-end="url(#q2r)"/>
+<path d="M916 284 V336" fill="none" stroke="#161d3f" stroke-width="3" marker-end="url(#q2h)"/>
+<path d="M988 404 V456" fill="none" stroke="#565d72" stroke-width="3" marker-end="url(#q2g)"/>
+<path d="M1060 456 V164" fill="none" stroke="#e3000f" stroke-width="3" marker-end="url(#q2r)"/>
+<rect x="112" y="96" width="152" height="68" fill="#fff" stroke="#161d3f" stroke-width="3"/>
+<rect x="120" y="104" width="32" height="16" fill="#fff" stroke="#161d3f" stroke-width="1.5"/>
+<text class="m" x="136" y="117" font-size="12" text-anchor="middle">01</text>
+<text x="120" y="138" font-size="14" font-weight="800">Sign in · plan</text>
+<text class="m" x="120" y="154" font-size="12" fill="#565d72">athena_login</text>
+<rect x="184" y="216" width="152" height="68" fill="#fff" stroke="#161d3f" stroke-width="3"/>
+<rect x="192" y="224" width="32" height="16" fill="#fff" stroke="#161d3f" stroke-width="1.5"/>
+<text class="m" x="208" y="237" font-size="12" text-anchor="middle">02</text>
+<text x="192" y="258" font-size="14" font-weight="800">Fetch census</text>
+<text class="m" x="192" y="274" font-size="12" fill="#565d72">simulator_fetch</text>
+<rect x="256" y="336" width="152" height="68" fill="#fff" stroke="#161d3f" stroke-width="3"/>
+<rect x="264" y="344" width="32" height="16" fill="#fff" stroke="#161d3f" stroke-width="1.5"/>
+<text class="m" x="280" y="357" font-size="12" text-anchor="middle">03</text>
+<text x="264" y="378" font-size="14" font-weight="800">Read plan data</text>
+<text class="m" x="264" y="394" font-size="12" fill="#565d72">get_plan · records</text>
+<rect x="328" y="456" width="152" height="68" fill="#fff" stroke="#161d3f" stroke-width="3"/>
+<rect x="336" y="464" width="32" height="16" fill="#fff" stroke="#161d3f" stroke-width="1.5"/>
+<text class="m" x="352" y="477" font-size="12" text-anchor="middle">04</text>
+<text x="336" y="498" font-size="14" font-weight="800">Plan + census</text>
+<text class="m" x="336" y="514" font-size="12" fill="#565d72">read only</text>
+<rect x="400" y="96" width="152" height="68" fill="#fff" stroke="#e3000f" stroke-width="3"/>
+<rect x="408" y="104" width="32" height="16" fill="#fff" stroke="#e3000f" stroke-width="1.5"/>
+<text class="m" x="424" y="117" font-size="12" fill="#e3000f" text-anchor="middle">05</text>
+<text x="408" y="138" font-size="14" font-weight="800">Set budget</text>
+<text class="m" x="408" y="154" font-size="12" fill="#e3000f">% of payroll</text>
+<rect x="472" y="216" width="152" height="68" fill="#fff" stroke="#161d3f" stroke-width="3"/>
+<rect x="480" y="224" width="32" height="16" fill="#fff" stroke="#161d3f" stroke-width="1.5"/>
+<text class="m" x="496" y="237" font-size="12" text-anchor="middle">06</text>
+<text x="480" y="258" font-size="14" font-weight="800">Search designs</text>
+<text class="m" x="480" y="274" font-size="12" fill="#565d72">simulator_optimiser</text>
+<rect x="640" y="216" width="152" height="68" fill="#fff" stroke="#161d3f" stroke-width="3"/>
+<rect x="648" y="224" width="32" height="16" fill="#fff" stroke="#161d3f" stroke-width="1.5"/>
+<text class="m" x="664" y="237" font-size="12" text-anchor="middle">07</text>
+<text x="648" y="258" font-size="14" font-weight="800">Charts + report</text>
+<text class="m" x="648" y="274" font-size="12" fill="#565d72">chart · report</text>
+<rect x="712" y="96" width="152" height="68" fill="#fff" stroke="#e3000f" stroke-width="3"/>
+<rect x="720" y="104" width="32" height="16" fill="#fff" stroke="#e3000f" stroke-width="1.5"/>
+<text class="m" x="736" y="117" font-size="12" fill="#e3000f" text-anchor="middle">08</text>
+<text x="720" y="138" font-size="14" font-weight="800">Pick design</text>
+<text class="m" x="720" y="154" font-size="12" fill="#e3000f">human decision</text>
+<rect x="808" y="216" width="152" height="68" fill="#fff" stroke="#161d3f" stroke-width="3"/>
+<rect x="816" y="224" width="32" height="16" fill="#fff" stroke="#161d3f" stroke-width="1.5"/>
+<text class="m" x="832" y="237" font-size="12" text-anchor="middle">09</text>
+<text x="816" y="258" font-size="14" font-weight="800">Export to payroll</text>
+<text class="m" x="816" y="274" font-size="12" fill="#565d72">sha256 · draft</text>
+<rect x="880" y="336" width="152" height="68" fill="#fff" stroke="#161d3f" stroke-width="3"/>
+<rect x="888" y="344" width="32" height="16" fill="#fff" stroke="#161d3f" stroke-width="1.5"/>
+<text class="m" x="904" y="357" font-size="12" text-anchor="middle">10</text>
+<text x="888" y="378" font-size="14" font-weight="800">Stage the run</text>
+<text class="m" x="888" y="394" font-size="12" fill="#565d72">open_run · persist</text>
+<rect x="952" y="456" width="152" height="68" fill="#eceef6" stroke="#161d3f" stroke-width="3"/>
+<rect x="960" y="464" width="32" height="16" fill="#fff" stroke="#161d3f" stroke-width="1.5"/>
+<text class="m" x="976" y="477" font-size="12" text-anchor="middle">11</text>
+<text x="960" y="498" font-size="14" font-weight="800">Draft run</text>
+<text class="m" x="960" y="514" font-size="12" fill="#565d72">awaiting submit</text>
+<rect x="1024" y="96" width="152" height="68" fill="#fff" stroke="#e3000f" stroke-width="3"/>
+<rect x="1032" y="104" width="32" height="16" fill="#fff" stroke="#e3000f" stroke-width="1.5"/>
+<text class="m" x="1048" y="117" font-size="12" fill="#e3000f" text-anchor="middle">12</text>
+<text x="1032" y="138" font-size="14" font-weight="800">Submit run</text>
+<text class="m" x="1032" y="154" font-size="12" fill="#e3000f">typed run ID</text>
+<text class="m" x="1176" y="72" font-size="12" fill="#565d72" text-anchor="end">→ payroll funding swimlane</text>
+<text class="m" x="24" y="560" font-size="12" font-weight="700">STORED HERE</text>
+<text class="m" x="24" y="588" font-size="12" fill="#565d72">HUMAN</text>
+<text x="24" y="610" font-size="14" font-weight="700">Nothing stored.</text>
+<text x="24" y="630" font-size="14">Budget, choice and submit</text>
+<text x="24" y="650" font-size="14">decisions only.</text>
+<text class="m" x="312" y="588" font-size="12" fill="#565d72">ATHENA</text>
+<text x="312" y="610" font-size="14" font-weight="700">Local workspace:</text>
+<text x="312" y="630" font-size="14">run designs, report, PDF,</text>
+<text x="312" y="650" font-size="14">export file + SHA-256,</text>
+<text x="312" y="670" font-size="14">evidence log.</text>
+<text class="m" x="600" y="588" font-size="12" fill="#565d72">BIFROST</text>
+<text x="600" y="610" font-size="14" font-weight="700">No business data.</text>
+<text x="600" y="630" font-size="14">Auth, tenant scope, audit</text>
+<text x="600" y="650" font-size="14">and correlation.</text>
+<text class="m" x="888" y="588" font-size="12" fill="#565d72">CORE</text>
+<text x="888" y="610" font-size="14" font-weight="700">Plan, sources, employees,</text>
+<text x="888" y="630" font-size="14">compensation, draft</text>
+<text x="888" y="650" font-size="14">payroll run.</text>
+</svg>
+</div>
+<figcaption class="flowcap">Simulated amounts are not compliance testing. A choice in chat is not an approval; close, release and commit stay human steps in CORE.</figcaption>
+</figure>
+  </div>
+</section>
+
+<section class="sec" id="fix" aria-labelledby="h-fix">
+  <header><div class="stick"><span class="mono">Prototype 1 · Live demo</span><h2 id="h-fix">Payroll error <em>correction</em></h2><p>Fix messy payroll files so CORE accepts them, without guessing a value.</p></div></header>
+  <div class="main">
+    <p class="pull">Real payroll files are messy and CORE is strict. The agent closes the gap without guessing a value.</p>
+    <h3 class="sub">Why a payroll error correction agent</h3>
+    <figure style="margin:0 0 32px">
+<div class="diagram">
+<svg viewBox="0 0 1200 504" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="q3t q3d">
+<title id="q3t">Why a payroll error correction agent</title>
+<desc id="q3d">A file from a new HR export. Contribution $1,079.00 becomes 1079.00 and gender Female becomes F: Athena fixes these. Roth amount 488.505 needs you to give the value, and SSN 000-12-3456 is flagged by CORE as EM060: you fix these. Four of the mistakes planted in the plan 79 QA file; synthetic test data. Why an agent: files are messy (renamed columns, dollar signs, words for codes, extra decimals); CORE is strict (an error code for each bad row, about 460 codes); money stays yours (Athena fixes format only; values, limits and duplicates go to you). The agent fixes what is safe, asks only what is left, and proves the totals before you approve. Athena prepares. You decide.</desc>
+<defs><marker id="q3h" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="12" refX="13" refY="6" orient="auto"><polygon points="0 0,14 6,0 12" fill="#161d3f"/></marker><marker id="q3r" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="12" refX="13" refY="6" orient="auto"><polygon points="0 0,14 6,0 12" fill="#e3000f"/></marker><marker id="q3g" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="12" refX="13" refY="6" orient="auto"><polygon points="0 0,14 6,0 12" fill="#565d72"/></marker></defs>
+<rect width="1200" height="504" fill="#fff"/>
+<text x="24" y="32" font-size="18" font-weight="800">A file from a new HR export</text>
+<text class="m" x="40" y="64" font-size="12" fill="#565d72">WHAT</text>
+<text class="m" x="184" y="64" font-size="12" fill="#565d72">IN THE FILE</text>
+<text class="m" x="336" y="64" font-size="12" fill="#565d72">RESULT</text>
+<text class="m" x="520" y="64" font-size="12" fill="#565d72">WHO FIXES</text>
+<rect x="24" y="80" width="600" height="56" fill="#fff" stroke="#161d3f" stroke-width="3"/>
+<text x="40" y="114" font-size="16" font-weight="800">Contribution</text>
+<text class="m" x="184" y="114" font-size="14">$1,079.00</text>
+<text x="336" y="114" font-size="16">1079.00</text>
+<rect x="520" y="94" width="88" height="28" fill="#161d3f" stroke="#161d3f" stroke-width="1" rx="14"/>
+<text x="564" y="113" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">Athena</text>
+<rect x="24" y="148" width="600" height="56" fill="#fff" stroke="#161d3f" stroke-width="3"/>
+<text x="40" y="182" font-size="16" font-weight="800">Gender</text>
+<text class="m" x="184" y="182" font-size="14">Female</text>
+<text x="336" y="182" font-size="16">F</text>
+<rect x="520" y="162" width="88" height="28" fill="#161d3f" stroke="#161d3f" stroke-width="1" rx="14"/>
+<text x="564" y="181" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">Athena</text>
+<rect x="24" y="216" width="600" height="56" fill="#fff" stroke="#e3000f" stroke-width="3"/>
+<text x="40" y="250" font-size="16" font-weight="800">Roth amount</text>
+<text class="m" x="184" y="250" font-size="14">488.505</text>
+<text x="336" y="250" font-size="16">You give the value</text>
+<rect x="520" y="230" width="88" height="28" fill="#e3000f" stroke="#e3000f" stroke-width="1" rx="14"/>
+<text x="564" y="249" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">You</text>
+<rect x="24" y="284" width="600" height="56" fill="#fff" stroke="#e3000f" stroke-width="3"/>
+<text x="40" y="318" font-size="16" font-weight="800">SSN</text>
+<text class="m" x="184" y="318" font-size="14">000-12-3456</text>
+<text x="336" y="318" font-size="16">CORE flags EM060</text>
+<rect x="520" y="298" width="88" height="28" fill="#e3000f" stroke="#e3000f" stroke-width="1" rx="14"/>
+<text x="564" y="317" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">You</text>
+<text x="24" y="372" font-size="13" fill="#565d72">Four of the mistakes planted in the plan 79 QA file. Synthetic test data.</text>
+<text x="672" y="32" font-size="18" font-weight="800">Why an agent</text>
+<rect x="672" y="48" width="504" height="96" fill="#fff" stroke="#161d3f" stroke-width="3"/>
+<circle cx="716" cy="96" r="24" fill="#161d3f"/>
+<text x="716" y="104" font-size="20" font-weight="800" fill="#fff" text-anchor="middle">1</text>
+<text x="760" y="82" font-size="20" font-weight="800">Files are messy</text>
+<text x="760" y="106" font-size="14" fill="#565d72">Renamed columns, dollar signs, words for</text>
+<text x="760" y="126" font-size="14" fill="#565d72">codes, extra decimals.</text>
+<rect x="672" y="160" width="504" height="96" fill="#fff" stroke="#161d3f" stroke-width="3"/>
+<circle cx="716" cy="208" r="24" fill="#161d3f"/>
+<text x="716" y="216" font-size="20" font-weight="800" fill="#fff" text-anchor="middle">2</text>
+<text x="760" y="194" font-size="20" font-weight="800">CORE is strict</text>
+<text x="760" y="218" font-size="14" fill="#565d72">It returns an error code for each bad row.</text>
+<text x="760" y="238" font-size="14" fill="#565d72">The catalog holds about 460 codes.</text>
+<rect x="672" y="272" width="504" height="96" fill="#fff" stroke="#161d3f" stroke-width="3"/>
+<circle cx="716" cy="320" r="24" fill="#161d3f"/>
+<text x="716" y="328" font-size="20" font-weight="800" fill="#fff" text-anchor="middle">3</text>
+<text x="760" y="306" font-size="20" font-weight="800">Money stays yours</text>
+<text x="760" y="330" font-size="14" fill="#565d72">Athena fixes format only. Values, limits</text>
+<text x="760" y="350" font-size="14" fill="#565d72">and duplicates go to you.</text>
+<rect x="24" y="408" width="1152" height="80" fill="#eceef6" stroke="#161d3f" stroke-width="3"/>
+<text x="600" y="442" font-size="18" font-weight="800" text-anchor="middle">The agent fixes what is safe, asks only what is left, and proves the totals before you approve.</text>
+<text x="600" y="470" font-size="16" fill="#e3000f" text-anchor="middle">Athena prepares. You decide.</text>
+</svg>
+</div>
+<figcaption class="flowcap">Athena fixes format. Values, limits and duplicates go to a person.</figcaption>
+</figure>
+    <h3 class="sub">How the agent works</h3>
+    <figure style="margin:0 0 32px">
+<div class="diagram">
+<svg viewBox="0 0 1200 736" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="q4t q4d">
+<title id="q4t">How the payroll error correction agent works</title>
+<desc id="q4d">Drop the payroll file (CSV or XLSX) with 100 issues. Tool 1, payroll_map_and_resolve, is a local step with no CORE call. Headers: tier 1 exact header, known names match, 70 issues left; tier 2 fuzzy header, close names confirmed, 52 left; tier 3 JEV headers, JEV maps the rest, 40 left. Values: tier 4 part 1 value rules, fixed format rules, 18 left; tier 4 part 2 JEV values, JEV handles odd values, 9 left. Clean rows go straight to Send to CORE. What is left over goes to Tool 2, payroll_fix: your value, or a data model rule; one cell per answer, and only changed rows go to CORE. JEV works only inside Tool 1: tier 3 maps headers, tier 4 part 2 maps values, and below 0.80 confidence the answer goes to you. Then: send to CORE; CORE flags codes for each bad row, and codes go back to payroll_fix before sending again; when no errors remain, validate and reconcile so totals agree; process payroll (you type the run ID); select funds (you choose the source); dispatch funds (you confirm). Athena prepares. You decide.</desc>
+<defs><marker id="q4h" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="12" refX="13" refY="6" orient="auto"><polygon points="0 0,14 6,0 12" fill="#161d3f"/></marker><marker id="q4r" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="12" refX="13" refY="6" orient="auto"><polygon points="0 0,14 6,0 12" fill="#e3000f"/></marker><marker id="q4g" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="12" refX="13" refY="6" orient="auto"><polygon points="0 0,14 6,0 12" fill="#565d72"/></marker></defs>
+<rect width="1200" height="736" fill="#fff"/>
+<path d="M152 172 H192" fill="none" stroke="#161d3f" stroke-width="3" marker-end="url(#q4h)"/>
+<path d="M368 172 H390" fill="none" stroke="#161d3f" stroke-width="3" marker-end="url(#q4h)"/>
+<path d="M566 172 H588" fill="none" stroke="#161d3f" stroke-width="3" marker-end="url(#q4h)"/>
+<path d="M764 172 H786" fill="none" stroke="#161d3f" stroke-width="3" marker-end="url(#q4h)"/>
+<path d="M962 172 H984" fill="none" stroke="#161d3f" stroke-width="3" marker-end="url(#q4h)"/>
+<path d="M200 272 V296 Q200 304 192 304 H118 Q110 304 110 312 V536" fill="none" stroke="#161d3f" stroke-width="3" marker-end="url(#q4h)"/>
+<path d="M672 272 V336" fill="none" stroke="#e3000f" stroke-width="3" marker-end="url(#q4r)"/>
+<path d="M256 416 H168 Q160 416 160 424 V536" fill="none" stroke="#e3000f" stroke-width="3" marker-end="url(#q4r)"/>
+<path d="M306 536 V472" fill="none" stroke="#161d3f" stroke-width="3" stroke-dasharray="6,4" marker-end="url(#q4h)"/>
+<path d="M196 572 H220" fill="none" stroke="#161d3f" stroke-width="3" marker-end="url(#q4h)"/>
+<path d="M392 572 H416" fill="none" stroke="#161d3f" stroke-width="3" marker-end="url(#q4h)"/>
+<path d="M588 572 H612" fill="none" stroke="#161d3f" stroke-width="3" marker-end="url(#q4h)"/>
+<path d="M784 572 H808" fill="none" stroke="#161d3f" stroke-width="3" marker-end="url(#q4h)"/>
+<path d="M980 572 H1004" fill="none" stroke="#161d3f" stroke-width="3" marker-end="url(#q4h)"/>
+<rect x="20" y="286" width="82" height="18" fill="#fff"/><text class="m" x="24" y="300" font-size="12" text-anchor="start">CLEAN ROWS</text>
+<rect x="676" y="286" width="75" height="18" fill="#fff"/><text class="m" x="680" y="300" font-size="12" fill="#e3000f" text-anchor="start">LEFT OVER</text>
+<rect x="312" y="490" width="304" height="18" fill="#fff"/><text class="m" x="316" y="504" font-size="12" text-anchor="start">codes go to payroll_fix, then send again</text>
+<rect x="322" y="622" width="163" height="18" fill="#fff"/><text class="m" x="404" y="636" font-size="12" text-anchor="middle">when no errors remain</text>
+<rect x="24" y="128" width="128" height="88" fill="#eceef6" stroke="#565d72" stroke-width="2"/>
+<text x="88" y="156" font-size="15" font-weight="800" text-anchor="middle">Drop the</text>
+<text x="88" y="176" font-size="15" font-weight="800" text-anchor="middle">payroll file</text>
+<text class="m" x="88" y="200" font-size="12" fill="#565d72" text-anchor="middle">CSV / XLSX</text>
+<rect x="32" y="232" width="112" height="24" fill="#fff" stroke="#161d3f" stroke-width="2" rx="12"/>
+<text class="m" x="88" y="249" font-size="12" font-weight="700" text-anchor="middle">100 ISSUES</text>
+<rect x="176" y="24" width="1000" height="248" fill="none" stroke="#161d3f" stroke-width="2"/>
+<text class="m" x="192" y="52" font-size="12" font-weight="700" fill="#565d72">TOOL 1</text>
+<text class="m" x="248" y="53" font-size="16" font-weight="700">payroll_map_and_resolve</text>
+<text x="1160" y="52" font-size="13" fill="#565d72" text-anchor="end">Local step. No CORE call.</text>
+<text class="m" x="192" y="84" font-size="12" font-weight="700" fill="#565d72">HEADERS</text>
+<line x1="192" y1="92" x2="760" y2="92" stroke="#161d3f" stroke-width="1.5"/>
+<text class="m" x="786" y="84" font-size="12" font-weight="700" fill="#565d72">VALUES</text>
+<line x1="786" y1="92" x2="1160" y2="92" stroke="#161d3f" stroke-width="1.5"/>
+<rect x="192" y="104" width="176" height="152" fill="#fff" stroke="#161d3f" stroke-width="3"/>
+<text class="m" x="280" y="136" font-size="12" fill="#565d72" text-anchor="middle">TIER 1</text>
+<text x="280" y="166" font-size="17" font-weight="800" text-anchor="middle">Exact header</text>
+<text x="280" y="190" font-size="13" fill="#565d72" text-anchor="middle">Known names match</text>
+<rect x="240" y="210" width="80" height="24" fill="#fff" stroke="#e3000f" stroke-width="2" rx="12"/>
+<text class="m" x="280" y="227" font-size="12" font-weight="700" fill="#e3000f" text-anchor="middle">70 LEFT</text>
+<rect x="390" y="104" width="176" height="152" fill="#fff" stroke="#161d3f" stroke-width="3"/>
+<text class="m" x="478" y="136" font-size="12" fill="#565d72" text-anchor="middle">TIER 2</text>
+<text x="478" y="166" font-size="17" font-weight="800" text-anchor="middle">Fuzzy header</text>
+<text x="478" y="190" font-size="13" fill="#565d72" text-anchor="middle">Close names, confirmed</text>
+<rect x="438" y="210" width="80" height="24" fill="#fff" stroke="#e3000f" stroke-width="2" rx="12"/>
+<text class="m" x="478" y="227" font-size="12" font-weight="700" fill="#e3000f" text-anchor="middle">52 LEFT</text>
+<rect x="588" y="104" width="176" height="152" fill="#eceef6" stroke="#161d3f" stroke-width="3"/>
+<text class="m" x="676" y="136" font-size="12" fill="#565d72" text-anchor="middle">TIER 3</text>
+<text x="676" y="166" font-size="17" font-weight="800" text-anchor="middle">JEV headers</text>
+<text x="676" y="190" font-size="13" fill="#565d72" text-anchor="middle">JEV maps the rest</text>
+<rect x="636" y="210" width="80" height="24" fill="#fff" stroke="#e3000f" stroke-width="2" rx="12"/>
+<text class="m" x="676" y="227" font-size="12" font-weight="700" fill="#e3000f" text-anchor="middle">40 LEFT</text>
+<rect x="786" y="104" width="176" height="152" fill="#fff" stroke="#161d3f" stroke-width="3"/>
+<text class="m" x="874" y="136" font-size="12" fill="#565d72" text-anchor="middle">TIER 4 · PART 1</text>
+<text x="874" y="166" font-size="17" font-weight="800" text-anchor="middle">Value rules</text>
+<text x="874" y="190" font-size="13" fill="#565d72" text-anchor="middle">Fixed format rules</text>
+<rect x="834" y="210" width="80" height="24" fill="#fff" stroke="#e3000f" stroke-width="2" rx="12"/>
+<text class="m" x="874" y="227" font-size="12" font-weight="700" fill="#e3000f" text-anchor="middle">18 LEFT</text>
+<rect x="984" y="104" width="176" height="152" fill="#eceef6" stroke="#161d3f" stroke-width="3"/>
+<text class="m" x="1072" y="136" font-size="12" fill="#565d72" text-anchor="middle">TIER 4 · PART 2</text>
+<text x="1072" y="166" font-size="17" font-weight="800" text-anchor="middle">JEV values</text>
+<text x="1072" y="190" font-size="13" fill="#565d72" text-anchor="middle">JEV handles odd values</text>
+<rect x="1032" y="210" width="80" height="24" fill="#fff" stroke="#e3000f" stroke-width="2" rx="12"/>
+<text class="m" x="1072" y="227" font-size="12" font-weight="700" fill="#e3000f" text-anchor="middle">9 LEFT</text>
+<rect x="256" y="336" width="560" height="136" fill="#fff" stroke="#161d3f" stroke-width="2"/>
+<text class="m" x="272" y="364" font-size="12" font-weight="700" fill="#565d72">TOOL 2</text>
+<text class="m" x="328" y="365" font-size="16" font-weight="700">payroll_fix</text>
+<rect x="272" y="380" width="256" height="40" fill="#fff" stroke="#e3000f" stroke-width="3"/>
+<text x="400" y="406" font-size="15" font-weight="800" fill="#e3000f" text-anchor="middle">Your value · you</text>
+<rect x="544" y="380" width="256" height="40" fill="#fff" stroke="#161d3f" stroke-width="3"/>
+<text x="672" y="406" font-size="15" font-weight="800" text-anchor="middle">Data model rule</text>
+<text x="272" y="452" font-size="14" fill="#565d72">One cell per answer. Only changed rows go to CORE.</text>
+<rect x="848" y="336" width="328" height="136" fill="#eceef6" stroke="#161d3f" stroke-width="3"/>
+<text x="864" y="368" font-size="16" font-weight="800">JEV works only inside Tool 1</text>
+<text x="864" y="394" font-size="14">Tier 3 maps headers.</text>
+<text x="864" y="414" font-size="14">Tier 4 part 2 maps values.</text>
+<text x="864" y="434" font-size="14">Below 0.80 confidence, the answer</text>
+<text x="864" y="454" font-size="14">goes to you.</text>
+<rect x="24" y="536" width="172" height="72" fill="#fff" stroke="#161d3f" stroke-width="3"/>
+<text x="110" y="566" font-size="14" font-weight="800" text-anchor="middle">Send to CORE</text>
+<text x="110" y="590" font-size="13" fill="#565d72" text-anchor="middle">Cleaned rows go in</text>
+<rect x="220" y="536" width="172" height="72" fill="#fff" stroke="#161d3f" stroke-width="3"/>
+<text x="306" y="566" font-size="14" font-weight="800" text-anchor="middle">CORE flags codes</text>
+<text x="306" y="590" font-size="13" fill="#565d72" text-anchor="middle">Each bad row gets a code</text>
+<rect x="416" y="536" width="172" height="72" fill="#fff" stroke="#161d3f" stroke-width="3"/>
+<text x="502" y="566" font-size="14" font-weight="800" text-anchor="middle">Validate · reconcile</text>
+<text x="502" y="590" font-size="13" fill="#565d72" text-anchor="middle">Totals agree</text>
+<rect x="612" y="536" width="172" height="72" fill="#fff" stroke="#e3000f" stroke-width="3"/>
+<text x="698" y="566" font-size="14" font-weight="800" text-anchor="middle">Process payroll</text>
+<text x="698" y="590" font-size="13" fill="#e3000f" text-anchor="middle">You type the run ID</text>
+<rect x="808" y="536" width="172" height="72" fill="#fff" stroke="#e3000f" stroke-width="3"/>
+<text x="894" y="566" font-size="14" font-weight="800" text-anchor="middle">Select funds</text>
+<text x="894" y="590" font-size="13" fill="#e3000f" text-anchor="middle">You choose the source</text>
+<rect x="1004" y="536" width="172" height="72" fill="#fff" stroke="#e3000f" stroke-width="3"/>
+<text x="1090" y="566" font-size="14" font-weight="800" text-anchor="middle">Dispatch funds</text>
+<text x="1090" y="590" font-size="13" fill="#e3000f" text-anchor="middle">You confirm</text>
+<rect x="24" y="664" width="1152" height="56" fill="#eceef6" stroke="#161d3f" stroke-width="3"/>
+<text x="600" y="699" font-size="20" font-weight="800" text-anchor="middle">Athena prepares. You decide.</text>
+</svg>
+</div>
+<figcaption class="flowcap">Two tools clean the file. JEV helps inside the first one. You decide what is left. Examples from the plan 79 QA story. Synthetic test data. Issue counts are illustrative. Indicative flow, not certified testing.</figcaption>
+</figure>
+    <h3 class="sub">Payroll run: where the human decides</h3>
+    <figure style="margin:0 0 32px">
+<div class="diagram">
+<svg viewBox="0 0 1200 544" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="q5t q5d">
+<title id="q5t">Payroll run: where the human decides</title>
+<desc id="q5d">Swimlane across Human, Athena, Bifrost and CORE. 01 Athena opens the run and writes records (runs_open); 02 validates and fixes (validate_and_report), optionally raising warnings that a human accepts with a reason (02b); 03 closes the run with declared totals; 04 Bifrost holds it in the run-commit gate; 05 a human opens the release dialog, the release gate and the decision that posts the contributions; 06 Bifrost sends the commit (batchRevision); 07 CORE posts the commit; 08 Athena reads the status (payroll_run_status).</desc>
+<defs><marker id="q5h" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="12" refX="13" refY="6" orient="auto"><polygon points="0 0,14 6,0 12" fill="#161d3f"/></marker><marker id="q5r" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="12" refX="13" refY="6" orient="auto"><polygon points="0 0,14 6,0 12" fill="#e3000f"/></marker><marker id="q5g" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="12" refX="13" refY="6" orient="auto"><polygon points="0 0,14 6,0 12" fill="#565d72"/></marker></defs>
+<rect width="1200" height="544" fill="#fff"/>
+<line x1="24" y1="24" x2="1176" y2="24" stroke="#ced4e2" stroke-width="1"/>
+<text class="m" x="24" y="46" font-size="12" font-weight="700">HUMAN</text>
+<text class="m" x="24" y="64" font-size="12" fill="#565d72">trusted review</text>
+<text class="m" x="24" y="80" font-size="12" fill="#565d72">surface</text>
+<line x1="24" y1="136" x2="1176" y2="136" stroke="#ced4e2" stroke-width="1"/>
+<text class="m" x="24" y="158" font-size="12" font-weight="700">ATHENA</text>
+<text class="m" x="24" y="176" font-size="12" fill="#565d72">payroll agent</text>
+<line x1="24" y1="248" x2="1176" y2="248" stroke="#ced4e2" stroke-width="1"/>
+<text class="m" x="24" y="270" font-size="12" font-weight="700">BIFROST</text>
+<text class="m" x="24" y="288" font-size="12" fill="#565d72">API · gate</text>
+<line x1="24" y1="360" x2="1176" y2="360" stroke="#ced4e2" stroke-width="1"/>
+<text class="m" x="24" y="382" font-size="12" font-weight="700">CORE</text>
+<text class="m" x="24" y="400" font-size="12" fill="#565d72">CORE payroll</text>
+<text class="m" x="24" y="416" font-size="12" fill="#565d72">service</text>
+<line x1="24" y1="472" x2="1176" y2="472" stroke="#ced4e2" stroke-width="1"/>
+<path d="M296 198 H312" fill="none" stroke="#161d3f" stroke-width="3" marker-end="url(#q5h)"/>
+<path d="M472 198 H488" fill="none" stroke="#161d3f" stroke-width="3" marker-end="url(#q5h)"/>
+<path d="M392 164 V120" fill="none" stroke="#161d3f" stroke-width="3" stroke-dasharray="6,4" marker-end="url(#q5h)"/>
+<path d="M648 198 H652 Q656 198 656 202 V306 Q656 310 660 310 H664" fill="none" stroke="#161d3f" stroke-width="3" marker-end="url(#q5h)"/>
+<path d="M824 310 H828 Q832 310 832 306 V90 Q832 86 836 86 H840" fill="none" stroke="#161d3f" stroke-width="3" marker-end="url(#q5h)"/>
+<path d="M1000 86 H1004 Q1008 86 1008 90 V306 Q1008 310 1012 310 H1016" fill="none" stroke="#e3000f" stroke-width="3" marker-end="url(#q5r)"/>
+<path d="M1060 344 V388" fill="none" stroke="#565d72" stroke-width="3" marker-end="url(#q5g)"/>
+<path d="M1132 276 V232" fill="none" stroke="#161d3f" stroke-width="3" marker-end="url(#q5h)"/>
+<rect x="400" y="106" width="67" height="18" fill="#fff"/><text class="m" x="404" y="120" font-size="12" fill="#565d72" text-anchor="start">WARNINGS</text>
+<rect x="944" y="166" width="60" height="18" fill="#fff"/><text class="m" x="1000" y="180" font-size="12" fill="#e3000f" text-anchor="end">RELEASE</text>
+<rect x="136" y="164" width="160" height="68" fill="#fff" stroke="#161d3f" stroke-width="3"/>
+<rect x="144" y="172" width="32" height="16" fill="#fff" stroke="#161d3f" stroke-width="1.5"/>
+<text class="m" x="160" y="185" font-size="12" text-anchor="middle">01</text>
+<text x="144" y="206" font-size="14" font-weight="800">Open + write</text>
+<text class="m" x="144" y="222" font-size="12" fill="#565d72">runs_open · records</text>
+<rect x="312" y="164" width="160" height="68" fill="#fff" stroke="#161d3f" stroke-width="3"/>
+<rect x="320" y="172" width="32" height="16" fill="#fff" stroke="#161d3f" stroke-width="1.5"/>
+<text class="m" x="336" y="185" font-size="12" text-anchor="middle">02</text>
+<text x="320" y="206" font-size="14" font-weight="800">Validate + fix</text>
+<text class="m" x="320" y="222" font-size="12" fill="#565d72">validate_and_report</text>
+<rect x="312" y="52" width="160" height="68" fill="#fff" stroke="#161d3f" stroke-width="3"/>
+<rect x="320" y="60" width="32" height="16" fill="#fff" stroke="#161d3f" stroke-width="1.5"/>
+<text class="m" x="336" y="73" font-size="12" text-anchor="middle">02b</text>
+<text x="320" y="94" font-size="14" font-weight="800">Accept warnings</text>
+<text class="m" x="320" y="110" font-size="12" fill="#565d72">reason required</text>
+<rect x="488" y="164" width="160" height="68" fill="#fff" stroke="#161d3f" stroke-width="3"/>
+<rect x="496" y="172" width="32" height="16" fill="#fff" stroke="#161d3f" stroke-width="1.5"/>
+<text class="m" x="512" y="185" font-size="12" text-anchor="middle">03</text>
+<text x="496" y="206" font-size="14" font-weight="800">Close run</text>
+<text class="m" x="496" y="222" font-size="12" fill="#565d72">declared totals</text>
+<rect x="664" y="276" width="160" height="68" fill="#fff" stroke="#161d3f" stroke-width="3"/>
+<rect x="672" y="284" width="32" height="16" fill="#fff" stroke="#161d3f" stroke-width="1.5"/>
+<text class="m" x="688" y="297" font-size="12" text-anchor="middle">04</text>
+<text x="672" y="318" font-size="14" font-weight="800">Hold in gate</text>
+<text class="m" x="672" y="334" font-size="12" fill="#565d72">run-commit</text>
+<rect x="840" y="52" width="160" height="68" fill="#fff" stroke="#e3000f" stroke-width="3"/>
+<rect x="848" y="60" width="32" height="16" fill="#fff" stroke="#e3000f" stroke-width="1.5"/>
+<text class="m" x="864" y="73" font-size="12" fill="#e3000f" text-anchor="middle">05</text>
+<text x="848" y="94" font-size="14" font-weight="800">Release dialog</text>
+<text class="m" x="848" y="110" font-size="12" fill="#e3000f">release gate</text>
+<rect x="1016" y="276" width="160" height="68" fill="#fff" stroke="#161d3f" stroke-width="3"/>
+<rect x="1024" y="284" width="32" height="16" fill="#fff" stroke="#161d3f" stroke-width="1.5"/>
+<text class="m" x="1040" y="297" font-size="12" text-anchor="middle">06</text>
+<text x="1024" y="318" font-size="14" font-weight="800">Send commit</text>
+<text class="m" x="1024" y="334" font-size="12" fill="#565d72">batchRevision</text>
+<rect x="1016" y="388" width="160" height="68" fill="#fff" stroke="#161d3f" stroke-width="3"/>
+<rect x="1024" y="396" width="32" height="16" fill="#fff" stroke="#161d3f" stroke-width="1.5"/>
+<text class="m" x="1040" y="409" font-size="12" text-anchor="middle">07</text>
+<text x="1024" y="430" font-size="14" font-weight="800">Post commit</text>
+<text class="m" x="1024" y="446" font-size="12" fill="#565d72">committed</text>
+<rect x="1016" y="164" width="160" height="68" fill="#fff" stroke="#161d3f" stroke-width="3"/>
+<rect x="1024" y="172" width="32" height="16" fill="#fff" stroke="#161d3f" stroke-width="1.5"/>
+<text class="m" x="1040" y="185" font-size="12" text-anchor="middle">08</text>
+<text x="1024" y="206" font-size="14" font-weight="800">Read status</text>
+<text class="m" x="1024" y="222" font-size="12" fill="#565d72">payroll_run_status</text>
+<line x1="24" y1="496" x2="1176" y2="496" stroke="#ced4e2" stroke-width="1"/>
+<text class="m" x="24" y="524" font-size="12" fill="#565d72">LEGEND</text>
+<rect x="108" y="512" width="32" height="16" fill="#fff" stroke="#e3000f" stroke-width="3"/>
+<text class="m" x="152" y="524" font-size="12">HUMAN DECISION THAT POSTS THE CONTRIBUTIONS</text>
+<rect x="506.2" y="512" width="32" height="16" fill="#fff" stroke="#161d3f" stroke-width="3"/>
+<text class="m" x="550.2" y="524" font-size="12">STEP</text>
+<path d="M615.8 520 H647.8" fill="none" stroke="#e3000f" stroke-width="3"/>
+<text class="m" x="659.8" y="524" font-size="12">RELEASE</text>
+<path d="M747.5999999999999 520 H779.5999999999999" fill="none" stroke="#565d72" stroke-width="3"/>
+<text class="m" x="791.5999999999999" y="524" font-size="12">BUS REQUEST / REPLY</text>
+<path d="M968.1999999999999 520 H1000.1999999999999" fill="none" stroke="#161d3f" stroke-width="3" stroke-dasharray="6,4"/>
+<text class="m" x="1012.1999999999999" y="524" font-size="12">OPTIONAL</text>
+</svg>
+</div>
+<figcaption class="flowcap">Athena prepares the run; a person releases it in the release dialog before CORE posts the contributions.</figcaption>
+</figure>
+    <h3 class="sub">Payroll funding: who does what, end to end</h3>
+    <figure style="margin:0 0 32px">
+<div class="diagram">
+<svg viewBox="0 0 1200 544" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="q6t q6d">
+<title id="q6t">Payroll funding: who does what, end to end</title>
+<desc id="q6d">Swimlane across Human, Athena, Bifrost and CORE. 01 a human releases the commit at the run-commit gate; 02 Athena reads the obligations (funding_get); 03 selects funding (validate and save); 04 submits the batch (submissions_create); 05 Bifrost holds it in the file-generation gate; 06 a human releases the gate, the decision that moves money; 07 Bifrost sends to CORE, one command per item; 08 CORE saves the funding and posts the items.</desc>
+<defs><marker id="q6h" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="12" refX="13" refY="6" orient="auto"><polygon points="0 0,14 6,0 12" fill="#161d3f"/></marker><marker id="q6r" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="12" refX="13" refY="6" orient="auto"><polygon points="0 0,14 6,0 12" fill="#e3000f"/></marker><marker id="q6g" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="12" refX="13" refY="6" orient="auto"><polygon points="0 0,14 6,0 12" fill="#565d72"/></marker></defs>
+<rect width="1200" height="544" fill="#fff"/>
+<line x1="24" y1="24" x2="1176" y2="24" stroke="#ced4e2" stroke-width="1"/>
+<text class="m" x="24" y="46" font-size="12" font-weight="700">HUMAN</text>
+<text class="m" x="24" y="64" font-size="12" fill="#565d72">trusted review</text>
+<text class="m" x="24" y="80" font-size="12" fill="#565d72">surface</text>
+<line x1="24" y1="136" x2="1176" y2="136" stroke="#ced4e2" stroke-width="1"/>
+<text class="m" x="24" y="158" font-size="12" font-weight="700">ATHENA</text>
+<text class="m" x="24" y="176" font-size="12" fill="#565d72">payroll agent</text>
+<line x1="24" y1="248" x2="1176" y2="248" stroke="#ced4e2" stroke-width="1"/>
+<text class="m" x="24" y="270" font-size="12" font-weight="700">BIFROST</text>
+<text class="m" x="24" y="288" font-size="12" fill="#565d72">API · dispatcher</text>
+<line x1="24" y1="360" x2="1176" y2="360" stroke="#ced4e2" stroke-width="1"/>
+<text class="m" x="24" y="382" font-size="12" font-weight="700">CORE</text>
+<text class="m" x="24" y="400" font-size="12" fill="#565d72">CORE payroll</text>
+<text class="m" x="24" y="416" font-size="12" fill="#565d72">service</text>
+<line x1="24" y1="472" x2="1176" y2="472" stroke="#ced4e2" stroke-width="1"/>
+<path d="M296 86 H300 Q304 86 304 90 V194 Q304 198 308 198 H312" fill="none" stroke="#161d3f" stroke-width="3" marker-end="url(#q6h)"/>
+<path d="M472 198 H488" fill="none" stroke="#161d3f" stroke-width="3" marker-end="url(#q6h)"/>
+<path d="M648 198 H664" fill="none" stroke="#161d3f" stroke-width="3" marker-end="url(#q6h)"/>
+<path d="M824 198 H828 Q832 198 832 202 V306 Q832 310 836 310 H840" fill="none" stroke="#161d3f" stroke-width="3" marker-end="url(#q6h)"/>
+<path d="M1000 310 H1004 Q1008 310 1008 306 V90 Q1008 86 1012 86 H1016" fill="none" stroke="#e3000f" stroke-width="3" marker-end="url(#q6r)"/>
+<path d="M1096 120 V276" fill="none" stroke="#e3000f" stroke-width="3" marker-end="url(#q6r)"/>
+<path d="M1096 344 V388" fill="none" stroke="#565d72" stroke-width="3" marker-end="url(#q6g)"/>
+<rect x="1100" y="182" width="82" height="18" fill="#fff"/><text class="m" x="1104" y="196" font-size="12" fill="#e3000f" text-anchor="start">MONEY PATH</text>
+<rect x="136" y="52" width="160" height="68" fill="#fff" stroke="#161d3f" stroke-width="3"/>
+<rect x="144" y="60" width="32" height="16" fill="#fff" stroke="#161d3f" stroke-width="1.5"/>
+<text class="m" x="160" y="73" font-size="12" text-anchor="middle">01</text>
+<text x="144" y="94" font-size="14" font-weight="800">Release commit</text>
+<text class="m" x="144" y="110" font-size="12" fill="#565d72">run-commit gate</text>
+<rect x="312" y="164" width="160" height="68" fill="#fff" stroke="#161d3f" stroke-width="3"/>
+<rect x="320" y="172" width="32" height="16" fill="#fff" stroke="#161d3f" stroke-width="1.5"/>
+<text class="m" x="336" y="185" font-size="12" text-anchor="middle">02</text>
+<text x="320" y="206" font-size="14" font-weight="800">Read obligations</text>
+<text class="m" x="320" y="222" font-size="12" fill="#565d72">funding_get</text>
+<rect x="488" y="164" width="160" height="68" fill="#fff" stroke="#161d3f" stroke-width="3"/>
+<rect x="496" y="172" width="32" height="16" fill="#fff" stroke="#161d3f" stroke-width="1.5"/>
+<text class="m" x="512" y="185" font-size="12" text-anchor="middle">03</text>
+<text x="496" y="206" font-size="14" font-weight="800">Select funding</text>
+<text class="m" x="496" y="222" font-size="12" fill="#565d72">validate · save</text>
+<rect x="664" y="164" width="160" height="68" fill="#fff" stroke="#161d3f" stroke-width="3"/>
+<rect x="672" y="172" width="32" height="16" fill="#fff" stroke="#161d3f" stroke-width="1.5"/>
+<text class="m" x="688" y="185" font-size="12" text-anchor="middle">04</text>
+<text x="672" y="206" font-size="14" font-weight="800">Submit batch</text>
+<text class="m" x="672" y="222" font-size="12" fill="#565d72">submissions_create</text>
+<rect x="840" y="276" width="160" height="68" fill="#fff" stroke="#161d3f" stroke-width="3"/>
+<rect x="848" y="284" width="32" height="16" fill="#fff" stroke="#161d3f" stroke-width="1.5"/>
+<text class="m" x="864" y="297" font-size="12" text-anchor="middle">05</text>
+<text x="848" y="318" font-size="14" font-weight="800">Hold in gate</text>
+<text class="m" x="848" y="334" font-size="12" fill="#565d72">file-generation</text>
+<rect x="1016" y="52" width="160" height="68" fill="#fff" stroke="#e3000f" stroke-width="3"/>
+<rect x="1024" y="60" width="32" height="16" fill="#fff" stroke="#e3000f" stroke-width="1.5"/>
+<text class="m" x="1040" y="73" font-size="12" fill="#e3000f" text-anchor="middle">06</text>
+<text x="1024" y="94" font-size="14" font-weight="800">Release gate</text>
+<text class="m" x="1024" y="110" font-size="12" fill="#e3000f">human decision</text>
+<rect x="1016" y="276" width="160" height="68" fill="#fff" stroke="#161d3f" stroke-width="3"/>
+<rect x="1024" y="284" width="32" height="16" fill="#fff" stroke="#161d3f" stroke-width="1.5"/>
+<text class="m" x="1040" y="297" font-size="12" text-anchor="middle">07</text>
+<text x="1024" y="318" font-size="14" font-weight="800">Send to CORE</text>
+<text class="m" x="1024" y="334" font-size="12" fill="#565d72">1 command / item</text>
+<rect x="1016" y="388" width="160" height="68" fill="#fff" stroke="#161d3f" stroke-width="3"/>
+<rect x="1024" y="396" width="32" height="16" fill="#fff" stroke="#161d3f" stroke-width="1.5"/>
+<text class="m" x="1040" y="409" font-size="12" text-anchor="middle">08</text>
+<text x="1024" y="430" font-size="14" font-weight="800">Save funding</text>
+<text class="m" x="1024" y="446" font-size="12" fill="#565d72">items posted</text>
+<line x1="24" y1="496" x2="1176" y2="496" stroke="#ced4e2" stroke-width="1"/>
+<text class="m" x="24" y="524" font-size="12" fill="#565d72">LEGEND</text>
+<rect x="108" y="512" width="32" height="16" fill="#fff" stroke="#e3000f" stroke-width="3"/>
+<text class="m" x="152" y="524" font-size="12">HUMAN DECISION THAT MOVES MONEY</text>
+<rect x="417.4" y="512" width="32" height="16" fill="#fff" stroke="#161d3f" stroke-width="3"/>
+<text class="m" x="461.4" y="524" font-size="12">STEP</text>
+<path d="M527.0 520 H559.0" fill="none" stroke="#e3000f" stroke-width="3"/>
+<text class="m" x="571.0" y="524" font-size="12">MONEY PATH</text>
+<path d="M681.0 520 H713.0" fill="none" stroke="#565d72" stroke-width="3"/>
+<text class="m" x="725.0" y="524" font-size="12">BUS REQUEST / REPLY</text>
+</svg>
+</div>
+<figcaption class="flowcap">Money moves only after a person releases the gate.</figcaption>
+</figure>
+    <div class="say">
+      <div><b>Fixes what is safe.</b>Renamed columns, dollar signs, codes written as words and extra decimals.</div>
+      <div><b>Asks only what is left.</b>Values, limits and duplicates go to a person, one cell per answer.</div>
+      <div><b>Proves the totals.</b>CORE validates and reconciles before anyone approves.</div>
+      <div><b>A person releases.</b>The run and the funding each wait at a human gate.</div>
+    </div>
+    <p class="note">Source: Athena Payroll and Participant Agent deck, 16 October 2026. Synthetic test data.</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="pad">
+  <div class="in">
+    <h2>Agents propose.<br>People <i>decide.</i></h2>
+    <p class="mono c1">Technology Transformation Office<br>Midyear OPERA<br>FY 2026-27</p>
+    <p class="c2">Data as of 15 October 2026. Estimates come from reading repositories and commit history. Set in Archivo and IBM Plex Mono.</p>
+  </div>
+</footer>
+</body>
+</html>
