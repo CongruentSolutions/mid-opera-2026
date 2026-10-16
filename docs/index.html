@@ -14,7 +14,7 @@
 <style>
 /* Layout: full-width broadsheet. Sticky section label in the left 3 of 12 columns, content in the right 9. */
 :root{
-  --ink:#0a0a0a; --text:#0a0a0a; --paper:#ffffff; --red:#e3000f; --gold:#e3000f; --grey:#5c5c5c; --wash:#f1f1ef; --line:#d4d4d0;
+  --ink:#161d3f; --text:#161d3f; --paper:#ffffff; --red:#e3000f; --gold:#e3000f; --grey:#565d72; --wash:#eceef6; --line:#ced4e2;
   --sans:"Archivo","Helvetica Neue",Helvetica,Arial,sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
   --pad:max(16px,4vw);
@@ -106,7 +106,7 @@ h3.sub{margin:40px 0 12px;font:900 28px/1 var(--sans);font-stretch:80%;text-tran
 .bar.deck i{background:repeating-linear-gradient(135deg,var(--ink) 0 2px,transparent 2px 6px)}
 .bar.ours i{background:var(--ink)}
 .bar.ours i.hi{background:var(--red)}
-.bar.ours i.rng{background:repeating-linear-gradient(90deg,var(--ink) 0 6px,#6b6b6b 6px 8px)}
+.bar.ours i.rng{background:repeating-linear-gradient(90deg,var(--ink) 0 6px,#67708e 6px 8px)}
 .bar small{position:absolute;right:-56px;top:-1px;font:500 12px/1 var(--mono);width:48px}
 .barwrap{padding-right:60px}
 .prog td.ours{font:900 20px/1.1 var(--sans);width:14%}
@@ -263,15 +263,15 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
   <h1>Agents propose.<br>People <em>decide.</em></h1>
   <div class="side">
     <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <rect width="400" height="300" fill="#f1f1ef"/>
-      <rect x="24" y="24" width="40" height="252" fill="#0a0a0a"/>
-      <rect x="80" y="24" width="40" height="120" fill="#0a0a0a"/>
-      <rect x="80" y="160" width="40" height="116" fill="#fff" stroke="#0a0a0a" stroke-width="4"/>
+      <rect width="400" height="300" fill="#eceef6"/>
+      <rect x="24" y="24" width="40" height="252" fill="#161d3f"/>
+      <rect x="80" y="24" width="40" height="120" fill="#161d3f"/>
+      <rect x="80" y="160" width="40" height="116" fill="#fff" stroke="#161d3f" stroke-width="4"/>
       <circle cx="264" cy="132" r="92" fill="#e3000f"/>
-      <rect x="140" y="132" width="236" height="10" fill="#0a0a0a"/>
-      <rect x="140" y="232" width="236" height="44" fill="#0a0a0a"/>
+      <rect x="140" y="132" width="236" height="10" fill="#161d3f"/>
+      <rect x="140" y="232" width="236" height="44" fill="#161d3f"/>
       <rect x="152" y="244" width="120" height="8" fill="#fff"/><rect x="152" y="258" width="72" height="8" fill="#fff"/>
-      <g fill="#0a0a0a"><circle cx="160" cy="196" r="5"/><circle cx="182" cy="196" r="5"/><circle cx="204" cy="196" r="5"/><circle cx="226" cy="196" r="5"/><circle cx="248" cy="196" r="5"/></g>
+      <g fill="#161d3f"><circle cx="160" cy="196" r="5"/><circle cx="182" cy="196" r="5"/><circle cx="204" cy="196" r="5"/><circle cx="226" cy="196" r="5"/><circle cx="248" cy="196" r="5"/></g>
     </svg>
     <div class="inissue">
       <span class="mono">In this issue</span>
@@ -375,9 +375,9 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
     </table>
     </div>
     <div class="legend">
-      <span><i style="background:repeating-linear-gradient(135deg,#0a0a0a 0 2px,transparent 2px 6px);outline:1px solid #d4d4d0"></i>Deck</span>
-      <span><i style="background:#0a0a0a"></i>Our reading</span>
-      <span><i style="background:repeating-linear-gradient(90deg,#0a0a0a 0 6px,#6b6b6b 6px 8px)"></i>Estimated range (bar ends at the top)</span>
+      <span><i style="background:repeating-linear-gradient(135deg,#161d3f 0 2px,transparent 2px 6px);outline:1px solid #ced4e2"></i>Deck</span>
+      <span><i style="background:#161d3f"></i>Our reading</span>
+      <span><i style="background:repeating-linear-gradient(90deg,#161d3f 0 6px,#67708e 6px 8px)"></i>Estimated range (bar ends at the top)</span>
       <span><i style="background:#e3000f"></i>Owner-reported</span>
     </div>
     <p class="note">Percentages marked estimate come from reading the repositories and commit history. Nothing was run to produce them.</p>
@@ -401,18 +401,18 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
       <title id="tt">Toledo architecture</title>
       <desc id="td">Azure DevOps sends events to the Toledo gateway, which passes them through Service Bus to the lifecycle orchestrator. The orchestrator asks Cordoba, the context subsystem with its spec store and matcher, for coverage, and gives tasks to AI agents, which return proposals only. Cordoba is planned to give the agents code context. The orchestrator sends commands to deterministic connectors, which open pull requests and builds in GitHub and post results back to Azure DevOps. ADO setup, Service Bus and Cordoba are built; the gateway and orchestrator are skeletons; agents and connectors are design only. Guardrails run along the bottom.</desc>
       <defs>
-        <marker id="th" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="12" refX="13" refY="6" orient="auto"><polygon points="0 0,14 6,0 12" fill="#0a0a0a"/></marker>
+        <marker id="th" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="12" refX="13" refY="6" orient="auto"><polygon points="0 0,14 6,0 12" fill="#161d3f"/></marker>
         <marker id="tr" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="12" refX="13" refY="6" orient="auto"><polygon points="0 0,14 6,0 12" fill="#e3000f"/></marker>
       </defs>
       <rect width="1200" height="704" fill="#fff"/>
-      <rect x="24" y="16" width="1152" height="56" fill="#0a0a0a"/>
+      <rect x="24" y="16" width="1152" height="56" fill="#161d3f"/>
       <text x="44" y="52" fill="#fff" font-size="20" font-weight="900">AZURE DEVOPS</text>
       <text class="m" x="232" y="50" fill="#fff" font-size="12">CONTROL PLANE · requirements · approvals · Test Cases · results · Decision Records</text>
       <text class="m" x="1156" y="50" fill="#fff" font-size="12" text-anchor="end">LIVE</text>
       <rect x="24" y="376" width="456" height="136" fill="#fff" stroke="#e3000f" stroke-width="2" stroke-dasharray="8,6"/>
       <rect x="36" y="368" width="368" height="18" fill="#fff"/>
       <text class="m" x="44" y="382" fill="#e3000f" font-size="12">CORDOBA · CONTEXT SUBSYSTEM · ~40–60% BUILT</text>
-      <g fill="none" stroke="#0a0a0a" stroke-width="3">
+      <g fill="none" stroke="#161d3f" stroke-width="3">
         <path d="M124 72 V184" marker-end="url(#th)"/>
         <path d="M224 232 H304" marker-end="url(#th)"/>
         <path d="M480 232 H560" marker-end="url(#th)"/>
@@ -435,49 +435,49 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
       <rect x="748" y="348" width="76" height="18" fill="#fff"/><text class="m" x="752" y="362" font-size="12">PROPOSAL</text>
       <rect x="356" y="336" width="76" height="18" fill="#fff"/><text class="m" x="428" y="350" font-size="12" text-anchor="end" fill="#e3000f">COVERAGE</text>
       <rect x="488" y="416" width="64" height="18" fill="#fff"/><text class="m" x="520" y="430" font-size="12" text-anchor="middle" fill="#e3000f">CONTEXT</text>
-      <rect x="24" y="184" width="200" height="96" fill="#fff" stroke="#0a0a0a" stroke-width="3"/>
+      <rect x="24" y="184" width="200" height="96" fill="#fff" stroke="#161d3f" stroke-width="3"/>
       <text x="44" y="216" font-size="20" font-weight="800">Gateway</text>
-      <text class="m" x="44" y="240" font-size="12" fill="#5c5c5c">ADO + GITHUB HOOKS</text>
+      <text class="m" x="44" y="240" font-size="12" fill="#565d72">ADO + GITHUB HOOKS</text>
       <text class="m" x="44" y="264" font-size="12">SKELETON</text>
-      <rect x="304" y="184" width="176" height="96" fill="#fff" stroke="#0a0a0a" stroke-width="3"/>
+      <rect x="304" y="184" width="176" height="96" fill="#fff" stroke="#161d3f" stroke-width="3"/>
       <text x="324" y="216" font-size="20" font-weight="800">Service Bus</text>
-      <text class="m" x="324" y="240" font-size="12" fill="#5c5c5c">EVENTS · COMMANDS</text>
+      <text class="m" x="324" y="240" font-size="12" fill="#565d72">EVENTS · COMMANDS</text>
       <text class="m" x="324" y="264" font-size="12">LIVE</text>
       <rect x="560" y="184" width="280" height="128" fill="#fff" stroke="#e3000f" stroke-width="5"/>
       <text x="580" y="220" font-size="20" font-weight="800">Lifecycle orchestrator</text>
-      <text class="m" x="580" y="244" font-size="12" fill="#5c5c5c">DURABLE FUNCTIONS</text>
-      <text class="m" x="580" y="264" font-size="12" fill="#5c5c5c">EVIDENCE · RECONCILER</text>
+      <text class="m" x="580" y="244" font-size="12" fill="#565d72">DURABLE FUNCTIONS</text>
+      <text class="m" x="580" y="264" font-size="12" fill="#565d72">EVIDENCE · RECONCILER</text>
       <text class="m" x="580" y="292" font-size="12" fill="#e3000f">SKELETON · ~15–20%</text>
-      <rect x="920" y="184" width="256" height="96" fill="#fff" stroke="#0a0a0a" stroke-width="3" stroke-dasharray="8,6"/>
+      <rect x="920" y="184" width="256" height="96" fill="#fff" stroke="#161d3f" stroke-width="3" stroke-dasharray="8,6"/>
       <text x="940" y="216" font-size="20" font-weight="800">Connectors</text>
-      <text class="m" x="940" y="240" font-size="12" fill="#5c5c5c">ADO · GITHUB · CI · HARNESS</text>
+      <text class="m" x="940" y="240" font-size="12" fill="#565d72">ADO · GITHUB · CI · HARNESS</text>
       <text class="m" x="940" y="264" font-size="12">DESIGN ONLY</text>
-      <rect x="40" y="408" width="200" height="88" fill="#fff" stroke="#0a0a0a" stroke-width="3"/>
+      <rect x="40" y="408" width="200" height="88" fill="#fff" stroke="#161d3f" stroke-width="3"/>
       <text x="60" y="440" font-size="20" font-weight="800">Spec store</text>
-      <text class="m" x="60" y="464" font-size="12" fill="#5c5c5c">51 SERVICE SPECS</text>
+      <text class="m" x="60" y="464" font-size="12" fill="#565d72">51 SERVICE SPECS</text>
       <text class="m" x="60" y="484" font-size="12">BUILT</text>
-      <rect x="264" y="408" width="200" height="88" fill="#fff" stroke="#0a0a0a" stroke-width="3"/>
+      <rect x="264" y="408" width="200" height="88" fill="#fff" stroke="#161d3f" stroke-width="3"/>
       <text x="284" y="440" font-size="20" font-weight="800">Matcher</text>
-      <text class="m" x="284" y="464" font-size="12" fill="#5c5c5c">REQ ↔ CODE ↔ TEST</text>
+      <text class="m" x="284" y="464" font-size="12" fill="#565d72">REQ ↔ CODE ↔ TEST</text>
       <text class="m" x="284" y="484" font-size="12">BUILT</text>
-      <rect x="560" y="400" width="280" height="96" fill="#fff" stroke="#0a0a0a" stroke-width="3" stroke-dasharray="8,6"/>
+      <rect x="560" y="400" width="280" height="96" fill="#fff" stroke="#161d3f" stroke-width="3" stroke-dasharray="8,6"/>
       <text x="580" y="432" font-size="20" font-weight="800">AI agents</text>
-      <text class="m" x="580" y="456" font-size="12" fill="#5c5c5c">TEST DESIGN · REQ ENGINE · CODE</text>
+      <text class="m" x="580" y="456" font-size="12" fill="#565d72">TEST DESIGN · REQ ENGINE · CODE</text>
       <text class="m" x="580" y="480" font-size="12">DESIGN ONLY · PROPOSE, NEVER WRITE</text>
-      <rect x="920" y="400" width="256" height="96" fill="#f1f1ef" stroke="#5c5c5c" stroke-width="2"/>
+      <rect x="920" y="400" width="256" height="96" fill="#eceef6" stroke="#565d72" stroke-width="2"/>
       <text x="940" y="432" font-size="20" font-weight="800">GitHub</text>
-      <text class="m" x="940" y="456" font-size="12" fill="#5c5c5c">CODE · PULL REQUESTS · CHECKS</text>
+      <text class="m" x="940" y="456" font-size="12" fill="#565d72">CODE · PULL REQUESTS · CHECKS</text>
       <text class="m" x="940" y="480" font-size="12">EXTERNAL</text>
-      <rect x="24" y="552" width="1152" height="56" fill="#fff" stroke="#0a0a0a" stroke-width="3"/>
+      <rect x="24" y="552" width="1152" height="56" fill="#fff" stroke="#161d3f" stroke-width="3"/>
       <text x="44" y="588" font-size="20" font-weight="900">GUARDRAILS</text>
       <text class="m" x="196" y="586" font-size="12">AUTONOMY A0–A3 PER STAGE · A NAMED PERSON SIGNS EACH STEP UP · MERGED PR ≠ VERIFIED · RESULTS PINNED TO COMMIT</text>
-      <line x1="24" y1="636" x2="1176" y2="636" stroke="#d4d4d0" stroke-width="1"/>
-      <text class="m" x="24" y="672" font-size="12" fill="#5c5c5c">LEGEND</text>
-      <rect x="108" y="660" width="32" height="16" fill="#fff" stroke="#0a0a0a" stroke-width="3"/><text class="m" x="152" y="672" font-size="12">BUILT OR SKELETON</text>
-      <rect x="312" y="660" width="32" height="16" fill="#fff" stroke="#0a0a0a" stroke-width="3" stroke-dasharray="6,4"/><text class="m" x="356" y="672" font-size="12">DESIGN ONLY</text>
+      <line x1="24" y1="636" x2="1176" y2="636" stroke="#ced4e2" stroke-width="1"/>
+      <text class="m" x="24" y="672" font-size="12" fill="#565d72">LEGEND</text>
+      <rect x="108" y="660" width="32" height="16" fill="#fff" stroke="#161d3f" stroke-width="3"/><text class="m" x="152" y="672" font-size="12">BUILT OR SKELETON</text>
+      <rect x="312" y="660" width="32" height="16" fill="#fff" stroke="#161d3f" stroke-width="3" stroke-dasharray="6,4"/><text class="m" x="356" y="672" font-size="12">DESIGN ONLY</text>
       <rect x="476" y="660" width="32" height="16" fill="#fff" stroke="#e3000f" stroke-width="5"/><text class="m" x="520" y="672" font-size="12">KEY RESULT TO RESTART</text>
       <path d="M716 668 H756" stroke="#e3000f" stroke-width="3" stroke-dasharray="8,6"/><text class="m" x="768" y="672" font-size="12">CORDOBA LINK, NOT YET WIRED</text>
-      <rect x="988" y="660" width="32" height="16" fill="#f1f1ef" stroke="#5c5c5c" stroke-width="2"/><text class="m" x="1032" y="672" font-size="12">EXTERNAL</text>
+      <rect x="988" y="660" width="32" height="16" fill="#eceef6" stroke="#565d72" stroke-width="2"/><text class="m" x="1032" y="672" font-size="12">EXTERNAL</text>
     </svg>
     </div>
     <figcaption class="flowcap">ADO approves and records; Toledo orchestrates; Cordoba supplies coverage and code context; agents propose; connectors write.</figcaption>
@@ -514,18 +514,20 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
 <section class="sec" id="cordoba" aria-labelledby="h-cordoba">
   <header><div class="stick"><span class="mono">Segment 1 · Cordoba</span><h2 id="h-cordoba">Cordoba, <em>the context engine</em></h2><p>The deck rates Cordoba at 15%. Our code review puts it at about 40–60% of its traceability scope.</p></div></header>
   <div class="main">
-    <p class="pull">Cordoba reads CORE’s code and ADO’s stories and links the two, so agents and people can see what each service really does.</p>
+    <p class="pull">Cordoba is the context engine Toledo needs to write code: it reads CORE’s code and ADO’s stories and links the two.</p>
+    <h3 class="sub">Status: paused</h3>
+    <p>Cordoba exists so Toledo can build code. It gives Toledo’s agents the context of what each CORE service does and which stories and tests cover it. Work stopped because the intent Cordoba generated from the code was not good enough to build on. Bad context produces bad code, so we will not connect Cordoba to Toledo until its quality is proven. Next half, we restart the work and assign people to verify a sample of generated intent against the code by hand. We will measure accuracy, fix the extraction, and only then connect Cordoba to Toledo’s agents.</p>
     <figure style="margin:0 0 32px">
     <div class="diagram">
     <svg viewBox="0 0 1200 720" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ct cd">
       <title id="ct">Cordoba architecture</title>
       <desc id="cd">Code extraction reads the 53 CORE service repositories and writes behavior units to the spec store. Intent ingest reads stories, acceptance criteria and manual test cases from Azure DevOps into the same store. The RTM matcher takes candidates from the store and writes matches back. The portal reads the store. Feeding code context to Toledo's agents is planned, not built.</desc>
       <defs>
-        <marker id="ch" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="12" refX="13" refY="6" orient="auto"><polygon points="0 0,14 6,0 12" fill="#0a0a0a"/></marker>
+        <marker id="ch" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="12" refX="13" refY="6" orient="auto"><polygon points="0 0,14 6,0 12" fill="#161d3f"/></marker>
         <marker id="cr" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="12" refX="13" refY="6" orient="auto"><polygon points="0 0,14 6,0 12" fill="#e3000f"/></marker>
       </defs>
       <rect width="1200" height="720" fill="#fff"/>
-      <g fill="none" stroke="#0a0a0a" stroke-width="3">
+      <g fill="none" stroke="#161d3f" stroke-width="3">
         <path d="M224 152 H304" marker-end="url(#ch)"/>
         <path d="M224 344 H304" marker-end="url(#ch)"/>
         <path d="M544 152 H624" marker-end="url(#ch)"/>
@@ -543,50 +545,50 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
       <rect x="792" y="412" width="64" height="18" fill="#fff"/><text class="m" x="796" y="426" font-size="12">MATCHES</text>
       <rect x="876" y="122" width="56" height="18" fill="#fff"/><text class="m" x="904" y="136" font-size="12" text-anchor="middle">READ</text>
       <rect x="872" y="314" width="64" height="18" fill="#fff"/><text class="m" x="904" y="328" font-size="12" text-anchor="middle" fill="#e3000f">CONTEXT</text>
-      <rect x="24" y="104" width="200" height="96" fill="#f1f1ef" stroke="#5c5c5c" stroke-width="2"/>
+      <rect x="24" y="104" width="200" height="96" fill="#eceef6" stroke="#565d72" stroke-width="2"/>
       <text x="44" y="136" font-size="20" font-weight="800">CORE code</text>
-      <text class="m" x="44" y="160" font-size="12" fill="#5c5c5c">53 SERVICE REPOS</text>
+      <text class="m" x="44" y="160" font-size="12" fill="#565d72">53 SERVICE REPOS</text>
       <text class="m" x="44" y="184" font-size="12">EXTERNAL</text>
-      <rect x="24" y="296" width="200" height="96" fill="#f1f1ef" stroke="#5c5c5c" stroke-width="2"/>
+      <rect x="24" y="296" width="200" height="96" fill="#eceef6" stroke="#565d72" stroke-width="2"/>
       <text x="44" y="328" font-size="20" font-weight="800">Azure DevOps</text>
-      <text class="m" x="44" y="352" font-size="12" fill="#5c5c5c">STORIES · TEST CASES</text>
+      <text class="m" x="44" y="352" font-size="12" fill="#565d72">STORIES · TEST CASES</text>
       <text class="m" x="44" y="376" font-size="12">EXTERNAL</text>
-      <rect x="304" y="104" width="240" height="96" fill="#fff" stroke="#0a0a0a" stroke-width="3"/>
+      <rect x="304" y="104" width="240" height="96" fill="#fff" stroke="#161d3f" stroke-width="3"/>
       <text x="324" y="136" font-size="20" font-weight="800">Code extraction</text>
-      <text class="m" x="324" y="160" font-size="12" fill="#5c5c5c">CLAUDE BATCH · BEHAVIOR</text>
+      <text class="m" x="324" y="160" font-size="12" fill="#565d72">CLAUDE BATCH · BEHAVIOR</text>
       <text class="m" x="324" y="184" font-size="12">BUILT</text>
-      <rect x="304" y="296" width="240" height="96" fill="#fff" stroke="#0a0a0a" stroke-width="3"/>
+      <rect x="304" y="296" width="240" height="96" fill="#fff" stroke="#161d3f" stroke-width="3"/>
       <text x="324" y="328" font-size="20" font-weight="800">Intent ingest</text>
-      <text class="m" x="324" y="352" font-size="12" fill="#5c5c5c">STORIES · ACs · TESTS</text>
+      <text class="m" x="324" y="352" font-size="12" fill="#565d72">STORIES · ACs · TESTS</text>
       <text class="m" x="324" y="376" font-size="12">BUILT</text>
       <rect x="624" y="104" width="240" height="288" fill="#fff" stroke="#e3000f" stroke-width="5"/>
       <text x="644" y="220" font-size="20" font-weight="800">Spec store</text>
-      <text class="m" x="644" y="244" font-size="12" fill="#5c5c5c">POSTGRES · PGVECTOR</text>
-      <text class="m" x="644" y="264" font-size="12" fill="#5c5c5c">BUs · STORIES · DOCS</text>
-      <text class="m" x="644" y="284" font-size="12" fill="#5c5c5c">51 SERVICE SPECS</text>
+      <text class="m" x="644" y="244" font-size="12" fill="#565d72">POSTGRES · PGVECTOR</text>
+      <text class="m" x="644" y="264" font-size="12" fill="#565d72">BUs · STORIES · DOCS</text>
+      <text class="m" x="644" y="284" font-size="12" fill="#565d72">51 SERVICE SPECS</text>
       <text class="m" x="644" y="312" font-size="12" fill="#e3000f">BUILT · LIVE</text>
-      <rect x="624" y="456" width="240" height="96" fill="#fff" stroke="#0a0a0a" stroke-width="3"/>
+      <rect x="624" y="456" width="240" height="96" fill="#fff" stroke="#161d3f" stroke-width="3"/>
       <text x="644" y="488" font-size="20" font-weight="800">RTM matcher</text>
-      <text class="m" x="644" y="512" font-size="12" fill="#5c5c5c">EMBED → RERANK → 0.70</text>
+      <text class="m" x="644" y="512" font-size="12" fill="#565d72">EMBED → RERANK → 0.70</text>
       <text class="m" x="644" y="536" font-size="12">BUILT</text>
-      <rect x="944" y="104" width="232" height="96" fill="#fff" stroke="#0a0a0a" stroke-width="3"/>
+      <rect x="944" y="104" width="232" height="96" fill="#fff" stroke="#161d3f" stroke-width="3"/>
       <text x="964" y="136" font-size="20" font-weight="800">Portal</text>
-      <text class="m" x="964" y="160" font-size="12" fill="#5c5c5c">.NET API · REACT</text>
+      <text class="m" x="964" y="160" font-size="12" fill="#565d72">.NET API · REACT</text>
       <text class="m" x="964" y="184" font-size="12">BUILT</text>
-      <rect x="944" y="296" width="232" height="96" fill="#fff" stroke="#0a0a0a" stroke-width="3" stroke-dasharray="8,6"/>
+      <rect x="944" y="296" width="232" height="96" fill="#fff" stroke="#161d3f" stroke-width="3" stroke-dasharray="8,6"/>
       <text x="964" y="328" font-size="20" font-weight="800">Toledo agents</text>
-      <text class="m" x="964" y="352" font-size="12" fill="#5c5c5c">CODE CONTEXT</text>
+      <text class="m" x="964" y="352" font-size="12" fill="#565d72">CODE CONTEXT</text>
       <text class="m" x="964" y="376" font-size="12">PLANNED</text>
-      <rect x="24" y="592" width="1152" height="56" fill="#fff" stroke="#0a0a0a" stroke-width="3"/>
+      <rect x="24" y="592" width="1152" height="56" fill="#fff" stroke="#161d3f" stroke-width="3"/>
       <text x="44" y="628" font-size="20" font-weight="900">GAPS</text>
-      <text class="m" x="124" y="626" font-size="12">CLEAN COVERAGE FOR ~3 SERVICES · CI TESTS IN 3 OF 53 REPOS · CONTEXT FOR AGENTS NOT YET BUILT</text>
-      <line x1="24" y1="672" x2="1176" y2="672" stroke="#d4d4d0" stroke-width="1"/>
-      <text class="m" x="24" y="704" font-size="12" fill="#5c5c5c">LEGEND</text>
-      <rect x="108" y="692" width="32" height="16" fill="#fff" stroke="#0a0a0a" stroke-width="3"/><text class="m" x="152" y="704" font-size="12">BUILT</text>
-      <rect x="236" y="692" width="32" height="16" fill="#fff" stroke="#0a0a0a" stroke-width="3" stroke-dasharray="6,4"/><text class="m" x="280" y="704" font-size="12">PLANNED</text>
+      <text class="m" x="124" y="626" font-size="12"><tspan fill="#e3000f">PAUSED: GENERATED INTENT NOT GOOD ENOUGH</tspan> · CLEAN COVERAGE ~3 SERVICES · CI IN 3 OF 53 REPOS</text>
+      <line x1="24" y1="672" x2="1176" y2="672" stroke="#ced4e2" stroke-width="1"/>
+      <text class="m" x="24" y="704" font-size="12" fill="#565d72">LEGEND</text>
+      <rect x="108" y="692" width="32" height="16" fill="#fff" stroke="#161d3f" stroke-width="3"/><text class="m" x="152" y="704" font-size="12">BUILT</text>
+      <rect x="236" y="692" width="32" height="16" fill="#fff" stroke="#161d3f" stroke-width="3" stroke-dasharray="6,4"/><text class="m" x="280" y="704" font-size="12">PLANNED</text>
       <rect x="380" y="692" width="32" height="16" fill="#fff" stroke="#e3000f" stroke-width="5"/><text class="m" x="424" y="704" font-size="12">SOURCE OF TRUTH</text>
       <path d="M580 700 H620" stroke="#e3000f" stroke-width="3" stroke-dasharray="8,6"/><text class="m" x="632" y="704" font-size="12">LINK NOT YET WIRED</text>
-      <rect x="812" y="692" width="32" height="16" fill="#f1f1ef" stroke="#5c5c5c" stroke-width="2"/><text class="m" x="856" y="704" font-size="12">EXTERNAL</text>
+      <rect x="812" y="692" width="32" height="16" fill="#eceef6" stroke="#565d72" stroke-width="2"/><text class="m" x="856" y="704" font-size="12">EXTERNAL</text>
     </svg>
     </div>
     <figcaption class="flowcap">Behavior units are the atom: one checkable statement about what the code does. Stories and test cases link to them.</figcaption>
@@ -615,7 +617,7 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
     <div class="say">
       <div><b>Cordoba is ahead of its rating.</b>The deck says 15%; the knowledge store, matcher and portal are built.</div>
       <div><b>It is Toledo’s memory.</b>Once wired, it tells Toledo which tests already exist, so agents build only the gap.</div>
-      <div><b>No commits since 11 Aug.</b>Wiring it to Toledo is part of the next half.</div>
+      <div><b>Paused since 11 Aug.</b>The generated intent was not good enough. Next half: people verify it by hand before it feeds Toledo.</div>
     </div>
     <p class="note">Source: congruent-core-cordoba, branch drwatson, commit 3e792fa (11 Aug 2026).</p>
   </div>
@@ -631,76 +633,76 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
       <title id="wt">Dr Watson architecture</title>
       <desc id="wd">Left half, a Python engine in the Cordoba repository: manual test cases from Azure DevOps are standardized and their intent is extracted; dedup and Cucumber output are plan only. Right half, the .NET framework: 498 feature files run through a closed step grammar, which builds entities and calls CORE APIs in the SIT environment. Traits and worlds, designed but not built, will shape the entities. The link between the two halves is not built.</desc>
       <defs>
-        <marker id="wh" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="12" refX="13" refY="6" orient="auto"><polygon points="0 0,14 6,0 12" fill="#0a0a0a"/></marker>
+        <marker id="wh" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="12" refX="13" refY="6" orient="auto"><polygon points="0 0,14 6,0 12" fill="#161d3f"/></marker>
         <marker id="wr" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="12" refX="13" refY="6" orient="auto"><polygon points="0 0,14 6,0 12" fill="#e3000f"/></marker>
       </defs>
       <rect width="1200" height="656" fill="#fff"/>
-      <rect x="24" y="72" width="536" height="424" fill="#fff" stroke="#0a0a0a" stroke-width="2" stroke-dasharray="8,6"/>
+      <rect x="24" y="72" width="536" height="424" fill="#fff" stroke="#161d3f" stroke-width="2" stroke-dasharray="8,6"/>
       <rect x="36" y="64" width="312" height="18" fill="#fff"/>
       <text class="m" x="44" y="78" font-size="12">PYTHON ENGINE · IN CORDOBA REPO</text>
-      <rect x="640" y="72" width="536" height="424" fill="#fff" stroke="#0a0a0a" stroke-width="2" stroke-dasharray="8,6"/>
+      <rect x="640" y="72" width="536" height="424" fill="#fff" stroke="#161d3f" stroke-width="2" stroke-dasharray="8,6"/>
       <rect x="652" y="64" width="336" height="18" fill="#fff"/>
       <text class="m" x="660" y="78" font-size="12">.NET FRAMEWORK · CONGRUENT-CORE-WATSON</text>
-      <g fill="none" stroke="#0a0a0a" stroke-width="3">
+      <g fill="none" stroke="#161d3f" stroke-width="3">
         <path d="M248 156 H304" marker-end="url(#wh)"/>
         <path d="M420 200 V248" marker-end="url(#wh)"/>
         <path d="M780 200 V248" marker-end="url(#wh)"/>
         <path d="M780 336 V384" marker-end="url(#wh)"/>
         <path d="M896 292 H944" marker-end="url(#wh)"/>
       </g>
-      <path d="M420 336 V384" fill="none" stroke="#0a0a0a" stroke-width="3" stroke-dasharray="8,6" marker-end="url(#wh)"/>
+      <path d="M420 336 V384" fill="none" stroke="#161d3f" stroke-width="3" stroke-dasharray="8,6" marker-end="url(#wh)"/>
       <g fill="none" stroke="#e3000f" stroke-width="3" stroke-dasharray="8,6">
         <path d="M536 428 H592 Q600 428 600 420 V164 Q600 156 608 156 H664" marker-end="url(#wr)"/>
         <path d="M944 428 H896" marker-end="url(#wr)"/>
       </g>
       <rect x="560" y="268" width="80" height="18" fill="#fff"/><text class="m" x="600" y="282" font-size="12" text-anchor="middle" fill="#e3000f">NOT JOINED</text>
       <rect x="900" y="398" width="40" height="18" fill="#fff"/><text class="m" x="920" y="412" font-size="12" text-anchor="middle" fill="#e3000f">SHAPE</text>
-      <rect x="48" y="112" width="200" height="88" fill="#f1f1ef" stroke="#5c5c5c" stroke-width="2"/>
+      <rect x="48" y="112" width="200" height="88" fill="#eceef6" stroke="#565d72" stroke-width="2"/>
       <text x="68" y="144" font-size="20" font-weight="800">Manual tests</text>
-      <text class="m" x="68" y="168" font-size="12" fill="#5c5c5c">ADO · CORE 2.0</text>
+      <text class="m" x="68" y="168" font-size="12" fill="#565d72">ADO · CORE 2.0</text>
       <text class="m" x="68" y="188" font-size="12">EXTERNAL</text>
-      <rect x="304" y="112" width="232" height="88" fill="#fff" stroke="#0a0a0a" stroke-width="3"/>
+      <rect x="304" y="112" width="232" height="88" fill="#fff" stroke="#161d3f" stroke-width="3"/>
       <text x="324" y="144" font-size="20" font-weight="800">Standardize</text>
-      <text class="m" x="324" y="168" font-size="12" fill="#5c5c5c">ONTOLOGY · CLEAN STEPS</text>
+      <text class="m" x="324" y="168" font-size="12" fill="#565d72">ONTOLOGY · CLEAN STEPS</text>
       <text class="m" x="324" y="188" font-size="12">BUILT</text>
-      <rect x="304" y="248" width="232" height="88" fill="#fff" stroke="#0a0a0a" stroke-width="3"/>
+      <rect x="304" y="248" width="232" height="88" fill="#fff" stroke="#161d3f" stroke-width="3"/>
       <text x="324" y="280" font-size="20" font-weight="800">Extract intent</text>
-      <text class="m" x="324" y="304" font-size="12" fill="#5c5c5c">WHAT EACH TEST CHECKS</text>
+      <text class="m" x="324" y="304" font-size="12" fill="#565d72">WHAT EACH TEST CHECKS</text>
       <text class="m" x="324" y="324" font-size="12">BUILT</text>
-      <rect x="304" y="384" width="232" height="88" fill="#fff" stroke="#0a0a0a" stroke-width="3" stroke-dasharray="8,6"/>
+      <rect x="304" y="384" width="232" height="88" fill="#fff" stroke="#161d3f" stroke-width="3" stroke-dasharray="8,6"/>
       <text x="324" y="416" font-size="20" font-weight="800">Dedup · emit</text>
-      <text class="m" x="324" y="440" font-size="12" fill="#5c5c5c">CUCUMBER OUTPUT</text>
+      <text class="m" x="324" y="440" font-size="12" fill="#565d72">CUCUMBER OUTPUT</text>
       <text class="m" x="324" y="460" font-size="12">PLAN ONLY</text>
-      <rect x="664" y="112" width="232" height="88" fill="#fff" stroke="#0a0a0a" stroke-width="3"/>
+      <rect x="664" y="112" width="232" height="88" fill="#fff" stroke="#161d3f" stroke-width="3"/>
       <text x="684" y="144" font-size="20" font-weight="800">Feature files</text>
-      <text class="m" x="684" y="168" font-size="12" fill="#5c5c5c">498 · API + UI</text>
+      <text class="m" x="684" y="168" font-size="12" fill="#565d72">498 · API + UI</text>
       <text class="m" x="684" y="188" font-size="12">BUILT</text>
-      <rect x="664" y="248" width="232" height="88" fill="#fff" stroke="#0a0a0a" stroke-width="3"/>
+      <rect x="664" y="248" width="232" height="88" fill="#fff" stroke="#161d3f" stroke-width="3"/>
       <text x="684" y="280" font-size="20" font-weight="800">Step grammar</text>
-      <text class="m" x="684" y="304" font-size="12" fill="#5c5c5c">CLOSED · REQNROLL</text>
+      <text class="m" x="684" y="304" font-size="12" fill="#565d72">CLOSED · REQNROLL</text>
       <text class="m" x="684" y="324" font-size="12">BUILT</text>
-      <rect x="664" y="384" width="232" height="88" fill="#fff" stroke="#0a0a0a" stroke-width="3"/>
+      <rect x="664" y="384" width="232" height="88" fill="#fff" stroke="#161d3f" stroke-width="3"/>
       <text x="684" y="416" font-size="20" font-weight="800">Entity builder</text>
-      <text class="m" x="684" y="440" font-size="12" fill="#5c5c5c">DEPENDENCY GRAPH</text>
+      <text class="m" x="684" y="440" font-size="12" fill="#565d72">DEPENDENCY GRAPH</text>
       <text class="m" x="684" y="460" font-size="12">BUILT</text>
-      <rect x="944" y="248" width="208" height="88" fill="#f1f1ef" stroke="#5c5c5c" stroke-width="2"/>
+      <rect x="944" y="248" width="208" height="88" fill="#eceef6" stroke="#565d72" stroke-width="2"/>
       <text x="964" y="280" font-size="20" font-weight="800">CORE APIs</text>
-      <text class="m" x="964" y="304" font-size="12" fill="#5c5c5c">SIT ENVIRONMENT</text>
+      <text class="m" x="964" y="304" font-size="12" fill="#565d72">SIT ENVIRONMENT</text>
       <text class="m" x="964" y="324" font-size="12">EXTERNAL</text>
       <rect x="944" y="384" width="208" height="88" fill="#fff" stroke="#e3000f" stroke-width="5" stroke-dasharray="10,6"/>
       <text x="964" y="416" font-size="20" font-weight="800">Traits · worlds</text>
-      <text class="m" x="964" y="440" font-size="12" fill="#5c5c5c">BUSINESS SHAPES</text>
+      <text class="m" x="964" y="440" font-size="12" fill="#565d72">BUSINESS SHAPES</text>
       <text class="m" x="964" y="460" font-size="12" fill="#e3000f">DESIGNED · NEXT</text>
-      <rect x="24" y="528" width="1152" height="56" fill="#fff" stroke="#0a0a0a" stroke-width="3"/>
+      <rect x="24" y="528" width="1152" height="56" fill="#fff" stroke="#161d3f" stroke-width="3"/>
       <text x="44" y="564" font-size="20" font-weight="900">GAPS</text>
       <text class="m" x="124" y="562" font-size="12">HALVES NOT JOINED · NOTHING GENERATES TESTS FROM A BRD YET · NO PASS-RATE OR PILOT METRICS</text>
-      <line x1="24" y1="608" x2="1176" y2="608" stroke="#d4d4d0" stroke-width="1"/>
-      <text class="m" x="24" y="640" font-size="12" fill="#5c5c5c">LEGEND</text>
-      <rect x="108" y="628" width="32" height="16" fill="#fff" stroke="#0a0a0a" stroke-width="3"/><text class="m" x="152" y="640" font-size="12">BUILT</text>
-      <rect x="236" y="628" width="32" height="16" fill="#fff" stroke="#0a0a0a" stroke-width="3" stroke-dasharray="6,4"/><text class="m" x="280" y="640" font-size="12">PLAN ONLY</text>
+      <line x1="24" y1="608" x2="1176" y2="608" stroke="#ced4e2" stroke-width="1"/>
+      <text class="m" x="24" y="640" font-size="12" fill="#565d72">LEGEND</text>
+      <rect x="108" y="628" width="32" height="16" fill="#fff" stroke="#161d3f" stroke-width="3"/><text class="m" x="152" y="640" font-size="12">BUILT</text>
+      <rect x="236" y="628" width="32" height="16" fill="#fff" stroke="#161d3f" stroke-width="3" stroke-dasharray="6,4"/><text class="m" x="280" y="640" font-size="12">PLAN ONLY</text>
       <rect x="400" y="628" width="32" height="16" fill="#fff" stroke="#e3000f" stroke-width="5" stroke-dasharray="6,4"/><text class="m" x="444" y="640" font-size="12">NEXT SLICE</text>
       <path d="M572 636 H612" stroke="#e3000f" stroke-width="3" stroke-dasharray="8,6"/><text class="m" x="624" y="640" font-size="12">LINK NOT BUILT</text>
-      <rect x="772" y="628" width="32" height="16" fill="#f1f1ef" stroke="#5c5c5c" stroke-width="2"/><text class="m" x="816" y="640" font-size="12">EXTERNAL</text>
+      <rect x="772" y="628" width="32" height="16" fill="#eceef6" stroke="#565d72" stroke-width="2"/><text class="m" x="816" y="640" font-size="12">EXTERNAL</text>
     </svg>
     </div>
     <figcaption class="flowcap">Two working halves. The join between them is what turns a requirement into a running test.</figcaption>
@@ -714,13 +716,13 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
       <title id="rt">How traits and worlds build test data</title>
       <desc id="rd">A scenario tag names a world or traits. A world expands into a set of traits. The trait library holds each shape as a JSON file under one name. The resolver flattens parent, trait and own values into rows. The world builder orders the build, for example Company before Plan, using the dependency graph that is already built. Names are checked at load time; an unknown name fails the whole run. Evidence: the same nine-row eligibility block appears 448 of 448 times in one file; a two-year cliff schedule repeats about 1,217 times; a calendar plan year block about 1,022 times across 47 files; about 14,254 legacy scenarios were measured.</desc>
       <defs>
-        <marker id="rh" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="12" refX="13" refY="6" orient="auto"><polygon points="0 0,14 6,0 12" fill="#0a0a0a"/></marker>
+        <marker id="rh" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="12" refX="13" refY="6" orient="auto"><polygon points="0 0,14 6,0 12" fill="#161d3f"/></marker>
       </defs>
       <rect width="1200" height="560" fill="#fff"/>
       <rect x="24" y="72" width="680" height="176" fill="#fff" stroke="#e3000f" stroke-width="2" stroke-dasharray="8,6"/>
       <rect x="36" y="64" width="440" height="18" fill="#fff"/>
       <text class="m" x="44" y="78" font-size="12" fill="#e3000f">LOAD-TIME CHECK · AN UNKNOWN NAME FAILS THE WHOLE RUN</text>
-      <g fill="none" stroke="#0a0a0a" stroke-width="3">
+      <g fill="none" stroke="#161d3f" stroke-width="3">
         <path d="M216 176 H276" marker-end="url(#rh)"/>
         <path d="M452 176 H512" marker-end="url(#rh)"/>
         <path d="M688 176 H748" marker-end="url(#rh)"/>
@@ -729,51 +731,51 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
       <rect x="220" y="146" width="52" height="18" fill="#fff"/><text class="m" x="246" y="160" font-size="12" text-anchor="middle">NAMES</text>
       <rect x="452" y="146" width="60" height="18" fill="#fff"/><text class="m" x="482" y="160" font-size="12" text-anchor="middle">EXPANDS</text>
       <rect x="928" y="146" width="52" height="18" fill="#fff"/><text class="m" x="954" y="160" font-size="12" text-anchor="middle">ROWS</text>
-      <rect x="40" y="120" width="176" height="112" fill="#fff" stroke="#0a0a0a" stroke-width="3" stroke-dasharray="8,6"/>
+      <rect x="40" y="120" width="176" height="112" fill="#fff" stroke="#161d3f" stroke-width="3" stroke-dasharray="8,6"/>
       <text x="60" y="152" font-size="20" font-weight="800">Scenario tag</text>
-      <text class="m" x="60" y="176" font-size="12" fill="#5c5c5c">@world:X</text>
-      <text class="m" x="60" y="196" font-size="12" fill="#5c5c5c">@traits:plan.Y</text>
+      <text class="m" x="60" y="176" font-size="12" fill="#565d72">@world:X</text>
+      <text class="m" x="60" y="196" font-size="12" fill="#565d72">@traits:plan.Y</text>
       <text class="m" x="60" y="220" font-size="12">DESIGNED</text>
-      <rect x="276" y="120" width="176" height="112" fill="#fff" stroke="#0a0a0a" stroke-width="3" stroke-dasharray="8,6"/>
+      <rect x="276" y="120" width="176" height="112" fill="#fff" stroke="#161d3f" stroke-width="3" stroke-dasharray="8,6"/>
       <text x="296" y="152" font-size="20" font-weight="800">World</text>
-      <text class="m" x="296" y="176" font-size="12" fill="#5c5c5c">A NAMED SET</text>
-      <text class="m" x="296" y="196" font-size="12" fill="#5c5c5c">OF TRAITS</text>
+      <text class="m" x="296" y="176" font-size="12" fill="#565d72">A NAMED SET</text>
+      <text class="m" x="296" y="196" font-size="12" fill="#565d72">OF TRAITS</text>
       <text class="m" x="296" y="220" font-size="12">DESIGNED</text>
-      <rect x="512" y="120" width="176" height="112" fill="#fff" stroke="#0a0a0a" stroke-width="3" stroke-dasharray="8,6"/>
+      <rect x="512" y="120" width="176" height="112" fill="#fff" stroke="#161d3f" stroke-width="3" stroke-dasharray="8,6"/>
       <text x="532" y="152" font-size="20" font-weight="800">Trait library</text>
-      <text class="m" x="532" y="176" font-size="12" fill="#5c5c5c">JSON FILES</text>
-      <text class="m" x="532" y="196" font-size="12" fill="#5c5c5c">ONE NAME EACH</text>
+      <text class="m" x="532" y="176" font-size="12" fill="#565d72">JSON FILES</text>
+      <text class="m" x="532" y="196" font-size="12" fill="#565d72">ONE NAME EACH</text>
       <text class="m" x="532" y="220" font-size="12">DESIGNED</text>
-      <rect x="748" y="120" width="176" height="112" fill="#fff" stroke="#0a0a0a" stroke-width="3" stroke-dasharray="8,6"/>
+      <rect x="748" y="120" width="176" height="112" fill="#fff" stroke="#161d3f" stroke-width="3" stroke-dasharray="8,6"/>
       <text x="768" y="152" font-size="20" font-weight="800">Resolver</text>
-      <text class="m" x="768" y="176" font-size="12" fill="#5c5c5c">PARENT → TRAIT</text>
-      <text class="m" x="768" y="196" font-size="12" fill="#5c5c5c">→ OWN VALUES</text>
+      <text class="m" x="768" y="176" font-size="12" fill="#565d72">PARENT → TRAIT</text>
+      <text class="m" x="768" y="196" font-size="12" fill="#565d72">→ OWN VALUES</text>
       <text class="m" x="768" y="220" font-size="12">DESIGNED</text>
       <rect x="984" y="120" width="192" height="112" fill="#fff" stroke="#e3000f" stroke-width="5"/>
       <text x="1004" y="152" font-size="20" font-weight="800">World builder</text>
-      <text class="m" x="1004" y="176" font-size="12" fill="#5c5c5c">COMPANY → PLAN</text>
-      <text class="m" x="1004" y="196" font-size="12" fill="#5c5c5c">IN DECLARED ORDER</text>
+      <text class="m" x="1004" y="176" font-size="12" fill="#565d72">COMPANY → PLAN</text>
+      <text class="m" x="1004" y="196" font-size="12" fill="#565d72">IN DECLARED ORDER</text>
       <text class="m" x="1004" y="220" font-size="12" fill="#e3000f">FOUNDATION BUILT</text>
-      <text class="m" x="24" y="300" font-size="12" fill="#5c5c5c">WHY · MEASURED IN THE LEGACY TEST CORPUS</text>
-      <line x1="24" y1="312" x2="1176" y2="312" stroke="#0a0a0a" stroke-width="3"/>
+      <text class="m" x="24" y="300" font-size="12" fill="#565d72">WHY · MEASURED IN THE LEGACY TEST CORPUS</text>
+      <line x1="24" y1="312" x2="1176" y2="312" stroke="#161d3f" stroke-width="3"/>
       <text x="24" y="368" font-size="44" font-weight="900">448/448</text>
-      <text x="24" y="396" font-size="16" fill="#5c5c5c">same 9-row eligibility block,</text>
-      <text x="24" y="416" font-size="16" fill="#5c5c5c">in one file</text>
+      <text x="24" y="396" font-size="16" fill="#565d72">same 9-row eligibility block,</text>
+      <text x="24" y="416" font-size="16" fill="#565d72">in one file</text>
       <text x="320" y="368" font-size="44" font-weight="900">~1,217×</text>
-      <text x="320" y="396" font-size="16" fill="#5c5c5c">two-year cliff vesting</text>
-      <text x="320" y="416" font-size="16" fill="#5c5c5c">schedule, re-typed</text>
+      <text x="320" y="396" font-size="16" fill="#565d72">two-year cliff vesting</text>
+      <text x="320" y="416" font-size="16" fill="#565d72">schedule, re-typed</text>
       <text x="616" y="368" font-size="44" font-weight="900">~1,022×</text>
-      <text x="616" y="396" font-size="16" fill="#5c5c5c">calendar plan year block,</text>
-      <text x="616" y="416" font-size="16" fill="#5c5c5c">across 47 files</text>
+      <text x="616" y="396" font-size="16" fill="#565d72">calendar plan year block,</text>
+      <text x="616" y="416" font-size="16" fill="#565d72">across 47 files</text>
       <text x="912" y="368" font-size="44" font-weight="900" fill="#e3000f">~14,254</text>
-      <text x="912" y="396" font-size="16" fill="#5c5c5c">legacy scenarios</text>
-      <text x="912" y="416" font-size="16" fill="#5c5c5c">measured</text>
-      <rect x="24" y="456" width="1152" height="56" fill="#fff" stroke="#0a0a0a" stroke-width="3"/>
+      <text x="912" y="396" font-size="16" fill="#565d72">legacy scenarios</text>
+      <text x="912" y="416" font-size="16" fill="#565d72">measured</text>
+      <rect x="24" y="456" width="1152" height="56" fill="#fff" stroke="#161d3f" stroke-width="3"/>
       <text x="44" y="492" font-size="20" font-weight="900">STATUS</text>
       <text class="m" x="148" y="490" font-size="12">BUILT: CAPTURES · DEPENDENCY GRAPH · DERIVED BUILD ORDER   |   NEXT: TRAITS + WORLDS AS ONE SLICE</text>
-      <line x1="24" y1="528" x2="1176" y2="528" stroke="#d4d4d0" stroke-width="1"/>
-      <text class="m" x="24" y="552" font-size="12" fill="#5c5c5c">LEGEND</text>
-      <rect x="108" y="540" width="32" height="16" fill="#fff" stroke="#0a0a0a" stroke-width="3" stroke-dasharray="6,4"/><text class="m" x="152" y="552" font-size="12">DESIGNED</text>
+      <line x1="24" y1="528" x2="1176" y2="528" stroke="#ced4e2" stroke-width="1"/>
+      <text class="m" x="24" y="552" font-size="12" fill="#565d72">LEGEND</text>
+      <rect x="108" y="540" width="32" height="16" fill="#fff" stroke="#161d3f" stroke-width="3" stroke-dasharray="6,4"/><text class="m" x="152" y="552" font-size="12">DESIGNED</text>
       <rect x="272" y="540" width="32" height="16" fill="#fff" stroke="#e3000f" stroke-width="5"/><text class="m" x="316" y="552" font-size="12">FOUNDATION BUILT</text>
     </svg>
     </div>
@@ -818,17 +820,17 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
       <title id="dt">The world of Bifrost</title>
       <desc id="dd">Industry parties send data through RDX, a neutral exchange, to Bifrost, the integration hub and only door into CORE, the recordkeeping system. Athena's agents propose changes to Bifrost; authorized people approve on a separate path. External orchestrators such as Camunda call Bifrost and work with consent providers. CORE returns the decision from a human review. CIATA governs agents across the top; AGRUF governs human use of AI across the bottom.</desc>
       <defs>
-        <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="12" refX="13" refY="6" orient="auto"><polygon points="0 0,14 6,0 12" fill="#0a0a0a"/></marker>
+        <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="12" refX="13" refY="6" orient="auto"><polygon points="0 0,14 6,0 12" fill="#161d3f"/></marker>
         <marker id="ar" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="12" refX="13" refY="6" orient="auto"><polygon points="0 0,14 6,0 12" fill="#e3000f"/></marker>
       </defs>
       <rect width="1200" height="800" fill="#fff"/>
-      <rect x="24" y="16" width="1152" height="56" fill="#0a0a0a"/>
+      <rect x="24" y="16" width="1152" height="56" fill="#161d3f"/>
       <text x="44" y="52" fill="#fff" font-size="20" font-weight="900">CIATA</text>
       <text class="m" x="148" y="50" fill="#fff" font-size="12">GOVERNS AGENTS · identity · scope · autonomy level 0–4 · human checkpoints · replayable log</text>
-      <rect x="24" y="688" width="1152" height="56" fill="#fff" stroke="#0a0a0a" stroke-width="3"/>
-      <text x="44" y="724" fill="#0a0a0a" font-size="20" font-weight="900">AGRUF</text>
-      <text class="m" x="148" y="722" fill="#0a0a0a" font-size="12">GOVERNS HUMAN USE OF AI · approved tools · data rules · signed declaration · checked output</text>
-      <g fill="none" stroke="#0a0a0a" stroke-width="3">
+      <rect x="24" y="688" width="1152" height="56" fill="#fff" stroke="#161d3f" stroke-width="3"/>
+      <text x="44" y="724" fill="#161d3f" font-size="20" font-weight="900">AGRUF</text>
+      <text class="m" x="148" y="722" fill="#161d3f" font-size="12">GOVERNS HUMAN USE OF AI · approved tools · data rules · signed declaration · checked output</text>
+      <g fill="none" stroke="#161d3f" stroke-width="3">
         <path d="M224 306 H324" marker-end="url(#ah)"/>
         <path d="M524 306 H616" marker-end="url(#ah)"/>
         <path d="M856 280 H948" marker-end="url(#ah)"/>
@@ -852,15 +854,15 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
       <text class="m" x="684" y="454" font-size="12" text-anchor="end">PROPOSES</text>
       <text class="m" x="788" y="454" font-size="12">FACTS</text>
       <text class="m" x="568" y="470" font-size="12" text-anchor="end" fill="#e3000f">APPROVE</text>
-      <rect x="24" y="232" width="200" height="148" fill="#fff" stroke="#0a0a0a" stroke-width="3"/>
+      <rect x="24" y="232" width="200" height="148" fill="#fff" stroke="#161d3f" stroke-width="3"/>
       <text x="40" y="262" font-size="16" font-weight="900">INDUSTRY</text>
       <text x="40" y="294" font-size="14">Payroll providers</text>
       <text x="40" y="318" font-size="14">TPAs</text>
       <text x="40" y="342" font-size="14">Compliance engines</text>
       <text x="40" y="366" font-size="14">Other recordkeepers</text>
-      <rect x="324" y="244" width="200" height="124" fill="#fff" stroke="#0a0a0a" stroke-width="3"/>
+      <rect x="324" y="244" width="200" height="124" fill="#fff" stroke="#161d3f" stroke-width="3"/>
       <text x="340" y="280" font-size="28" font-weight="900">RDX</text>
-      <rect x="428" y="260" width="80" height="20" fill="#fff" stroke="#0a0a0a" stroke-width="1.5"/>
+      <rect x="428" y="260" width="80" height="20" fill="#fff" stroke="#161d3f" stroke-width="1.5"/>
       <text class="m" x="468" y="274" font-size="12" text-anchor="middle">IN DESIGN</text>
       <text class="m" x="340" y="308" font-size="12">NEUTRAL EXCHANGE</text>
       <text x="340" y="336" font-size="14">Map once, connect many</text>
@@ -870,21 +872,21 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
       <text x="636" y="312" fill="#fff" font-size="14">Authorization · approvals</text>
       <text x="636" y="336" fill="#fff" font-size="14">Audit · events · webhooks</text>
       <text x="636" y="368" fill="#fff" font-size="14" font-weight="700">REST · MCP · A2A</text>
-      <rect x="948" y="188" width="228" height="236" fill="#0a0a0a"/>
+      <rect x="948" y="188" width="228" height="236" fill="#161d3f"/>
       <text x="968" y="228" fill="#fff" font-size="28" font-weight="900">CORE</text>
       <text class="m" x="968" y="254" fill="#fff" font-size="12">RECORDKEEPING</text>
       <text x="968" y="288" fill="#fff" font-size="14">Plans · payroll</text>
       <text x="968" y="310" fill="#fff" font-size="14">Accounts · loans</text>
       <rect x="964" y="340" width="196" height="68" fill="#fff"/>
-      <text x="980" y="368" fill="#0a0a0a" font-size="14" font-weight="900">HUMAN REVIEW</text>
-      <text x="980" y="390" fill="#0a0a0a" font-size="14">in the CORE interface</text>
-      <rect x="616" y="104" width="240" height="64" fill="#fff" stroke="#0a0a0a" stroke-width="3"/>
+      <text x="980" y="368" fill="#161d3f" font-size="14" font-weight="900">HUMAN REVIEW</text>
+      <text x="980" y="390" fill="#161d3f" font-size="14">in the CORE interface</text>
+      <rect x="616" y="104" width="240" height="64" fill="#fff" stroke="#161d3f" stroke-width="3"/>
       <text x="632" y="132" font-size="14" font-weight="900">ORCHESTRATORS</text>
       <text class="m" x="632" y="154" font-size="12">EXTERNAL · e.g. Camunda</text>
-      <rect x="948" y="104" width="228" height="64" fill="#fff" stroke="#0a0a0a" stroke-width="3"/>
+      <rect x="948" y="104" width="228" height="64" fill="#fff" stroke="#161d3f" stroke-width="3"/>
       <text x="964" y="132" font-size="14" font-weight="900">CONSENT PROVIDERS</text>
       <text class="m" x="964" y="154" font-size="12">signing · notarizing</text>
-      <rect x="616" y="500" width="240" height="116" fill="#fff" stroke="#0a0a0a" stroke-width="3"/>
+      <rect x="616" y="500" width="240" height="116" fill="#fff" stroke="#161d3f" stroke-width="3"/>
       <text x="636" y="544" font-size="28" font-weight="900">ATHENA</text>
       <text class="m" x="636" y="570" font-size="12">AGENTS PREPARE</text>
       <text x="636" y="596" font-size="14">Agents propose, humans decide</text>
@@ -896,8 +898,8 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
       <text x="24" y="534" font-size="16">Athena never reaches CORE</text>
       <text x="24" y="556" font-size="16">directly. Bifrost is the</text>
       <text x="24" y="578" font-size="16">only way in.</text>
-      <line x1="24" y1="764" x2="1176" y2="764" stroke="#0a0a0a" stroke-width="1"/>
-      <line x1="24" y1="784" x2="64" y2="784" stroke="#0a0a0a" stroke-width="3"/>
+      <line x1="24" y1="764" x2="1176" y2="764" stroke="#161d3f" stroke-width="1"/>
+      <line x1="24" y1="784" x2="64" y2="784" stroke="#161d3f" stroke-width="3"/>
       <text class="m" x="76" y="788" font-size="12">DATA, REQUESTS AND TASKS</text>
       <line x1="344" y1="784" x2="384" y2="784" stroke="#e3000f" stroke-width="3"/>
       <text class="m" x="396" y="788" font-size="12">HUMAN APPROVAL</text>
@@ -965,8 +967,8 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
         <div class="big" aria-hidden="true">1</div>
         <div class="art" aria-hidden="true">
           <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
-            <g fill="#0a0a0a"><rect x="24" y="24" width="200" height="14"/><rect x="24" y="48" width="152" height="14"/><rect x="24" y="72" width="248" height="14"/><rect x="24" y="96" width="120" height="14"/><rect x="24" y="120" width="184" height="14"/></g>
-            <rect x="24" y="148" width="272" height="4" fill="#0a0a0a"/>
+            <g fill="#161d3f"><rect x="24" y="24" width="200" height="14"/><rect x="24" y="48" width="152" height="14"/><rect x="24" y="72" width="248" height="14"/><rect x="24" y="96" width="120" height="14"/><rect x="24" y="120" width="184" height="14"/></g>
+            <rect x="24" y="148" width="272" height="4" fill="#161d3f"/>
             <rect x="24" y="160" width="248" height="22" fill="#e3000f"/>
             <text x="32" y="176" font-family="IBM Plex Mono,monospace" font-size="12" font-weight="500" fill="#fff">= EXACT</text>
           </svg>
@@ -979,9 +981,9 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
         <div class="big" aria-hidden="true">2</div>
         <div class="art" aria-hidden="true">
           <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
-            <g stroke="#0a0a0a" stroke-width="1" opacity=".25"><line x1="24" y1="40" x2="296" y2="40"/><line x1="24" y1="80" x2="296" y2="80"/><line x1="24" y1="120" x2="296" y2="120"/></g>
-            <rect x="24" y="168" width="272" height="4" fill="#0a0a0a"/>
-            <polyline points="24,152 80,128 136,136 192,92 248,68 296,36" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+            <g stroke="#161d3f" stroke-width="1" opacity=".25"><line x1="24" y1="40" x2="296" y2="40"/><line x1="24" y1="80" x2="296" y2="80"/><line x1="24" y1="120" x2="296" y2="120"/></g>
+            <rect x="24" y="168" width="272" height="4" fill="#161d3f"/>
+            <polyline points="24,152 80,128 136,136 192,92 248,68 296,36" fill="none" stroke="#161d3f" stroke-width="6"/>
             <circle cx="296" cy="36" r="12" fill="#e3000f"/>
           </svg>
         </div>
@@ -993,10 +995,10 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
         <div class="big" aria-hidden="true">3</div>
         <div class="art" aria-hidden="true">
           <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
-            <g stroke="#0a0a0a" stroke-width="4" fill="none"><path d="M64 52 V100 H128"/><path d="M256 52 V100 H192"/><path d="M64 148 V100"/><path d="M256 148 V100"/></g>
+            <g stroke="#161d3f" stroke-width="4" fill="none"><path d="M64 52 V100 H128"/><path d="M256 52 V100 H192"/><path d="M64 148 V100"/><path d="M256 148 V100"/></g>
             <rect x="128" y="76" width="64" height="48" fill="#e3000f"/>
-            <rect x="40" y="28" width="48" height="36" fill="#0a0a0a"/><rect x="232" y="28" width="48" height="36" fill="#0a0a0a"/>
-            <rect x="40" y="136" width="48" height="36" fill="#fff" stroke="#0a0a0a" stroke-width="4"/><rect x="232" y="136" width="48" height="36" fill="#fff" stroke="#0a0a0a" stroke-width="4"/>
+            <rect x="40" y="28" width="48" height="36" fill="#161d3f"/><rect x="232" y="28" width="48" height="36" fill="#161d3f"/>
+            <rect x="40" y="136" width="48" height="36" fill="#fff" stroke="#161d3f" stroke-width="4"/><rect x="232" y="136" width="48" height="36" fill="#fff" stroke="#161d3f" stroke-width="4"/>
           </svg>
         </div>
         <h4>Multilingual multi-agent CORE orchestration</h4>
@@ -1020,28 +1022,28 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
           <title id="wa">Withdrawal, steps 1 and 2</title>
           <desc id="wad">Step 1, understand the document: Camunda sends the document and hash to Athena. Athena reads participant and plan facts through Bifrost over MCP, then returns evidence and findings to Camunda; Athena's work ends there. Step 2, prepare the request: Camunda sends the extracted data to Bifrost as an A2A task, Bifrost stores an incomplete request in CORE, CORE returns the request and its requirements, and Bifrost returns a task ID and the evidence still needed.</desc>
           <defs>
-            <marker id="sa" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="12" refX="13" refY="6" orient="auto"><polygon points="0 0,14 6,0 12" fill="#0a0a0a"/></marker>
+            <marker id="sa" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="12" refX="13" refY="6" orient="auto"><polygon points="0 0,14 6,0 12" fill="#161d3f"/></marker>
           </defs>
           <rect width="1200" height="600" fill="#fff"/>
-          <g stroke="#0a0a0a" stroke-width="1" stroke-dasharray="4,4" opacity=".35"><line x1="120" y1="72" x2="120" y2="560"/><line x1="360" y1="72" x2="360" y2="560"/><line x1="600" y1="72" x2="600" y2="560"/><line x1="840" y1="72" x2="840" y2="560"/><line x1="1080" y1="72" x2="1080" y2="560"/></g>
+          <g stroke="#161d3f" stroke-width="1" stroke-dasharray="4,4" opacity=".35"><line x1="120" y1="72" x2="120" y2="560"/><line x1="360" y1="72" x2="360" y2="560"/><line x1="600" y1="72" x2="600" y2="560"/><line x1="840" y1="72" x2="840" y2="560"/><line x1="1080" y1="72" x2="1080" y2="560"/></g>
           <g font-size="16" font-weight="900" text-anchor="middle">
-            <rect x="24" y="16" width="192" height="56" fill="#fff" stroke="#0a0a0a" stroke-width="3"/><text x="120" y="50">CAMUNDA</text>
-            <rect x="264" y="16" width="192" height="56" fill="#fff" stroke="#0a0a0a" stroke-width="3"/><text x="360" y="50">ATHENA</text>
+            <rect x="24" y="16" width="192" height="56" fill="#fff" stroke="#161d3f" stroke-width="3"/><text x="120" y="50">CAMUNDA</text>
+            <rect x="264" y="16" width="192" height="56" fill="#fff" stroke="#161d3f" stroke-width="3"/><text x="360" y="50">ATHENA</text>
             <rect x="504" y="16" width="192" height="56" fill="#e3000f"/><text x="600" y="50" fill="#fff">BIFROST</text>
-            <rect x="744" y="16" width="192" height="56" fill="#0a0a0a"/><text x="840" y="50" fill="#fff">CORE</text>
-            <rect x="984" y="16" width="192" height="56" fill="#fff" stroke="#0a0a0a" stroke-width="3"/><text x="1080" y="50">CONSENT</text>
+            <rect x="744" y="16" width="192" height="56" fill="#161d3f"/><text x="840" y="50" fill="#fff">CORE</text>
+            <rect x="984" y="16" width="192" height="56" fill="#fff" stroke="#161d3f" stroke-width="3"/><text x="1080" y="50">CONSENT</text>
           </g>
-          <rect x="24" y="92" width="1152" height="28" fill="#f1f1ef"/><text class="m" x="36" y="111" font-size="12">1 · UNDERSTAND THE DOCUMENT</text>
-          <rect x="24" y="332" width="1152" height="28" fill="#f1f1ef"/><text class="m" x="36" y="351" font-size="12">2 · PREPARE THE REQUEST</text>
+          <rect x="24" y="92" width="1152" height="28" fill="#eceef6"/><text class="m" x="36" y="111" font-size="12">1 · UNDERSTAND THE DOCUMENT</text>
+          <rect x="24" y="332" width="1152" height="28" fill="#eceef6"/><text class="m" x="36" y="351" font-size="12">2 · PREPARE THE REQUEST</text>
           <g fill="none" stroke-width="3">
-            <path d="M120 164 H360" stroke="#0a0a0a" marker-end="url(#sa)"/>
-            <path d="M360 212 H600" stroke="#0a0a0a" marker-end="url(#sa)"/>
-            <path d="M600 260 H360" stroke="#0a0a0a" stroke-dasharray="8,6" marker-end="url(#sa)"/>
-            <path d="M360 308 H120" stroke="#0a0a0a" stroke-dasharray="8,6" marker-end="url(#sa)"/>
-            <path d="M120 404 H600" stroke="#0a0a0a" marker-end="url(#sa)"/>
-            <path d="M600 452 H840" stroke="#0a0a0a" marker-end="url(#sa)"/>
-            <path d="M840 500 H600" stroke="#0a0a0a" stroke-dasharray="8,6" marker-end="url(#sa)"/>
-            <path d="M600 548 H120" stroke="#0a0a0a" stroke-dasharray="8,6" marker-end="url(#sa)"/>
+            <path d="M120 164 H360" stroke="#161d3f" marker-end="url(#sa)"/>
+            <path d="M360 212 H600" stroke="#161d3f" marker-end="url(#sa)"/>
+            <path d="M600 260 H360" stroke="#161d3f" stroke-dasharray="8,6" marker-end="url(#sa)"/>
+            <path d="M360 308 H120" stroke="#161d3f" stroke-dasharray="8,6" marker-end="url(#sa)"/>
+            <path d="M120 404 H600" stroke="#161d3f" marker-end="url(#sa)"/>
+            <path d="M600 452 H840" stroke="#161d3f" marker-end="url(#sa)"/>
+            <path d="M840 500 H600" stroke="#161d3f" stroke-dasharray="8,6" marker-end="url(#sa)"/>
+            <path d="M600 548 H120" stroke="#161d3f" stroke-dasharray="8,6" marker-end="url(#sa)"/>
           </g>
           <g class="m" font-size="12" text-anchor="middle">
             <rect x="160" y="134" width="160" height="18" fill="#fff"/><text x="240" y="148">DOCUMENT + HASH</text>
@@ -1055,8 +1057,8 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
           </g>
           <text x="372" y="300" font-size="14" font-weight="900" fill="#e3000f">Athena's work ends here.</text>
           <text class="m" x="372" y="146" font-size="12" fill="#e3000f">READS EN · FR · ES</text>
-          <line x1="24" y1="576" x2="64" y2="576" stroke="#0a0a0a" stroke-width="3"/><text class="m" x="72" y="580" font-size="12">CALL</text>
-          <line x1="160" y1="576" x2="200" y2="576" stroke="#0a0a0a" stroke-width="3" stroke-dasharray="8,6"/><text class="m" x="208" y="580" font-size="12">RETURN</text>
+          <line x1="24" y1="576" x2="64" y2="576" stroke="#161d3f" stroke-width="3"/><text class="m" x="72" y="580" font-size="12">CALL</text>
+          <line x1="160" y1="576" x2="200" y2="576" stroke="#161d3f" stroke-width="3" stroke-dasharray="8,6"/><text class="m" x="208" y="580" font-size="12">RETURN</text>
         </svg>
         </div>
         <figcaption class="flowcap">Steps 1 and 2. Athena prepares evidence and stops; Camunda carries the request to Bifrost.</figcaption>
@@ -1068,28 +1070,28 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
           <title id="wb">Withdrawal, steps 3 and 4</title>
           <desc id="wbd">Step 3, consent: Camunda starts signing or notarization with the consent provider and receives an authentic callback with evidence. Camunda attaches the consent evidence to Bifrost and submits under accepted human authority; Bifrost revalidates and submits to CORE. Step 4, human review: a person reviews in the CORE interface, CORE returns the authoritative decision to Bifrost, and Bifrost returns the recorded outcome to Camunda as an A2A task.</desc>
           <defs>
-            <marker id="sb" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="12" refX="13" refY="6" orient="auto"><polygon points="0 0,14 6,0 12" fill="#0a0a0a"/></marker>
+            <marker id="sb" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="12" refX="13" refY="6" orient="auto"><polygon points="0 0,14 6,0 12" fill="#161d3f"/></marker>
             <marker id="sr" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="12" refX="13" refY="6" orient="auto"><polygon points="0 0,14 6,0 12" fill="#e3000f"/></marker>
           </defs>
           <rect width="1200" height="600" fill="#fff"/>
-          <g stroke="#0a0a0a" stroke-width="1" stroke-dasharray="4,4" opacity=".35"><line x1="120" y1="72" x2="120" y2="560"/><line x1="360" y1="72" x2="360" y2="560"/><line x1="600" y1="72" x2="600" y2="560"/><line x1="840" y1="72" x2="840" y2="400"/><line x1="840" y1="460" x2="840" y2="560"/><line x1="1080" y1="72" x2="1080" y2="560"/></g>
+          <g stroke="#161d3f" stroke-width="1" stroke-dasharray="4,4" opacity=".35"><line x1="120" y1="72" x2="120" y2="560"/><line x1="360" y1="72" x2="360" y2="560"/><line x1="600" y1="72" x2="600" y2="560"/><line x1="840" y1="72" x2="840" y2="400"/><line x1="840" y1="460" x2="840" y2="560"/><line x1="1080" y1="72" x2="1080" y2="560"/></g>
           <g font-size="16" font-weight="900" text-anchor="middle">
-            <rect x="24" y="16" width="192" height="56" fill="#fff" stroke="#0a0a0a" stroke-width="3"/><text x="120" y="50">CAMUNDA</text>
-            <rect x="264" y="16" width="192" height="56" fill="#fff" stroke="#0a0a0a" stroke-width="3"/><text x="360" y="50">ATHENA</text>
+            <rect x="24" y="16" width="192" height="56" fill="#fff" stroke="#161d3f" stroke-width="3"/><text x="120" y="50">CAMUNDA</text>
+            <rect x="264" y="16" width="192" height="56" fill="#fff" stroke="#161d3f" stroke-width="3"/><text x="360" y="50">ATHENA</text>
             <rect x="504" y="16" width="192" height="56" fill="#e3000f"/><text x="600" y="50" fill="#fff">BIFROST</text>
-            <rect x="744" y="16" width="192" height="56" fill="#0a0a0a"/><text x="840" y="50" fill="#fff">CORE</text>
-            <rect x="984" y="16" width="192" height="56" fill="#fff" stroke="#0a0a0a" stroke-width="3"/><text x="1080" y="50">CONSENT</text>
+            <rect x="744" y="16" width="192" height="56" fill="#161d3f"/><text x="840" y="50" fill="#fff">CORE</text>
+            <rect x="984" y="16" width="192" height="56" fill="#fff" stroke="#161d3f" stroke-width="3"/><text x="1080" y="50">CONSENT</text>
           </g>
-          <rect x="24" y="92" width="1152" height="28" fill="#f1f1ef"/><text class="m" x="36" y="111" font-size="12">3 · CONSENT</text>
-          <rect x="24" y="364" width="1152" height="28" fill="#f1f1ef"/><text class="m" x="36" y="383" font-size="12">4 · HUMAN REVIEW IN CORE</text>
+          <rect x="24" y="92" width="1152" height="28" fill="#eceef6"/><text class="m" x="36" y="111" font-size="12">3 · CONSENT</text>
+          <rect x="24" y="364" width="1152" height="28" fill="#eceef6"/><text class="m" x="36" y="383" font-size="12">4 · HUMAN REVIEW IN CORE</text>
           <g fill="none" stroke-width="3">
-            <path d="M120 164 H1080" stroke="#0a0a0a" marker-end="url(#sb)"/>
-            <path d="M1080 212 H120" stroke="#0a0a0a" stroke-dasharray="8,6" marker-end="url(#sb)"/>
-            <path d="M120 260 H600" stroke="#0a0a0a" marker-end="url(#sb)"/>
-            <path d="M120 308 H600" stroke="#0a0a0a" marker-end="url(#sb)"/>
-            <path d="M600 340 H840" stroke="#0a0a0a" marker-end="url(#sb)"/>
+            <path d="M120 164 H1080" stroke="#161d3f" marker-end="url(#sb)"/>
+            <path d="M1080 212 H120" stroke="#161d3f" stroke-dasharray="8,6" marker-end="url(#sb)"/>
+            <path d="M120 260 H600" stroke="#161d3f" marker-end="url(#sb)"/>
+            <path d="M120 308 H600" stroke="#161d3f" marker-end="url(#sb)"/>
+            <path d="M600 340 H840" stroke="#161d3f" marker-end="url(#sb)"/>
             <path d="M840 500 H600" stroke="#e3000f" marker-end="url(#sr)"/>
-            <path d="M600 548 H120" stroke="#0a0a0a" stroke-dasharray="8,6" marker-end="url(#sb)"/>
+            <path d="M600 548 H120" stroke="#161d3f" stroke-dasharray="8,6" marker-end="url(#sb)"/>
           </g>
           <g class="m" font-size="12" text-anchor="middle">
             <rect x="148" y="134" width="184" height="18" fill="#fff"/><text x="240" y="148">START SIGNING</text>
@@ -1103,8 +1105,8 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
           <rect x="744" y="404" width="192" height="52" fill="#fff" stroke="#e3000f" stroke-width="3"/>
           <text x="840" y="428" font-size="14" font-weight="900" text-anchor="middle">PERSON REVIEWS</text>
           <text x="840" y="446" font-size="12" text-anchor="middle">in the CORE interface</text>
-          <line x1="24" y1="576" x2="64" y2="576" stroke="#0a0a0a" stroke-width="3"/><text class="m" x="72" y="580" font-size="12">CALL</text>
-          <line x1="160" y1="576" x2="200" y2="576" stroke="#0a0a0a" stroke-width="3" stroke-dasharray="8,6"/><text class="m" x="208" y="580" font-size="12">RETURN</text>
+          <line x1="24" y1="576" x2="64" y2="576" stroke="#161d3f" stroke-width="3"/><text class="m" x="72" y="580" font-size="12">CALL</text>
+          <line x1="160" y1="576" x2="200" y2="576" stroke="#161d3f" stroke-width="3" stroke-dasharray="8,6"/><text class="m" x="208" y="580" font-size="12">RETURN</text>
           <line x1="304" y1="576" x2="344" y2="576" stroke="#e3000f" stroke-width="3"/><text class="m" x="352" y="580" font-size="12">HUMAN DECISION</text>
         </svg>
         </div>
@@ -1137,8 +1139,8 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
     <div class="stair">
       <svg viewBox="0 0 1200 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three steps rising left to right: finish Toledo, Cordoba and Dr Watson; use them to complete Bifrost; then build CORE module by module">
         <rect width="1200" height="360" fill="#fff"/>
-        <rect x="0" y="232" width="392" height="128" fill="#fff" stroke="#0a0a0a" stroke-width="4"/>
-        <rect x="400" y="132" width="392" height="228" fill="#0a0a0a"/>
+        <rect x="0" y="232" width="392" height="128" fill="#fff" stroke="#161d3f" stroke-width="4"/>
+        <rect x="400" y="132" width="392" height="228" fill="#161d3f"/>
         <rect x="800" y="32" width="400" height="328" fill="#e3000f"/>
         <g font-family="Archivo,Helvetica,Arial,sans-serif">
           <text x="24" y="296" font-size="56" font-weight="900" fill="#e3000f">1</text>
@@ -1184,10 +1186,10 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
         </ul>
         <svg viewBox="0 0 640 232" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Five autonomy levels, from observe and summarize at level 0 to controlled autonomy in low-risk cases at level 4">
           <g font-family="Archivo,Helvetica,Arial,sans-serif">
-            <text x="0" y="28" font-size="24" font-weight="900">0</text><rect x="40" y="4" width="60" height="32" fill="#0a0a0a"/><text x="112" y="26" font-family="IBM Plex Mono,monospace" font-size="12" font-weight="500">Observe and summarize</text>
-            <text x="0" y="74" font-size="24" font-weight="900">1</text><rect x="40" y="50" width="120" height="32" fill="#0a0a0a"/><text x="172" y="72" font-family="IBM Plex Mono,monospace" font-size="12" font-weight="500">Recommend, human decides</text>
-            <text x="0" y="120" font-size="24" font-weight="900">2</text><rect x="40" y="96" width="180" height="32" fill="#0a0a0a"/><text x="232" y="118" font-family="IBM Plex Mono,monospace" font-size="12" font-weight="500">Act after human confirmation</text>
-            <text x="0" y="166" font-size="24" font-weight="900">3</text><rect x="40" y="142" width="240" height="32" fill="#0a0a0a"/><text x="292" y="164" font-family="IBM Plex Mono,monospace" font-size="12" font-weight="500">Act within approved limits, log everything</text>
+            <text x="0" y="28" font-size="24" font-weight="900">0</text><rect x="40" y="4" width="60" height="32" fill="#161d3f"/><text x="112" y="26" font-family="IBM Plex Mono,monospace" font-size="12" font-weight="500">Observe and summarize</text>
+            <text x="0" y="74" font-size="24" font-weight="900">1</text><rect x="40" y="50" width="120" height="32" fill="#161d3f"/><text x="172" y="72" font-family="IBM Plex Mono,monospace" font-size="12" font-weight="500">Recommend, human decides</text>
+            <text x="0" y="120" font-size="24" font-weight="900">2</text><rect x="40" y="96" width="180" height="32" fill="#161d3f"/><text x="232" y="118" font-family="IBM Plex Mono,monospace" font-size="12" font-weight="500">Act after human confirmation</text>
+            <text x="0" y="166" font-size="24" font-weight="900">3</text><rect x="40" y="142" width="240" height="32" fill="#161d3f"/><text x="292" y="164" font-family="IBM Plex Mono,monospace" font-size="12" font-weight="500">Act within approved limits, log everything</text>
             <text x="0" y="212" font-size="24" font-weight="900">4</text><rect x="40" y="188" width="300" height="32" fill="#e3000f"/><text x="352" y="210" font-family="IBM Plex Mono,monospace" font-size="12" font-weight="500">Controlled autonomy, low-risk cases</text>
           </g>
         </svg>
@@ -1202,11 +1204,11 @@ footer p{margin:0;font-size:14px;color:#d6d6d6}
           <li>AI output is checked before anyone relies on it, and incidents are reported.</li>
         </ul>
         <svg viewBox="0 0 640 160" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <rect width="640" height="160" fill="#f1f1ef"/>
-          <circle cx="120" cy="80" r="52" fill="#0a0a0a"/>
-          <circle cx="200" cy="80" r="52" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+          <rect width="640" height="160" fill="#eceef6"/>
+          <circle cx="120" cy="80" r="52" fill="#161d3f"/>
+          <circle cx="200" cy="80" r="52" fill="none" stroke="#161d3f" stroke-width="6"/>
           <circle cx="280" cy="80" r="52" fill="#e3000f"/>
-          <rect x="372" y="28" width="236" height="12" fill="#0a0a0a"/><rect x="372" y="60" width="188" height="12" fill="#0a0a0a"/><rect x="372" y="92" width="212" height="12" fill="#0a0a0a"/><rect x="372" y="124" width="140" height="12" fill="#0a0a0a"/>
+          <rect x="372" y="28" width="236" height="12" fill="#161d3f"/><rect x="372" y="60" width="188" height="12" fill="#161d3f"/><rect x="372" y="92" width="212" height="12" fill="#161d3f"/><rect x="372" y="124" width="140" height="12" fill="#161d3f"/>
         </svg>
       </div>
     </div>

@@ -108,6 +108,8 @@ ADO owns requirements, approvals, test cases and results. GitHub owns code and p
 
 **Speaker line:** The deck rates Cordoba at **15%**. Our code review puts it at about **40–60%** of its traceability scope.
 
+**Status: paused.** Cordoba exists so Toledo can build code. It gives Toledo’s agents the context of what each CORE service does and which stories and tests cover it. Work stopped because the intent Cordoba generated from the code was not good enough to build on. Bad context produces bad code, so we will not connect Cordoba to Toledo until its quality is proven. Next half, we restart the work and assign people to verify a sample of generated intent against the code by hand. We will measure accuracy, fix the extraction, and only then connect Cordoba to Toledo’s agents.
+
 **How it works:** Cordoba reads CORE’s code and ADO’s stories and links the two.
 1. **Extract:** Claude reads the 53 CORE service repos and writes behavior units, one checkable statement each about what the code does.
 2. **Ingest:** stories, acceptance criteria and manual test cases come in from ADO.
@@ -126,7 +128,7 @@ ADO owns requirements, approvals, test cases and results. GitHub owns code and p
 **What to say**
 - **Cordoba is ahead of its rating.** The knowledge store, matcher and portal are built.
 - **It is Toledo’s memory.** Once wired, it tells Toledo which tests already exist, so agents build only the gap.
-- **No commits since 11 Aug.**
+- **Paused since 11 Aug.** The generated intent was not good enough. Next half: people verify it by hand before it feeds Toledo.
 
 *Source: congruent-core-cordoba, branch drwatson, commit 3e792fa (11 Aug 2026).*
 
